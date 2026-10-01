@@ -1,0 +1,97 @@
+schema_version: 1
+model_id: iMcBath
+upstream_commit: f3ab4c6bf5d78d8c2f0daeaf40e843fe458c8160
+runtime_artifact: ModelFiles/json/iMcBath.json
+audit_artifact: ModelFiles/xml/iMcBath.xml
+flux_unit: mmol/(g_model_biomass h)
+exchange_convention: negative flux is uptake for coefficient -1 exchanges
+biomass_basis: published modeled biomass; not calibrated total dry residue
+biomass_mapping_default: null
+surrogate_notice: Bath GEM used as a conditional surrogate for VS1; equivalence is not experimentally established.
+reactions:
+  biomass:
+    id: BIOMASS_Mcapsulatus
+    default_bounds: [0, 1000]
+    objective_coefficient: 1
+    unit: 1/h in published modeled biomass units
+  methane:
+    id: EX_ch4_e
+    metabolite: ch4_e
+    coefficient: -1
+    default_bounds: [-18.46, 0]
+  oxygen:
+    id: EX_o2_e
+    metabolite: o2_e
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+  carbon_dioxide:
+    id: EX_co2_e
+    metabolite: co2_e
+    coefficient: -1
+    default_bounds: [0, 1000]
+  carbon_monoxide:
+    id: EX_co_e
+    metabolite: co_e
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+  ammonium:
+    id: EX_nh4_e
+    metabolite: nh4_e
+    coefficient: -1
+    default_bounds: [0, 1000]
+  nitrate:
+    id: EX_no3_e
+    metabolite: no3_e
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+  nitrite:
+    id: EX_no2_e
+    metabolite: no2_e
+    coefficient: -1
+    default_bounds: [0, 1000]
+  nitrogen:
+    id: EX_n2_e
+    metabolite: n2_e
+    coefficient: -1
+    default_bounds: [0, 0]
+  phosphate:
+    id: EX_pi_e
+    metabolite: pi_e
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+  copper:
+    id: EX_cu2_e
+    metabolite: cu2_e
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+  iron:
+    id: EX_fe2_e
+    metabolite: fe2_e
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+  maintenance:
+    id: ATPM
+    default_bounds: [8.39, 8.39]
+  soluble_mmo:
+    id: SMMOi
+    default_bounds: [0, 1000]
+  particulate_mmo:
+    id: PMMOipp
+    default_bounds: [0, 0]
+  particulate_mmo_direct_coupling:
+    id: PMMODCipp
+    default_bounds: [0, 0]
+  cyanide_sink:
+    id: SK_cyan_c
+    metabolite: cyan_c
+    coefficient: -1
+    default_bounds: [-1000, 1000]
+scenario:
+  id: symbiont-reference
+  source: profiles/symbiont-reference.json
+  classification: synthetic_assumption
+  note: Explicit ammonium-only sMMO reference, not inferred LAB005 phenotype; request supplies CH4/O2/NH4 bounds.
+  closed_alternative_sources: [EX_no3_e, EX_no2_e, EX_n2_e, SK_cyan_c]
+  permissive_nutrients: [EX_pi_e, EX_cu2_e, EX_fe2_e]
+  additional_m10_closure: EX_co_e
+  measured_concentration_to_flux: prohibited_without_supported_inventory_balance

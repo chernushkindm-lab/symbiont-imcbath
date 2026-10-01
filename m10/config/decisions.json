@@ -1,0 +1,29 @@
+{
+  "version": "2026-10-02.1",
+  "reactor_aliases": [
+    "LAB005",
+    "FA10",
+    "F10",
+    "YFC-10L"
+  ],
+  "timezone": "Asia/Yekaterinburg",
+  "volume_authoritative_L": 10,
+  "volume_rule": "User-authoritative scenario; preserve raw volume and conflict.",
+  "endpoint": "total dry residue",
+  "do_reference": "percent air saturation",
+  "service": "standalone Python / versioned Go adapter boundary",
+  "deployment": "local computer only",
+  "first_case": "August",
+  "comparison_case": "May separate",
+  "exhaust": "conditional soft sensor; no measured outlet or validated tracer",
+  "horizons_h": [
+    1,
+    4,
+    12
+  ],
+  "horizons_status": "provisional",
+  "availability": "unknown reporting times block forecast qualification",
+  "displayed_flow_rate_basis": "D h^-1",
+  "kinetics_reference": "last nonempty notebook variant structure only; parameters uncalibrated",
+  "air_blank_with_recorded_concentrator": "User confirmed air was off; preserve blank raw field, use zero only in scenario with decision provenance"
+}

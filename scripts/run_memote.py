@@ -8,9 +8,42 @@ import json
 import platform
 import sys
 import traceback
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
+
+def validate_portable(api, model_path: Path):
+    """Retry only a Windows native Unicode-path read failure, with exact bytes.
+
+    Scientific validation errors do not trigger this compatibility retry. The
+    temporary file is removed after loading and never becomes a model release.
+    """
+    loaded = api.validate_model(str(model_path))
+    diagnostic = {"native_path_attempted": True, "ascii_copy_used": False}
+    errors = loaded[2].get("errors", [])
+    unreadable = any("File unreadable" in str(message) for message in errors)
+    if loaded[0] is not None or not unreadable or platform.system() != "Windows" or str(model_path).isascii():
+        return (*loaded, diagnostic)
+    diagnostic["native_path_notifications"] = loaded[2]
+    original = model_path.read_bytes()
+    scratch = None
+    try:
+        with tempfile.NamedTemporaryFile(prefix="imcbath-", suffix=".xml", delete=False) as handle:
+            scratch = Path(handle.name)
+            handle.write(original)
+        if not str(scratch).isascii():
+            raise RuntimeError("libSBML requires an ASCII temporary path on this Windows host; configure an ASCII TMP directory")
+        expected = hashlib.sha256(original).hexdigest()
+        actual = hashlib.sha256(scratch.read_bytes()).hexdigest()
+        if actual != expected:
+            raise RuntimeError("Temporary SBML copy checksum mismatch")
+        loaded = api.validate_model(str(scratch))
+        diagnostic.update(ascii_copy_used=True, temporary_copy_sha256=actual)
+        return (*loaded, diagnostic)
+    finally:
+        if scratch is not None:
+            scratch.unlink(missing_ok=True)
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
@@ -30,6 +63,7 @@ def main() -> int:
         "platform": platform.platform(),
         "solver": "glpk",
         "solver_timeout_seconds": 10,
+        "processes": 1,
         "suite": "MEMOTE built-in tests; no custom experimental phenotype dataset",
         "packages": {name: importlib.metadata.version(name) for name in
                      ["memote", "cobra", "swiglpk", "numpy", "pandas", "pytest", "pandera"]},
@@ -39,7 +73,9 @@ def main() -> int:
         import cobra
         from memote.suite import api
         cobra.Configuration().solver = "glpk"
-        model, sbml_version, notifications = api.validate_model(str(model_path))
+        cobra.Configuration().processes = 1
+        model, sbml_version, notifications, loader = validate_portable(api, model_path)
+        metadata["loader"] = loader
         metadata["sbml_version"] = sbml_version
         metadata["sbml_notifications"] = notifications
         if model is None:
@@ -48,7 +84,8 @@ def main() -> int:
         else:
             code, results = api.test_model(
                 model, sbml_version=sbml_version, results=True,
-                pytest_args=["--tb=short", "-q", "--junitxml=" + str(output / "junit.xml")],
+                pytest_args=["--tb=short", "-v", "--junitxml=" + str(output / "junit.xml"),
+                             "--rootdir=" + str(api.TEST_DIRECTORY), "--confcutdir=" + str(api.TEST_DIRECTORY)],
                 solver_timeout=10,
             )
             code = int(code)

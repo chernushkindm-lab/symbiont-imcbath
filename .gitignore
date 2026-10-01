@@ -8,3 +8,8 @@ build/
 dist/
 .coverage
 reports/generated/
+
+desktop.ini
+.env
+m10/private/
+reports/m10-audit/

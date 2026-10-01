@@ -1,0 +1,21 @@
+services:
+  m10:
+    build:
+      context: ..
+      dockerfile: m10/Dockerfile
+    ports:
+      - "127.0.0.1:8050:8050"
+    environment:
+      M10_ACCESS_TOKEN: ${M10_ACCESS_TOKEN:?Set a private access token of at least 24 characters}
+      M10_DATA_DIR: /data
+      M10_SOURCE_DIR: /sources
+    volumes:
+      - ./private:/data
+      - ${M10_SOURCE_DIR:?Set the evidence folder}:/sources:ro
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m
+    mem_limit: 2g
+    cpus: 2
+    pids_limit: 128
+    restart: unless-stopped
