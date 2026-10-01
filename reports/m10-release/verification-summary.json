@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "release": "M10 historical evidence and conditional modelling 0.2.0",
+  "date": "2026-10-02",
+  "base_commit": "417fa2bb331eec7a2b49350eb10b3604369b55fd",
+  "software_tests": {
+    "total": 207,
+    "passed": 205,
+    "skipped": 2,
+    "failed": 0,
+    "duration_seconds": 38.08,
+    "skip_reason": "Windows symbolic-link creation unavailable"
+  },
+  "browser": {
+    "checks_passed": 20,
+    "errors": [],
+    "status": "passed"
+  },
+  "live_service": {
+    "worker_jobs_passed": 6,
+    "historical_runs": [
+      "LAB005-2026-08",
+      "LAB005-2026-05"
+    ],
+    "verified_cache_reuse": true,
+    "authenticated_loopback_only": true,
+    "container_built": false
+  },
+  "model_audit": {
+    "structural_audit_status": "completed_with_findings",
+    "audit_counts": {
+      "tests": 147,
+      "failed": 80,
+      "errors": 0,
+      "skipped": 8,
+      "passed": 59
+    },
+    "audit_score_percent": 54.05430766844975,
+    "model_integrity": "verified",
+    "runtime_audit_pair_consistent": true,
+    "all_encodings_functionally_identical": false,
+    "artifact_hashes": {
+      "ModelFiles/json/iMcBath.json": {
+        "expected": "92ae700bd42fae2339a1b2ad2d3d6c6011e7004d163bf4c708f4bed0b944bdda",
+        "actual": "92ae700bd42fae2339a1b2ad2d3d6c6011e7004d163bf4c708f4bed0b944bdda"
+      },
+      "ModelFiles/xml/iMcBath.xml": {
+        "expected": "c2591237d8968164faeb8fafe741a9a42f95131b919086d5eb1a14b159fee092",
+        "actual": "c2591237d8968164faeb8fafe741a9a42f95131b919086d5eb1a14b159fee092"
+      },
+      "ModelFiles/yml/iMcBath.yml": {
+        "expected": "ade8aa1a71d1fb406f7ab85aab40b51477876720eff0a4558d0eb0e777836038",
+        "actual": "ade8aa1a71d1fb406f7ab85aab40b51477876720eff0a4558d0eb0e777836038"
+      }
+    }
+  },
+  "kinetic_reference": {
+    "carbon_residual_g": 1.417754802446325e-13,
+    "tolerance_g": 1e-08,
+    "classification": "assumed/synthetic; numerical reference only"
+  },
+  "historical_predictive_evaluation": {
+    "paired_scores": 0,
+    "baseline_predictions": 0,
+    "qualification": "not_qualified",
+    "blocking_evidence": [
+      "information availability",
+      "gas/transfer closure",
+      "cellular/model biomass to residue bridge",
+      "independent comparable validation targets"
+    ]
+  },
+  "code_and_configuration_sha256": {
+    "m10/config/decisions.json": "17431bbe1a1e3534101b29e7c64121b38002ea4e7a7700325fb79bad893d8dc1",
+    "m10/metabocore/__init__.py": "31980002fba299a7495241741acb01b01e0e4231478d62976923e0054c38f0d5",
+    "m10/metabocore/api.py": "fe55f6efb927491ff5316e3a45066c6c11989a9757c88dc491f8ba4a6ded20b1",
+    "m10/metabocore/balances.py": "e6542b3a2557d69cebfd6b41283b21b928565083c04ad6b0eb3ceb4be1920d9c",
+    "m10/metabocore/contracts.py": "6d33b2bcdc887cb725834428a288127d6acdb303c6383e62b8c0940f87f5b4d9",
+    "m10/metabocore/evaluation.py": "49b62078bb03fe1b6c9e838d7bff84ecf4c962e71add1e8753e28481c5d3d4db",
+    "m10/metabocore/gem.py": "48f3ec40a71cde8a8e5ead4190b25eb2c7c7ce8655ae57c86763b00eff2a869f",
+    "m10/metabocore/historical_analysis.py": "843801f483fa5b9a51bc122395699a82aa7a5e79dc2aa84497e5505aab47e975",
+    "m10/metabocore/imports.py": "292c2446998ed727be5ff3510d39a0d2c5f72239b57b5fa92ae1b9c024e81d89",
+    "m10/metabocore/ingestion.py": "431473fc5c6cfdbb92fa13f1baded531a43e2f281c7bfe0ad9831cf8e651929d",
+    "m10/metabocore/kinetics.py": "e99017818d526353842e0699322dfbb02b1d8c396bba35c379a3acb5576ad500",
+    "m10/metabocore/worker.py": "761de90b5de1d09233d51fc195e1ebb986b6d5c5b80438f06ceacb5140893814",
+    "m10/requirements-lock.txt": "58598c6a2543ce5dc0659076581bcbc7a4cdeeb3e83b274497950573ca6e3f2b",
+    "m10/web/app.js": "85f7c7e7ed139f2437e61aea19d930d6a4343611bca38ca0556f1d260ce5378e",
+    "m10/web/desktop.ini": "77dfbc0acf3983dc7877bd9107509f61ed1e433b271b5f45d85ac6128e145a9a",
+    "m10/web/index.html": "34d6c51ef779429f7123700e06f7b9913227404770e47ed808bf918799ba79e7",
+    "m10/web/style.css": "946e23df095058494ef0fae42f3ffc3036f4abcf93728354b32307ecd7c8fcba",
+    "src/symbiont_imcbath/__init__.py": "1e1f3d0ca0fd85b2fb54b1baec8dc986eb189f0514f04ad946e98688519149b9",
+    "src/symbiont_imcbath/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/symbiont_imcbath/cli.py": "a2b455e04fb8ffc70aee95465c698b49f24358e9fa4cc83d07c2786c1f8ab45b",
+    "src/symbiont_imcbath/core.py": "23de1cd940f52e8cf183506468029945cd23d33c64e47eb134bfd37328209480",
+    "src/symbiont_imcbath/replay.py": "43d432f546af1c0e789480bde23f49f830bfb2d3ab926db699da0bddfc5a72fc"
+  }
+}
