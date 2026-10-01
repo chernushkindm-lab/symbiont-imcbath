@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "upstream-baseline",
+  "description": "Unchanged published iMcBath model; original nitrate medium, ATPM and sMMO settings are retained.",
+  "provenance": {
+    "source": "https://github.com/ChristianLieven/memote-m-capsulatus/tree/f3ab4c6bf5d78d8c2f0daeaf40e843fe458c8160",
+    "status": "published",
+    "notes": "This profile applies no edits and does not imply a fresh MEMOTE pass."
+  },
+  "assumptions": [
+    "The published baseline uses nitrate uptake; ammonium uptake is closed.",
+    "Original model bounds and biomass units are retained."
+  ],
+  "reaction_bounds": {},
+  "stoichiometry": {}
+}

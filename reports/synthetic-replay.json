@@ -1,0 +1,1782 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "method": "pfba",
+  "label": "Synthetic one-hour interface demonstration",
+  "input": {
+    "schema_version": 1,
+    "label": "Synthetic one-hour interface demonstration",
+    "description": "All values and comparison observations are declared synthetic. This is not the 72-hour historical SYMBIONT experiment or a calibrated prediction.",
+    "time_step": {
+      "value": 0.125,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Selected numerical maximum Euler step for demonstration; inspect convergence with half this value"
+    },
+    "gas_basis": {
+      "molar_volume": {
+        "value": 22.414,
+        "unit": "L/mol",
+        "provenance": "synthetic",
+        "source": "Synthetic choice of dry standard inlet-volume basis; not verified against an instrument"
+      },
+      "reference_conditions": "Assumed dry ideal gas, 0 degrees C, 101.325 kPa; all listed stream flows use this common basis"
+    },
+    "initial": {
+      "time": {
+        "value": 0,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "biomass": {
+        "value": 1,
+        "unit": "g_model_biomass/L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "nitrogen": {
+        "value": 5,
+        "unit": "mmol_N/L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "volume": {
+        "value": 10,
+        "unit": "L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      }
+    },
+    "intervals": [
+      {
+        "start": {
+          "value": 0,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "end": {
+          "value": 0.5,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "volume": {
+          "value": 10,
+          "unit": "L",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "gas_streams": [
+          {
+            "name": "methane",
+            "flow": {
+              "value": 0.1,
+              "unit": "L/min",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "mole_fractions": {
+              "ch4": {
+                "value": 1,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            },
+            "availability_fractions": {
+              "ch4": {
+                "value": 0.85,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            }
+          },
+          {
+            "name": "air",
+            "flow": {
+              "value": 1,
+              "unit": "L/min",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "mole_fractions": {
+              "ch4": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0.2095,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            },
+            "availability_fractions": {
+              "ch4": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0.65,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            }
+          }
+        ],
+        "liquid_feeds": [
+          {
+            "name": "medium",
+            "flow": {
+              "value": 0.5,
+              "unit": "L/h",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "nitrogen_concentration": {
+              "value": 1.5,
+              "unit": "mmol_N/L",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          {
+            "name": "ammonium titrant",
+            "flow": {
+              "value": 0.01,
+              "unit": "L/h",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "nitrogen_concentration": {
+              "value": 1000,
+              "unit": "mmol_N/L",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          {
+            "name": "KOH",
+            "flow": {
+              "value": 0.005,
+              "unit": "L/h",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "nitrogen_concentration": {
+              "value": 0,
+              "unit": "mmol_N/L",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          }
+        ]
+      },
+      {
+        "start": {
+          "value": 0.5,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "end": {
+          "value": 1,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "volume": {
+          "value": 10,
+          "unit": "L",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "gas_streams": [
+          {
+            "name": "methane",
+            "flow": {
+              "value": 0.08,
+              "unit": "L/min",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "mole_fractions": {
+              "ch4": {
+                "value": 1,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            },
+            "availability_fractions": {
+              "ch4": {
+                "value": 0.85,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            }
+          },
+          {
+            "name": "air",
+            "flow": {
+              "value": 1,
+              "unit": "L/min",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "mole_fractions": {
+              "ch4": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0.2095,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            },
+            "availability_fractions": {
+              "ch4": {
+                "value": 0,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              },
+              "o2": {
+                "value": 0.65,
+                "unit": "1",
+                "provenance": "synthetic",
+                "source": "Declared synthetic demonstration input; not a historical measurement"
+              }
+            }
+          }
+        ],
+        "liquid_feeds": [
+          {
+            "name": "medium",
+            "flow": {
+              "value": 0.5,
+              "unit": "L/h",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "nitrogen_concentration": {
+              "value": 1.5,
+              "unit": "mmol_N/L",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          {
+            "name": "ammonium titrant",
+            "flow": {
+              "value": 0.01,
+              "unit": "L/h",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "nitrogen_concentration": {
+              "value": 1000,
+              "unit": "mmol_N/L",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          {
+            "name": "KOH",
+            "flow": {
+              "value": 0.005,
+              "unit": "L/h",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "nitrogen_concentration": {
+              "value": 0,
+              "unit": "mmol_N/L",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          }
+        ]
+      }
+    ],
+    "boluses": [
+      {
+        "time": {
+          "value": 0.3,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "nitrogen_amount": {
+          "value": 2,
+          "unit": "mmol_N",
+          "provenance": "synthetic",
+          "source": "Synthetic amount explicitly stated on N-atom basis, independent of stock identity"
+        },
+        "label": "Synthetic nitrogen pulse",
+        "negligible_volume": true
+      }
+    ],
+    "observations": [
+      {
+        "time": {
+          "value": 0.5,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "biomass": {
+          "value": 1.1,
+          "unit": "g_model_biomass/L",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "label": "Synthetic withheld proxy, not validation data"
+      },
+      {
+        "time": {
+          "value": 1,
+          "unit": "h",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "nitrogen": {
+          "value": 4,
+          "unit": "mmol_N/L",
+          "provenance": "synthetic",
+          "source": "Declared synthetic demonstration input; not a historical measurement"
+        },
+        "label": "Synthetic withheld assay, not validation data"
+      }
+    ]
+  },
+  "quantity_registry": [
+    {
+      "path": "time_step",
+      "value": 0.125,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Selected numerical maximum Euler step for demonstration; inspect convergence with half this value"
+    },
+    {
+      "path": "gas_basis.molar_volume",
+      "value": 22.414,
+      "unit": "L/mol",
+      "provenance": "synthetic",
+      "source": "Synthetic choice of dry standard inlet-volume basis; not verified against an instrument"
+    },
+    {
+      "path": "initial.time",
+      "value": 0,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "initial.biomass",
+      "value": 1,
+      "unit": "g_model_biomass/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "initial.nitrogen",
+      "value": 5,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "initial.volume",
+      "value": 10,
+      "unit": "L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].start",
+      "value": 0,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].end",
+      "value": 0.5,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].volume",
+      "value": 10,
+      "unit": "L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[0].flow",
+      "value": 0.1,
+      "unit": "L/min",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[0].mole_fractions.ch4",
+      "value": 1,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[0].mole_fractions.o2",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[0].availability_fractions.ch4",
+      "value": 0.85,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[0].availability_fractions.o2",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[1].flow",
+      "value": 1,
+      "unit": "L/min",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[1].mole_fractions.ch4",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[1].mole_fractions.o2",
+      "value": 0.2095,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[1].availability_fractions.ch4",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].gas_streams[1].availability_fractions.o2",
+      "value": 0.65,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].liquid_feeds[0].flow",
+      "value": 0.5,
+      "unit": "L/h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].liquid_feeds[0].nitrogen_concentration",
+      "value": 1.5,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].liquid_feeds[1].flow",
+      "value": 0.01,
+      "unit": "L/h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].liquid_feeds[1].nitrogen_concentration",
+      "value": 1000,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].liquid_feeds[2].flow",
+      "value": 0.005,
+      "unit": "L/h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[0].liquid_feeds[2].nitrogen_concentration",
+      "value": 0,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].start",
+      "value": 0.5,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].end",
+      "value": 1,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].volume",
+      "value": 10,
+      "unit": "L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[0].flow",
+      "value": 0.08,
+      "unit": "L/min",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[0].mole_fractions.ch4",
+      "value": 1,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[0].mole_fractions.o2",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[0].availability_fractions.ch4",
+      "value": 0.85,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[0].availability_fractions.o2",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[1].flow",
+      "value": 1,
+      "unit": "L/min",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[1].mole_fractions.ch4",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[1].mole_fractions.o2",
+      "value": 0.2095,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[1].availability_fractions.ch4",
+      "value": 0,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].gas_streams[1].availability_fractions.o2",
+      "value": 0.65,
+      "unit": "1",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].liquid_feeds[0].flow",
+      "value": 0.5,
+      "unit": "L/h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].liquid_feeds[0].nitrogen_concentration",
+      "value": 1.5,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].liquid_feeds[1].flow",
+      "value": 0.01,
+      "unit": "L/h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].liquid_feeds[1].nitrogen_concentration",
+      "value": 1000,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].liquid_feeds[2].flow",
+      "value": 0.005,
+      "unit": "L/h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "intervals[1].liquid_feeds[2].nitrogen_concentration",
+      "value": 0,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "boluses[0].time",
+      "value": 0.3,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "boluses[0].nitrogen_amount",
+      "value": 2,
+      "unit": "mmol_N",
+      "provenance": "synthetic",
+      "source": "Synthetic amount explicitly stated on N-atom basis, independent of stock identity"
+    },
+    {
+      "path": "observations[0].time",
+      "value": 0.5,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "observations[0].biomass",
+      "value": 1.1,
+      "unit": "g_model_biomass/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "observations[1].time",
+      "value": 1,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    {
+      "path": "observations[1].nitrogen",
+      "value": 4,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    }
+  ],
+  "model_provenance": {
+    "baseline_sha256": "92ae700bd42fae2339a1b2ad2d3d6c6011e7004d163bf4c708f4bed0b944bdda",
+    "upstream_commit": "f3ab4c6bf5d78d8c2f0daeaf40e843fe458c8160",
+    "upstream_url": "https://github.com/ChristianLieven/memote-m-capsulatus",
+    "baseline_path": "C:\\Users\\Asus\\Documents\\Codex\\2026-10-01\\find-lieven-ibath-model-memote-explnantion\\outputs\\symbiont-imcbath\\src\\symbiont_imcbath\\data\\iMcBath.json",
+    "profiles": [
+      {
+        "id": "symbiont-reference",
+        "profile_sha256": "c0fc03d617001d8fb5998f3ceaa321c43fec0e749cd42f782cf9ac9c44d936f6",
+        "provenance": {
+          "source": "https://docs.google.com/document/d/1XspPz6hL60vsEdvUsfcxWHRTwvjkGATJo9AOZxDgyDg/edit",
+          "status": "synthetic_assumption",
+          "notes": "Reference numerical check is approximately 0.2255827703 h^-1. These are capacity assumptions, not calibrated process settings."
+        },
+        "assumptions": [
+          "sMMO is enabled and both particulate methane monooxygenase routes are disabled.",
+          "ATPM is fixed at 8.39 mmol/(g modeled biomass h).",
+          "Methane, oxygen and ammonium caps are 16, 28 and 2.3 mmol/(g modeled biomass h).",
+          "Ammonium is the nitrogen input: nitrate and nitrite uptake are closed.",
+          "The cyanide source through SK_cyan_c is closed to prevent untracked nitrogen input to the ammonium inventory.",
+          "Mineral and phosphate bounds remain inherited and nonlimiting.",
+          "VS1/Bath equivalence, when used in a replay, is an experiment-specific user assumption."
+        ],
+        "changes": [
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "EX_ch4_e",
+            "before": {
+              "lower_bound": -18.46,
+              "upper_bound": 0.0
+            },
+            "after": {
+              "lower_bound": -16.0,
+              "upper_bound": 0.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "EX_o2_e",
+            "before": {
+              "lower_bound": -1000.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": -28.0,
+              "upper_bound": 1000.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "EX_nh4_e",
+            "before": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": -2.3,
+              "upper_bound": 1000.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "EX_no3_e",
+            "before": {
+              "lower_bound": -1000.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "EX_no2_e",
+            "before": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "SK_cyan_c",
+            "before": {
+              "lower_bound": -1000.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "ATPM",
+            "before": {
+              "lower_bound": 8.39,
+              "upper_bound": 8.39
+            },
+            "after": {
+              "lower_bound": 8.39,
+              "upper_bound": 8.39
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "SMMOi",
+            "before": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 1000.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "PMMOipp",
+            "before": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0
+            }
+          },
+          {
+            "kind": "reaction_bounds",
+            "reaction_id": "PMMODCipp",
+            "before": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0
+            },
+            "after": {
+              "lower_bound": 0.0,
+              "upper_bound": 0.0
+            }
+          },
+          {
+            "kind": "objective",
+            "before": {
+              "direction": "max",
+              "coefficients": {
+                "BIOMASS_Mcapsulatus": 1.0
+              }
+            },
+            "after": {
+              "direction": "max",
+              "coefficients": {
+                "BIOMASS_Mcapsulatus": 1.0
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "assumptions": [
+      "Published iMcBath biomass units are retained without renormalization.",
+      "Steady-state maximum capacity is not a validated process growth forecast.",
+      "sMMO is enabled and both particulate methane monooxygenase routes are disabled.",
+      "ATPM is fixed at 8.39 mmol/(g modeled biomass h).",
+      "Methane, oxygen and ammonium caps are 16, 28 and 2.3 mmol/(g modeled biomass h).",
+      "Ammonium is the nitrogen input: nitrate and nitrite uptake are closed.",
+      "The cyanide source through SK_cyan_c is closed to prevent untracked nitrogen input to the ammonium inventory.",
+      "Mineral and phosphate bounds remain inherited and nonlimiting.",
+      "VS1/Bath equivalence, when used in a replay, is an experiment-specific user assumption."
+    ]
+  },
+  "nitrogen_source_audit": {
+    "status": "passed",
+    "tracked_source": "EX_nh4_e",
+    "other_nitrogen_boundary_imports": "closed",
+    "checked_nitrogen_boundaries": [
+      "DM_gmp_c",
+      "DM_rdmbzi_c",
+      "DM_tcynt_c",
+      "EX_ade_e",
+      "EX_asp__L_e",
+      "EX_fol_e",
+      "EX_gua_e",
+      "EX_ham_e",
+      "EX_n2_e",
+      "EX_n2o_e",
+      "EX_no2_e",
+      "EX_no3_e",
+      "EX_no_e",
+      "EX_orot_e",
+      "EX_pheme_e",
+      "EX_ptrc_e",
+      "EX_ser__L_e",
+      "EX_spmd_e",
+      "EX_thr__L_e",
+      "EX_urea_e",
+      "EX_xan_e",
+      "SK_ala__L_c",
+      "SK_asn__L_c",
+      "SK_cyan_c",
+      "SK_cys__L_c",
+      "SK_gln__L_c",
+      "SK_glu__L_c",
+      "SK_val__L_c"
+    ],
+    "boundary_details": [
+      {
+        "reaction_id": "DM_gmp_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "gmp_c",
+            "formula": "C10H12N5O8P",
+            "nitrogen_atoms": 5,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "DM_rdmbzi_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "rdmbzi_c",
+            "formula": "C14H18N2O4",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "DM_tcynt_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "tcynt_c",
+            "formula": "CNS",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_ade_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "ade_e",
+            "formula": "C5H5N5",
+            "nitrogen_atoms": 5,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_asp__L_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "asp__L_e",
+            "formula": "C4H6NO4",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_fol_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "fol_e",
+            "formula": "C19H17N7O6",
+            "nitrogen_atoms": 7,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_gua_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "gua_e",
+            "formula": "C5H5N5O",
+            "nitrogen_atoms": 5,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_ham_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "ham_e",
+            "formula": "H3NO",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_n2_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "n2_e",
+            "formula": "N2",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_n2o_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "n2o_e",
+            "formula": "N2O",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_no2_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "no2_e",
+            "formula": "NO2",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_no3_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "no3_e",
+            "formula": "NO3",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_no_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "no_e",
+            "formula": "NO",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_orot_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "orot_e",
+            "formula": "C5H3N2O4",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_pheme_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "pheme_e",
+            "formula": "C34H30FeN4O4",
+            "nitrogen_atoms": 4,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_ptrc_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "ptrc_e",
+            "formula": "C4H14N2",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_ser__L_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "ser__L_e",
+            "formula": "C3H7NO3",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_spmd_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "spmd_e",
+            "formula": "C7H22N3",
+            "nitrogen_atoms": 3,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_thr__L_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "thr__L_e",
+            "formula": "C4H9NO3",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_urea_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "urea_e",
+            "formula": "CH4N2O",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "EX_xan_e",
+        "kind": "exchange",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "xan_e",
+            "formula": "C5H4N4O2",
+            "nitrogen_atoms": 4,
+            "stoichiometric_coefficient": -1.0,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_ala__L_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "ala__L_c",
+            "formula": "C3H7NO2",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_asn__L_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "asn__L_c",
+            "formula": "C4H8N2O3",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_cyan_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 1000.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "cyan_c",
+            "formula": "CHN",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_cys__L_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "cys__L_c",
+            "formula": "C3H7NO2S",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_gln__L_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "gln__L_c",
+            "formula": "C5H10N2O3",
+            "nitrogen_atoms": 2,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_glu__L_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "glu__L_c",
+            "formula": "C5H8NO4",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      },
+      {
+        "reaction_id": "SK_val__L_c",
+        "kind": "other_boundary",
+        "lower_bound": 0.0,
+        "upper_bound": 0.0,
+        "nitrogen_metabolites": [
+          {
+            "metabolite_id": "val__L_c",
+            "formula": "C5H11NO2",
+            "nitrogen_atoms": 1,
+            "stoichiometric_coefficient": -1,
+            "import_direction_open": false
+          }
+        ]
+      }
+    ],
+    "basis": "metabolite N atom counts, boundary stoichiometry and allowed flux directions"
+  },
+  "states": [
+    {
+      "time_h": 0.0,
+      "biomass_g_model_L": 1.0,
+      "nitrogen_mmol_N_L": 5.0,
+      "volume_L": 10.0,
+      "kind": "initial",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 0.0,
+        "bolus_mmol_N": 0.0,
+        "net_cellular_removal_mmol_N": 0.0,
+        "dilution_removal_mmol_N": 0.0,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 50.0,
+        "closure_error_mmol_N": 0.0
+      }
+    },
+    {
+      "time_h": 0.125,
+      "biomass_g_model_L": 1.033662720857583,
+      "nitrogen_mmol_N_L": 4.773585877275532,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 1.34375,
+        "bolus_mmol_N": 0.0,
+        "net_cellular_removal_mmol_N": 3.286016227244683,
+        "dilution_removal_mmol_N": 0.321875,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 47.73585877275532,
+        "closure_error_mmol_N": 0.0
+      }
+    },
+    {
+      "time_h": 0.25,
+      "biomass_g_model_L": 1.0671087379496458,
+      "nitrogen_mmol_N_L": 4.548629295466094,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 2.6875,
+        "bolus_mmol_N": 0.0,
+        "net_cellular_removal_mmol_N": 6.5720324544894515,
+        "dilution_removal_mmol_N": 0.6291745908496125,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 45.48629295466094,
+        "closure_error_mmol_N": 7.105427357601002e-15
+      }
+    },
+    {
+      "time_h": 0.3,
+      "biomass_g_model_L": 1.0804010212924589,
+      "nitrogen_mmol_N_L": 4.459225925940479,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 3.2249999999999996,
+        "bolus_mmol_N": 0.0,
+        "net_cellular_removal_mmol_N": 7.886438945387353,
+        "dilution_removal_mmol_N": 0.7463017952078644,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 44.59225925940479,
+        "closure_error_mmol_N": 7.105427357601002e-15
+      }
+    },
+    {
+      "time_h": 0.3,
+      "biomass_g_model_L": 1.0804010212924589,
+      "nitrogen_mmol_N_L": 4.659225925940479,
+      "volume_L": 10.0,
+      "kind": "post_bolus",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 3.2249999999999996,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 7.886438945387353,
+        "dilution_removal_mmol_N": 0.7463017952078644,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 46.59225925940479,
+        "closure_error_mmol_N": 7.105427357601002e-15
+      }
+    },
+    {
+      "time_h": 0.425,
+      "biomass_g_model_L": 1.113546160575472,
+      "nitrogen_mmol_N_L": 4.43500553631776,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 4.56875,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 11.17245517263212,
+        "dilution_removal_mmol_N": 1.0462394641902828,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 44.3500553631776,
+        "closure_error_mmol_N": 7.105427357601002e-15
+      }
+    },
+    {
+      "time_h": 0.5,
+      "biomass_g_model_L": 1.133305221044799,
+      "nitrogen_mmol_N_L": 4.30133935379905,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 5.375,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 13.144064908978951,
+        "dilution_removal_mmol_N": 1.2175415530305562,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 43.0133935379905,
+        "closure_error_mmol_N": 7.105427357601002e-15
+      }
+    },
+    {
+      "time_h": 0.625,
+      "biomass_g_model_L": 1.1580897453703898,
+      "nitrogen_mmol_N_L": 4.145143183529386,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 6.71875,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 15.772877890774772,
+        "dilution_removal_mmol_N": 1.49444027393137,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 41.45143183529386,
+        "closure_error_mmol_N": 0.0
+      }
+    },
+    {
+      "time_h": 0.75,
+      "biomass_g_model_L": 1.1827147193206344,
+      "nitrogen_mmol_N_L": 3.989952526105836,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 8.0625,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 18.401690872570573,
+        "dilution_removal_mmol_N": 1.7612838663710744,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 39.89952526105836,
+        "closure_error_mmol_N": 0.0
+      }
+    },
+    {
+      "time_h": 0.875,
+      "biomass_g_model_L": 1.2071811700010746,
+      "nitrogen_mmol_N_L": 3.8357609085394473,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 9.40625,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 21.030503854366394,
+        "dilution_removal_mmol_N": 2.0181370602391375,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 38.35760908539447,
+        "closure_error_mmol_N": 0.0
+      }
+    },
+    {
+      "time_h": 1.0,
+      "biomass_g_model_L": 1.2314901179052593,
+      "nitrogen_mmol_N_L": 3.6825618995111435,
+      "volume_L": 10.0,
+      "kind": "step_end",
+      "nitrogen_ledger": {
+        "initial_mmol_N": 50.0,
+        "continuous_feed_mmol_N": 10.75,
+        "bolus_mmol_N": 2.0,
+        "net_cellular_removal_mmol_N": 23.659316836162205,
+        "dilution_removal_mmol_N": 2.2650641687263646,
+        "roundoff_adjustment_mmol_N": 0.0,
+        "inventory_mmol_N": 36.825618995111434,
+        "closure_error_mmol_N": 0.0
+      }
+    }
+  ],
+  "steps": [
+    {
+      "interval_index": 0,
+      "start_h": 0.0,
+      "end_h": 0.125,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.3208017668606645,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 2.6288129817957464,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 22.75363612028197,
+        "EX_o2_e": 36.45266351387525,
+        "EX_nh4_e": 40.8175
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 2.8925212919306276e-14,
+        "max_bound_violation": 3.413764743880727e-17
+      }
+    },
+    {
+      "interval_index": 0,
+      "start_h": 0.125,
+      "end_h": 0.25,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.31035439354387595,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 2.543201886602632,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 22.01263106538689,
+        "EX_o2_e": 35.26552982740069,
+        "EX_nh4_e": 37.74717473911919
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 7.385975511753351e-14,
+        "max_bound_violation": 1.0658141036401503e-13
+      }
+    },
+    {
+      "interval_index": 0,
+      "start_h": 0.25,
+      "end_h": 0.3,
+      "step_h": 0.04999999999999999,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.30062706400198563,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 2.463491196639279,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 21.322696845310304,
+        "EX_o2_e": 34.16021462247211,
+        "EX_nh4_e": 86.03933998049395
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 1.0592980485835124e-13,
+        "max_bound_violation": 1.4210854715202004e-14
+      }
+    },
+    {
+      "interval_index": 0,
+      "start_h": 0.3,
+      "end_h": 0.425,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.29692841874297693,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 2.4331826145915936,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 21.060361543403875,
+        "EX_o2_e": 33.739938037329665,
+        "EX_nh4_e": 35.27288157016841
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 4.427014310692812e-14,
+        "max_bound_violation": 8.526512829121202e-14
+      }
+    },
+    {
+      "interval_index": 0,
+      "start_h": 0.425,
+      "end_h": 0.5,
+      "step_h": 0.07500000000000001,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.2880902276155978,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 2.360757977412651,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 20.43349160175189,
+        "EX_o2_e": 32.73565551610074,
+        "EX_nh4_e": 53.86395866587686
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 1.671985033063761e-13,
+        "max_bound_violation": 0.0
+      }
+    },
+    {
+      "interval_index": 1,
+      "start_h": 0.5,
+      "end_h": 0.625,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.22645392319990876,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 1.8556787230697183,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 16.061788614583662,
+        "EX_o2_e": 32.1649127145725,
+        "EX_nh4_e": 31.116238766783002
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 3.35009797680641e-14,
+        "max_bound_violation": 1.1368683772161603e-13
+      }
+    },
+    {
+      "interval_index": 1,
+      "start_h": 0.625,
+      "end_h": 0.75,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.22160753474805303,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 1.815964949041169,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 15.718046868987487,
+        "EX_o2_e": 31.47654459388781,
+        "EX_nh4_e": 29.378267729503055
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 8.445848187488281e-14,
+        "max_bound_violation": 0.0
+      }
+    },
+    {
+      "interval_index": 1,
+      "start_h": 0.75,
+      "end_h": 0.875,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.216993505953788,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 1.7781552483296013,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 15.390785790407294,
+        "EX_o2_e": 30.82118022071637,
+        "EX_nh4_e": 27.72362355698652
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 8.301345721939413e-14,
+        "max_bound_violation": 1.0125233984581428e-13
+      }
+    },
+    {
+      "interval_index": 1,
+      "start_h": 0.875,
+      "end_h": 1.0,
+      "step_h": 0.125,
+      "dilution_h_inv": 0.051500000000000004,
+      "nitrogen_feed_mmol_N_h": 10.75,
+      "growth_rate_h_inv": 0.21259560691151705,
+      "nitrogen_net_uptake_mmol_N_g_model_h": 1.7421166248267252,
+      "uptake_caps_mmol_g_model_h": {
+        "EX_ch4_e": 15.078854233792734,
+        "EX_o2_e": 30.196514342451845,
+        "EX_nh4_e": 26.146486017088638
+      },
+      "solver_status": "optimal",
+      "solver_residuals": {
+        "max_mass_balance": 1.3684192667895445e-13,
+        "max_bound_violation": 5.3290705182007514e-14
+      }
+    }
+  ],
+  "bolus_events": [
+    {
+      "time_h": 0.3,
+      "nitrogen_amount_mmol_N": 2.0,
+      "label": "Synthetic nitrogen pulse"
+    }
+  ],
+  "assumptions": [
+    "constant, perfectly mixed volume; liquid outflow equals total liquid inflow",
+    "no biomass decay, retention, uptake kinetics, or gas-transfer dynamics",
+    "gas mole fractions share the declared volume reference basis; unlisted gas fraction is inert",
+    "boluses are instantaneous nitrogen additions with negligible volume",
+    "upstream nominal model-biomass units; no biomass normalization correction",
+    "all later observations are withheld; numerical replay is not biological validation"
+  ],
+  "observation_comparisons": [
+    {
+      "time_h": 0.5,
+      "biomass": 1.1,
+      "label": "Synthetic withheld proxy, not validation data",
+      "use": "withheld_comparison_only",
+      "status": "compared",
+      "prediction_method": "state_or_linear_interpolation; exact_event_times_use_post_bolus_state",
+      "predicted_biomass": 1.133305221044799,
+      "residual_biomass": 0.03330522104479883
+    },
+    {
+      "time_h": 1.0,
+      "nitrogen": 4.0,
+      "label": "Synthetic withheld assay, not validation data",
+      "use": "withheld_comparison_only",
+      "status": "compared",
+      "prediction_method": "state_or_linear_interpolation; exact_event_times_use_post_bolus_state",
+      "predicted_nitrogen": 3.6825618995111435,
+      "residual_nitrogen": -0.31743810048885646
+    }
+  ]
+}

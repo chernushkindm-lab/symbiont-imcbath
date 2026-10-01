@@ -1,0 +1,32 @@
+{
+  "started_utc": "2026-10-01T18:42:55.851509+00:00",
+  "model_file": "iMcBath.xml",
+  "model_sha256": "c2591237d8968164faeb8fafe741a9a42f95131b919086d5eb1a14b159fee092",
+  "upstream_commit": "f3ab4c6bf5d78d8c2f0daeaf40e843fe458c8160",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "solver": "glpk",
+  "solver_timeout_seconds": 10,
+  "suite": "MEMOTE built-in tests; no custom experimental phenotype dataset",
+  "packages": {
+    "memote": "0.17.0",
+    "cobra": "0.30.0",
+    "swiglpk": "5.0.13",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "pytest": "8.3.5",
+    "pandera": "0.20.4"
+  },
+  "sbml_version": [
+    3,
+    1,
+    1
+  ],
+  "sbml_notifications": {
+    "warnings": [],
+    "errors": []
+  },
+  "status": "completed_with_findings",
+  "pytest_exit_code": 1,
+  "finished_utc": "2026-10-01T18:50:46.074323+00:00"
+}

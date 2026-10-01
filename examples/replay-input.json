@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "label": "Synthetic one-hour interface demonstration",
+  "description": "All values and comparison observations are declared synthetic. This is not the 72-hour historical SYMBIONT experiment or a calibrated prediction.",
+  "time_step": {
+    "value": 0.125,
+    "unit": "h",
+    "provenance": "synthetic",
+    "source": "Selected numerical maximum Euler step for demonstration; inspect convergence with half this value"
+  },
+  "gas_basis": {
+    "molar_volume": {
+      "value": 22.414,
+      "unit": "L/mol",
+      "provenance": "synthetic",
+      "source": "Synthetic choice of dry standard inlet-volume basis; not verified against an instrument"
+    },
+    "reference_conditions": "Assumed dry ideal gas, 0 degrees C, 101.325 kPa; all listed stream flows use this common basis"
+  },
+  "initial": {
+    "time": {
+      "value": 0,
+      "unit": "h",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    "biomass": {
+      "value": 1,
+      "unit": "g_model_biomass/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    "nitrogen": {
+      "value": 5,
+      "unit": "mmol_N/L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    },
+    "volume": {
+      "value": 10,
+      "unit": "L",
+      "provenance": "synthetic",
+      "source": "Declared synthetic demonstration input; not a historical measurement"
+    }
+  },
+  "intervals": [
+    {
+      "start": {
+        "value": 0,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "end": {
+        "value": 0.5,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "volume": {
+        "value": 10,
+        "unit": "L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "gas_streams": [
+        {
+          "name": "methane",
+          "flow": {
+            "value": 0.1,
+            "unit": "L/min",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "mole_fractions": {
+            "ch4": {
+              "value": 1,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          "availability_fractions": {
+            "ch4": {
+              "value": 0.85,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          }
+        },
+        {
+          "name": "air",
+          "flow": {
+            "value": 1,
+            "unit": "L/min",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "mole_fractions": {
+            "ch4": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0.2095,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          "availability_fractions": {
+            "ch4": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0.65,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          }
+        }
+      ],
+      "liquid_feeds": [
+        {
+          "name": "medium",
+          "flow": {
+            "value": 0.5,
+            "unit": "L/h",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "nitrogen_concentration": {
+            "value": 1.5,
+            "unit": "mmol_N/L",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          }
+        },
+        {
+          "name": "ammonium titrant",
+          "flow": {
+            "value": 0.01,
+            "unit": "L/h",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "nitrogen_concentration": {
+            "value": 1000,
+            "unit": "mmol_N/L",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          }
+        },
+        {
+          "name": "KOH",
+          "flow": {
+            "value": 0.005,
+            "unit": "L/h",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "nitrogen_concentration": {
+            "value": 0,
+            "unit": "mmol_N/L",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          }
+        }
+      ]
+    },
+    {
+      "start": {
+        "value": 0.5,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "end": {
+        "value": 1,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "volume": {
+        "value": 10,
+        "unit": "L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "gas_streams": [
+        {
+          "name": "methane",
+          "flow": {
+            "value": 0.08,
+            "unit": "L/min",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "mole_fractions": {
+            "ch4": {
+              "value": 1,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          "availability_fractions": {
+            "ch4": {
+              "value": 0.85,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          }
+        },
+        {
+          "name": "air",
+          "flow": {
+            "value": 1,
+            "unit": "L/min",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "mole_fractions": {
+            "ch4": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0.2095,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          },
+          "availability_fractions": {
+            "ch4": {
+              "value": 0,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            },
+            "o2": {
+              "value": 0.65,
+              "unit": "1",
+              "provenance": "synthetic",
+              "source": "Declared synthetic demonstration input; not a historical measurement"
+            }
+          }
+        }
+      ],
+      "liquid_feeds": [
+        {
+          "name": "medium",
+          "flow": {
+            "value": 0.5,
+            "unit": "L/h",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "nitrogen_concentration": {
+            "value": 1.5,
+            "unit": "mmol_N/L",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          }
+        },
+        {
+          "name": "ammonium titrant",
+          "flow": {
+            "value": 0.01,
+            "unit": "L/h",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "nitrogen_concentration": {
+            "value": 1000,
+            "unit": "mmol_N/L",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          }
+        },
+        {
+          "name": "KOH",
+          "flow": {
+            "value": 0.005,
+            "unit": "L/h",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          },
+          "nitrogen_concentration": {
+            "value": 0,
+            "unit": "mmol_N/L",
+            "provenance": "synthetic",
+            "source": "Declared synthetic demonstration input; not a historical measurement"
+          }
+        }
+      ]
+    }
+  ],
+  "boluses": [
+    {
+      "time": {
+        "value": 0.3,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "nitrogen_amount": {
+        "value": 2,
+        "unit": "mmol_N",
+        "provenance": "synthetic",
+        "source": "Synthetic amount explicitly stated on N-atom basis, independent of stock identity"
+      },
+      "label": "Synthetic nitrogen pulse",
+      "negligible_volume": true
+    }
+  ],
+  "observations": [
+    {
+      "time": {
+        "value": 0.5,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "biomass": {
+        "value": 1.1,
+        "unit": "g_model_biomass/L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "label": "Synthetic withheld proxy, not validation data"
+    },
+    {
+      "time": {
+        "value": 1,
+        "unit": "h",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "nitrogen": {
+        "value": 4,
+        "unit": "mmol_N/L",
+        "provenance": "synthetic",
+        "source": "Declared synthetic demonstration input; not a historical measurement"
+      },
+      "label": "Synthetic withheld assay, not validation data"
+    }
+  ]
+}

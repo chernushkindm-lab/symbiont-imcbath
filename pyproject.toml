@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "symbiont-imcbath"
+version = "0.1.0"
+description = "Versioned iMcBath metabolic model and explicit SYMBIONT simulation adapter"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "ISC"
+license-files = ["LICENSE", "AUTHORS.rst"]
+dependencies = ["cobra==0.30.0", "numpy==1.26.4", "pandas==2.2.3", "scipy==1.15.3"]
+
+[project.optional-dependencies]
+test = ["pytest==8.3.5"]
+qa = ["memote==0.17.0", "pandera==0.20.4", "pytest==8.3.5"]
+
+[project.scripts]
+symbiont-imcbath = "symbiont_imcbath.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+symbiont_imcbath = ["data/*.json", "data/*.xml", "data/LICENSE", "data/profiles/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

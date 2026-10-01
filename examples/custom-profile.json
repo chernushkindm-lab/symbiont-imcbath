@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "id": "illustrative-maintenance-scenario",
+  "description": "Editable example: change assumed fixed ATP maintenance from 8.39 to 8.0.",
+  "provenance": {
+    "source": "User-editable example; replace with a measurement or cited assumption before scientific use.",
+    "status": "synthetic_assumption"
+  },
+  "assumptions": ["ATPM 8.0 is illustrative and has not been calibrated for Bath or VS1."],
+  "reaction_bounds": {"ATPM": {"lower_bound": 8.0, "upper_bound": 8.0}},
+  "stoichiometry": {}
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "symbiont-reference",
+  "description": "Synthetic SYMBIONT architecture reference: sMMO, ATPM 8.39, CH4/O2/NH4 uptake caps 16/28/2.3.",
+  "provenance": {
+    "source": "https://docs.google.com/document/d/1XspPz6hL60vsEdvUsfcxWHRTwvjkGATJo9AOZxDgyDg/edit",
+    "status": "synthetic_assumption",
+    "notes": "Reference numerical check is approximately 0.2255827703 h^-1. These are capacity assumptions, not calibrated process settings."
+  },
+  "assumptions": [
+    "sMMO is enabled and both particulate methane monooxygenase routes are disabled.",
+    "ATPM is fixed at 8.39 mmol/(g modeled biomass h).",
+    "Methane, oxygen and ammonium caps are 16, 28 and 2.3 mmol/(g modeled biomass h).",
+    "Ammonium is the nitrogen input: nitrate and nitrite uptake are closed.",
+    "The cyanide source through SK_cyan_c is closed to prevent untracked nitrogen input to the ammonium inventory.",
+    "Mineral and phosphate bounds remain inherited and nonlimiting.",
+    "VS1/Bath equivalence, when used in a replay, is an experiment-specific user assumption."
+  ],
+  "reaction_bounds": {
+    "EX_ch4_e": {"lower_bound": -16, "upper_bound": 0},
+    "EX_o2_e": {"lower_bound": -28, "upper_bound": 1000},
+    "EX_nh4_e": {"lower_bound": -2.3, "upper_bound": 1000},
+    "EX_no3_e": {"lower_bound": 0, "upper_bound": 1000},
+    "EX_no2_e": {"lower_bound": 0, "upper_bound": 1000},
+    "SK_cyan_c": {"lower_bound": 0, "upper_bound": 1000},
+    "ATPM": {"lower_bound": 8.39, "upper_bound": 8.39},
+    "SMMOi": {"lower_bound": 0, "upper_bound": 1000},
+    "PMMOipp": {"lower_bound": 0, "upper_bound": 0},
+    "PMMODCipp": {"lower_bound": 0, "upper_bound": 0}
+  },
+  "stoichiometry": {},
+  "objective": {"direction": "max", "coefficients": {"BIOMASS_Mcapsulatus": 1}}
+}
