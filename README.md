@@ -105,6 +105,13 @@ visible; no arbitrary coefficient changes are made to suppress them.
 GitHub Actions runs adapter tests and the audit and stores private artifacts.
 No report is published to GitHub Pages.
 
+The [complete failure review](docs/MEMOTE_FAILURE_REVIEW.md) analyzes every one of
+the 80 failed and 8 skipped MEMOTE cases, with biological meaning, proposed
+improvements, acceptance criteria and complete affected-entity data. It separates
+model findings from test-code defects and database-scope mismatches. Use its
+[searchable report](reports/failure-review/review.html) or
+[88-row CSV](reports/failure-review/review.csv) to plan a curated model variant.
+
 See [VALIDATION.md](docs/VALIDATION.md) for fresh results,
 [MEMOTE.md](docs/MEMOTE.md) for interpretation and
 [UPSTREAM.md](docs/UPSTREAM.md) for attribution/hashes. Original reports,

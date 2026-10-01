@@ -1,0 +1,3082 @@
+{
+  "model": "iMcBath",
+  "source": "unchanged pinned SBML",
+  "reaction_audits": {
+    "ACCOAC_1": {
+      "name": "Acetyl-CoA carboxylase (biotin-dependent)",
+      "equation": "accoa_c + cbtnCCP_c --> btnCCP_c + malcoa_c",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA1045 or MCA1046 or MCA1804 or MCA2493",
+      "annotations": {
+        "bigg.reaction": "ACCOAC_1",
+        "brenda": "6.4.1.2",
+        "kegg.reaction": "R04386",
+        "metanetx.reaction": "MNXR48676",
+        "seed": "rxn06673"
+      },
+      "float_residuals": {
+        "charge": -1.0
+      },
+      "decimal_residuals": {
+        "charge": "-1.0"
+      },
+      "terms": [
+        {
+          "id": "accoa_c",
+          "name": "acetyl-CoA(4-)",
+          "formula": "C23H34N7O17P3S",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 805.539043,
+          "signed_biomass_mass_g_per_model_unit": 0.805539043
+        },
+        {
+          "id": "cbtnCCP_c",
+          "name": "Carboxybiotin-carboxyl-carrier protein",
+          "formula": "C18H26N5O6SR2",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "btnCCP_c",
+          "name": "Holo-[carboxylase]",
+          "formula": "C17H27N5O4SR2",
+          "charge": 0,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "malcoa_c",
+          "name": "malonyl-CoA(5-)",
+          "formula": "C24H33N7O19P3S",
+          "charge": -5,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 848.540603,
+          "signed_biomass_mass_g_per_model_unit": -0.848540603
+        }
+      ]
+    },
+    "APG3PAT_MCi": {
+      "name": "Acyl-phosphate:glycerol-3-phosphate acyltransferase",
+      "equation": "0.001 1agpgafa_MC_c + 0.001 mc_fattyacidcoa_c --> coa_c + 0.001 pa_MC_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0058 or MCA2052",
+      "annotations": {
+        "biocyc": "META:RXN-1623",
+        "brenda": "2.3.1.51",
+        "kegg.reaction": "R02241",
+        "metanetx.reaction": "MNXR84924",
+        "reactome": [
+          "REACT_100569",
+          "REACT_104667",
+          "REACT_104719",
+          "REACT_106183",
+          "REACT_108364",
+          "REACT_109082",
+          "REACT_113260",
+          "REACT_115377",
+          "REACT_121245",
+          "REACT_126232",
+          "REACT_127503",
+          "REACT_128003",
+          "REACT_129793",
+          "REACT_130649",
+          "REACT_132895",
+          "REACT_141468",
+          "REACT_143142",
+          "REACT_143382",
+          "REACT_144048",
+          "REACT_144218",
+          "REACT_147116",
+          "REACT_154164",
+          "REACT_155231",
+          "REACT_2042",
+          "REACT_30683",
+          "REACT_32891",
+          "REACT_79417",
+          "REACT_81957",
+          "REACT_84904",
+          "REACT_87530",
+          "REACT_97949"
+        ],
+        "rhea": [
+          "19709",
+          "19710",
+          "19711",
+          "19712"
+        ],
+        "seed": "rxn06140",
+        "upa": [
+          "UPA:UCR02241",
+          "UPA:UER00613"
+        ]
+      },
+      "float_residuals": {
+        "C": -7.105427357601002e-15,
+        "O": -1.7763568394002505e-15,
+        "charge": 0.0009999999999994458
+      },
+      "decimal_residuals": {
+        "charge": "0.001"
+      },
+      "terms": [
+        {
+          "id": "1agpgafa_MC_c",
+          "name": "1-Acyl-sn-glycero-3-phosphoglycerol (Average Fatty Acid)",
+          "formula": "C19041H37055O6998P1000",
+          "charge": -1000,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 408982.5176,
+          "signed_biomass_mass_g_per_model_unit": 0.40898251760000004
+        },
+        {
+          "id": "mc_fattyacidcoa_c",
+          "name": "mc_fattyacidcoa_c",
+          "formula": "C37041H62055N7000O16998P3000S1000",
+          "charge": -3001,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 1002427.0396,
+          "signed_biomass_mass_g_per_model_unit": 1.0024270396000001
+        },
+        {
+          "id": "coa_c",
+          "name": "CoA",
+          "formula": "C21H32N7O16P3S",
+          "charge": -4,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 763.502363,
+          "signed_biomass_mass_g_per_model_unit": -0.763502363
+        },
+        {
+          "id": "pa_MC_c",
+          "name": "1,2-sn-glycerol 3-phosphate",
+          "formula": "C35082H67110O7996P1000",
+          "charge": 0,
+          "coefficient": 0.001,
+          "molecular_weight_g_per_mol": 647907.1942,
+          "signed_biomass_mass_g_per_model_unit": -0.6479071942000001
+        }
+      ]
+    },
+    "ASNTRAT": {
+      "name": "Aspartyl-tRNA(Asn) amidotransferase",
+      "equation": "asptrna_c + atp_c + gln__L_c + h2o_c --> adp_c + asntrna_c + glu__L_c + 2.0 h_c + pi_c",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA0097 or MCA0098 or MCA0099",
+      "annotations": {
+        "bigg.reaction": "ASNTRAT",
+        "biocyc": "META:6.3.5.6-RXN",
+        "brenda": "6.3.5.6",
+        "kegg.reaction": "R04212",
+        "metanetx.reaction": "MNXR81757",
+        "rhea": [
+          "14513",
+          "14514",
+          "14515",
+          "14516"
+        ],
+        "seed": [
+          "rxn06619",
+          "rxn11595"
+        ]
+      },
+      "float_residuals": {
+        "charge": 1.0
+      },
+      "decimal_residuals": {
+        "charge": "1.0"
+      },
+      "terms": [
+        {
+          "id": "asptrna_c",
+          "name": "L-aspartyl-tRNA(Asn)",
+          "formula": "C4H5NO3R",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "atp_c",
+          "name": "ATP",
+          "formula": "C10H12N5O13P3",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 503.149263,
+          "signed_biomass_mass_g_per_model_unit": 0.5031492630000001
+        },
+        {
+          "id": "gln__L_c",
+          "name": "L-glutamine zwitterion",
+          "formula": "C5H10N2O3",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 146.1445,
+          "signed_biomass_mass_g_per_model_unit": 0.14614449999999998
+        },
+        {
+          "id": "h2o_c",
+          "name": "H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 18.01528,
+          "signed_biomass_mass_g_per_model_unit": 0.01801528
+        },
+        {
+          "id": "adp_c",
+          "name": "ADP",
+          "formula": "C10H12N5O10P2",
+          "charge": -3,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 424.177302,
+          "signed_biomass_mass_g_per_model_unit": -0.424177302
+        },
+        {
+          "id": "asntrna_c",
+          "name": "Asn-tRNA(Asn)",
+          "formula": "C4H6N2O2R",
+          "charge": 1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "glu__L_c",
+          "name": "L-glutamate",
+          "formula": "C5H8NO4",
+          "charge": -1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 146.12132,
+          "signed_biomass_mass_g_per_model_unit": -0.14612132
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 2.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0020158800000000003
+        },
+        {
+          "id": "pi_c",
+          "name": "phosphate",
+          "formula": "HO4P",
+          "charge": -2,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 95.97930099999999,
+          "signed_biomass_mass_g_per_model_unit": -0.09597930099999999
+        }
+      ]
+    },
+    "ATPM": {
+      "name": "ATP maintenance requirement",
+      "equation": "atp_c + h2o_c --> adp_c + h_c + pi_c",
+      "bounds": [
+        8.39,
+        8.39
+      ],
+      "gpr": "",
+      "annotations": {
+        "bigg.reaction": "ATPM",
+        "biocyc": [
+          "META:3.6.3.50-RXN",
+          "META:3.6.3.51-RXN",
+          "META:3.6.3.52-RXN",
+          "META:3.6.4.1-RXN",
+          "META:3.6.4.11-RXN",
+          "META:3.6.4.2-RXN",
+          "META:3.6.4.3-RXN",
+          "META:3.6.4.4-RXN",
+          "META:3.6.4.5-RXN",
+          "META:3.6.4.6-RXN",
+          "META:3.6.4.7-RXN",
+          "META:3.6.4.8-RXN",
+          "META:3.6.4.9-RXN",
+          "META:ADENOSINETRIPHOSPHATASE-RXN",
+          "META:RXN-10799",
+          "META:RXN-10800",
+          "META:RXN-11109",
+          "META:RXN-11135",
+          "META:RXN0-1061"
+        ],
+        "biopath": [
+          "BIOPATH:RXN00003",
+          "BIOPATH:RXN01035"
+        ],
+        "brenda": [
+          "3.6.1.15",
+          "3.6.1.3",
+          "3.6.1.5",
+          "3.6.1.8",
+          "3.6.3.1",
+          "3.6.3.10",
+          "3.6.3.11",
+          "3.6.3.12",
+          "3.6.3.14",
+          "3.6.3.15",
+          "3.6.3.16",
+          "3.6.3.17",
+          "3.6.3.18",
+          "3.6.3.19",
+          "3.6.3.2",
+          "3.6.3.20",
+          "3.6.3.21",
+          "3.6.3.22",
+          "3.6.3.23",
+          "3.6.3.24",
+          "3.6.3.25",
+          "3.6.3.26",
+          "3.6.3.27",
+          "3.6.3.28",
+          "3.6.3.29",
+          "3.6.3.3",
+          "3.6.3.30",
+          "3.6.3.31",
+          "3.6.3.32",
+          "3.6.3.33",
+          "3.6.3.34",
+          "3.6.3.35",
+          "3.6.3.36",
+          "3.6.3.37",
+          "3.6.3.38",
+          "3.6.3.39",
+          "3.6.3.4",
+          "3.6.3.40",
+          "3.6.3.41",
+          "3.6.3.42",
+          "3.6.3.43",
+          "3.6.3.44",
+          "3.6.3.46",
+          "3.6.3.47",
+          "3.6.3.48",
+          "3.6.3.49",
+          "3.6.3.5",
+          "3.6.3.50",
+          "3.6.3.51",
+          "3.6.3.52",
+          "3.6.3.53",
+          "3.6.3.54",
+          "3.6.3.6",
+          "3.6.3.7",
+          "3.6.3.8",
+          "3.6.3.9",
+          "3.6.4.1",
+          "3.6.4.10",
+          "3.6.4.11",
+          "3.6.4.12",
+          "3.6.4.13",
+          "3.6.4.2",
+          "3.6.4.3",
+          "3.6.4.4",
+          "3.6.4.5",
+          "3.6.4.6",
+          "3.6.4.7",
+          "3.6.4.8",
+          "3.6.4.9"
+        ],
+        "kegg.reaction": "R00086",
+        "metanetx.reaction": "MNXR892",
+        "reactome": [
+          "REACT_110331",
+          "REACT_114392",
+          "REACT_125833",
+          "REACT_125930",
+          "REACT_127575",
+          "REACT_128535",
+          "REACT_131968",
+          "REACT_132070",
+          "REACT_132222",
+          "REACT_133711",
+          "REACT_134617",
+          "REACT_136874",
+          "REACT_140447",
+          "REACT_142102",
+          "REACT_143625",
+          "REACT_146014",
+          "REACT_15379",
+          "REACT_25268",
+          "REACT_86172"
+        ],
+        "rhea": [
+          "13065",
+          "13066",
+          "13067",
+          "13068",
+          "20852",
+          "20853",
+          "20854",
+          "20855"
+        ],
+        "seed": [
+          "rxn00062",
+          "rxn08173",
+          "rxn09528",
+          "rxn09529",
+          "rxn09530",
+          "rxn09694",
+          "rxn10042",
+          "rxn10443",
+          "rxn11300",
+          "rxn13766"
+        ]
+      },
+      "float_residuals": {},
+      "decimal_residuals": {},
+      "terms": [
+        {
+          "id": "atp_c",
+          "name": "ATP",
+          "formula": "C10H12N5O13P3",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 503.149263,
+          "signed_biomass_mass_g_per_model_unit": 0.5031492630000001
+        },
+        {
+          "id": "h2o_c",
+          "name": "H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 18.01528,
+          "signed_biomass_mass_g_per_model_unit": 0.01801528
+        },
+        {
+          "id": "adp_c",
+          "name": "ADP",
+          "formula": "C10H12N5O10P2",
+          "charge": -3,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 424.177302,
+          "signed_biomass_mass_g_per_model_unit": -0.424177302
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0010079400000000001
+        },
+        {
+          "id": "pi_c",
+          "name": "phosphate",
+          "formula": "HO4P",
+          "charge": -2,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 95.97930099999999,
+          "signed_biomass_mass_g_per_model_unit": -0.09597930099999999
+        }
+      ]
+    },
+    "BIOMASS_Mcapsulatus": {
+      "name": "BIOMASS_REACTION",
+      "equation": "3e-06 2ddg6p_c + 0.006 2pg_c + 0.00015 6pgc_c + 0.0001 accoa_c + 6e-08 adocbl_c + 0.576 ala__L_c + 0.00022 amet_c + 0.254 arg__L_c + 0.119 asn__L_c + 0.468 asp__L_c + 23.11185589 atp_c + 0.06986377 ca2_c + 0.001 cit_c + 0.21438646 cl_c + 3.15904e-06 clpn_MC_c + 0.00022 coa_c + 5.769e-05 cobalt2_c + 0.002 colipa_e + 0.00186552 cpoa2h_c + 0.04425885 ctp_c + 0.00151072 cu2_c + 0.038 cys__L_c + 0.00866366 datp_c + 0.01571821 dctp_c + 0.01446787 dgtp_c + 0.01282849 dpterol_c + 0.00882698 dttp_c + 0.003 f6p_c + 0.00022 fad_c + 0.001 fdp_c + 0.0059 fe2_c + 0.00022 fmn_c + 0.00022 fmnh2_c + 0.001 fum_c + 0.003 g3p_c + 0.002 g6p_c + 0.24977798 glc__D_c + 0.15 gln__L_c + 0.519 glu__L_c + 0.484 gly_c + 0.001 glyc_R_c + 0.00022 gthrd_c + 0.04084668 gtp_c + 17.77579456 h2o_c + 0.01558994 hdca_c + 0.104 his__L_c + 0.00179858 hpdca_c + 0.242 ile__L_c + 0.00016652 inost_c + 0.17647826 k_c + 0.00515564 lanost_c + 0.415 leu__L_c + 0.277 lys__L_c + 0.004 mal__L_c + 0.13 met__L_c + 0.12343139 mg2_c + 1.8e-05 mn2_c + 0.03914785 na1_c + 0.00106469 nac_c + 0.002 nad_c + 0.002 nadh_c + 0.001 nadp_c + 0.001 nadph_c + 3.4e-05 ni2_c + 8.548e-05 ocdca_c + 0.00014349 ocdcea_c + 9.37385e-06 pc_MC_c + 9.134262e-05 pe_MC_c + 0.005 pep_c + 0.053 peptido_MC_c + 1.538077e-05 pg_MC_c + 0.185 phe__L_c + 0.00022 pheme_c + 0.248 pro__L_c + 0.00023422 ptdca_c + 0.015 pyr_c + 0.00022 q8h2_im + 0.00019396 ribflv_c + 0.001 ru5p_D_c + 0.246 ser__L_c + 0.01339118 sql_c + 0.002 succ_c + 2.865e-05 thmpp_c + 0.271 thr__L_c + 0.093 trp__L_c + 0.0014565 ttdca_c + 0.00017921 ttdcea_c + 0.132 tyr__L_c + 0.02560771 utp_c + 0.36 val__L_c + 0.001 zn2_c --> 23.08742079 adp_c + 23.08742079 h_c + 22.88736056 pi_c + 0.18282505 ppi_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "annotations": {},
+      "float_residuals": {
+        "C": -37.56665532624004,
+        "H": -60.162774985199995,
+        "O": -14.476841588720143,
+        "P": -0.5513509899999817,
+        "charge": 0.6566470500000123,
+        "N": -8.192379790000047,
+        "S": -0.16878864999999998,
+        "Co": -5.775e-05,
+        "Ca": -0.06986377,
+        "Cl": -0.21438646,
+        "Cu": -0.00151072,
+        "Fe": -0.00612,
+        "K": -0.17647826,
+        "Mg": -0.12343139,
+        "Mn": -1.8e-05,
+        "Na": -0.03914785,
+        "Ni": -3.4e-05,
+        "Zn": -0.001
+      },
+      "decimal_residuals": {
+        "C": "-37.56665532624",
+        "H": "-60.16277498520",
+        "O": "-14.47684158872",
+        "P": "-0.55135099000",
+        "charge": "0.65664705000",
+        "N": "-8.19237979000",
+        "S": "-0.16878865",
+        "Co": "-0.00005775",
+        "Ca": "-0.06986377",
+        "Cl": "-0.21438646",
+        "Cu": "-0.00151072",
+        "Fe": "-0.00612",
+        "K": "-0.17647826",
+        "Mg": "-0.12343139",
+        "Mn": "-0.000018",
+        "Na": "-0.03914785",
+        "Ni": "-0.000034",
+        "Zn": "-0.001"
+      },
+      "terms": [
+        {
+          "id": "2ddg6p_c",
+          "name": "2-dehydro-3-deoxy-6-phosphonato-D-gluconate(3-)",
+          "formula": "C6H8O9P",
+          "charge": -3,
+          "coefficient": -3e-06,
+          "molecular_weight_g_per_mol": 255.096081,
+          "signed_biomass_mass_g_per_model_unit": 7.65288243e-07
+        },
+        {
+          "id": "2pg_c",
+          "name": "2-phospho-D-glycerate",
+          "formula": "C3H4O7P",
+          "charge": -3,
+          "coefficient": -0.006,
+          "molecular_weight_g_per_mol": 183.033421,
+          "signed_biomass_mass_g_per_model_unit": 0.001098200526
+        },
+        {
+          "id": "6pgc_c",
+          "name": "6-phosphonatooxy-D-gluconate",
+          "formula": "C6H10O10P",
+          "charge": -3,
+          "coefficient": -0.00015,
+          "molecular_weight_g_per_mol": 273.111361,
+          "signed_biomass_mass_g_per_model_unit": 4.0966704149999994e-05
+        },
+        {
+          "id": "accoa_c",
+          "name": "acetyl-CoA(4-)",
+          "formula": "C23H34N7O17P3S",
+          "charge": -4,
+          "coefficient": -0.0001,
+          "molecular_weight_g_per_mol": 805.539043,
+          "signed_biomass_mass_g_per_model_unit": 8.055390430000001e-05
+        },
+        {
+          "id": "adocbl_c",
+          "name": "adenosylcobalamin",
+          "formula": "C72H100CoN18O17P",
+          "charge": 0,
+          "coefficient": -6e-08,
+          "molecular_weight_g_per_mol": 1579.581761,
+          "signed_biomass_mass_g_per_model_unit": 9.477490565999999e-08
+        },
+        {
+          "id": "ala__L_c",
+          "name": "L-alanine zwitterion",
+          "formula": "C3H7NO2",
+          "charge": 0,
+          "coefficient": -0.576,
+          "molecular_weight_g_per_mol": 89.09318,
+          "signed_biomass_mass_g_per_model_unit": 0.051317671679999996
+        },
+        {
+          "id": "amet_c",
+          "name": "S-adenosyl-L-methionine",
+          "formula": "C15H23N6O5S",
+          "charge": 1,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 399.44532000000004,
+          "signed_biomass_mass_g_per_model_unit": 8.78779704e-05
+        },
+        {
+          "id": "arg__L_c",
+          "name": "L-argininium(1+)",
+          "formula": "C6H15N4O2",
+          "charge": 1,
+          "coefficient": -0.254,
+          "molecular_weight_g_per_mol": 175.2089,
+          "signed_biomass_mass_g_per_model_unit": 0.0445030606
+        },
+        {
+          "id": "asn__L_c",
+          "name": "L-asparagine zwitterion",
+          "formula": "C4H8N2O3",
+          "charge": 0,
+          "coefficient": -0.119,
+          "molecular_weight_g_per_mol": 132.11792,
+          "signed_biomass_mass_g_per_model_unit": 0.01572203248
+        },
+        {
+          "id": "asp__L_c",
+          "name": "L-aspartate(1-)",
+          "formula": "C4H6NO4",
+          "charge": -1,
+          "coefficient": -0.468,
+          "molecular_weight_g_per_mol": 132.09474,
+          "signed_biomass_mass_g_per_model_unit": 0.06182033832000001
+        },
+        {
+          "id": "atp_c",
+          "name": "ATP",
+          "formula": "C10H12N5O13P3",
+          "charge": -4,
+          "coefficient": -23.11185589,
+          "molecular_weight_g_per_mol": 503.149263,
+          "signed_biomass_mass_g_per_model_unit": 11.62871325761571
+        },
+        {
+          "id": "ca2_c",
+          "name": "Ca(2+)",
+          "formula": "Ca",
+          "charge": 2,
+          "coefficient": -0.06986377,
+          "molecular_weight_g_per_mol": 40.078,
+          "signed_biomass_mass_g_per_model_unit": 0.0028000001740600003
+        },
+        {
+          "id": "cit_c",
+          "name": "citrate",
+          "formula": "C6H5O7",
+          "charge": -3,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 189.0997,
+          "signed_biomass_mass_g_per_model_unit": 0.00018909970000000002
+        },
+        {
+          "id": "cl_c",
+          "name": "Cl(-)",
+          "formula": "Cl",
+          "charge": -1,
+          "coefficient": -0.21438646,
+          "molecular_weight_g_per_mol": 35.453,
+          "signed_biomass_mass_g_per_model_unit": 0.00760064316638
+        },
+        {
+          "id": "clpn_MC_c",
+          "name": "Cardiolipin",
+          "formula": "C73164H140220O16992P2000",
+          "charge": 2000,
+          "coefficient": -3.15904e-06,
+          "molecular_weight_g_per_mol": 1353893.5284,
+          "signed_biomass_mass_g_per_model_unit": 0.004277003811956736
+        },
+        {
+          "id": "coa_c",
+          "name": "CoA",
+          "formula": "C21H32N7O16P3S",
+          "charge": -4,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 763.502363,
+          "signed_biomass_mass_g_per_model_unit": 0.00016797051986
+        },
+        {
+          "id": "cobalt2_c",
+          "name": "Co(2+)",
+          "formula": "Co",
+          "charge": 2,
+          "coefficient": -5.769e-05,
+          "molecular_weight_g_per_mol": 58.9332,
+          "signed_biomass_mass_g_per_model_unit": 3.3998563079999997e-06
+        },
+        {
+          "id": "colipa_e",
+          "name": "colipa_e",
+          "formula": "C176H303N2O100P4",
+          "charge": -11,
+          "coefficient": -0.002,
+          "molecular_weight_g_per_mol": 4171.137464,
+          "signed_biomass_mass_g_per_model_unit": 0.008342274928
+        },
+        {
+          "id": "cpoa2h_c",
+          "name": "Cyclopropaneoctanoic acid 2-hexyl",
+          "formula": "C17H33O2",
+          "charge": -1,
+          "coefficient": -0.00186552,
+          "molecular_weight_g_per_mol": 269.44272,
+          "signed_biomass_mass_g_per_model_unit": 0.0005026507830144001
+        },
+        {
+          "id": "ctp_c",
+          "name": "CTP(3-)",
+          "formula": "C9H12N3O14P3",
+          "charge": -4,
+          "coefficient": -0.04425885,
+          "molecular_weight_g_per_mol": 479.124563,
+          "signed_biomass_mass_g_per_model_unit": 0.021205502165132555
+        },
+        {
+          "id": "cu2_c",
+          "name": "Cu2+",
+          "formula": "Cu",
+          "charge": 2,
+          "coefficient": -0.00151072,
+          "molecular_weight_g_per_mol": 63.546,
+          "signed_biomass_mass_g_per_model_unit": 9.600021312e-05
+        },
+        {
+          "id": "cys__L_c",
+          "name": "L-cysteine zwitterion",
+          "formula": "C3H7NO2S",
+          "charge": 0,
+          "coefficient": -0.038,
+          "molecular_weight_g_per_mol": 121.15818,
+          "signed_biomass_mass_g_per_model_unit": 0.00460401084
+        },
+        {
+          "id": "datp_c",
+          "name": "dATP",
+          "formula": "C10H12N5O12P3",
+          "charge": -4,
+          "coefficient": -0.00866366,
+          "molecular_weight_g_per_mol": 487.149863,
+          "signed_biomass_mass_g_per_model_unit": 0.00422050078207858
+        },
+        {
+          "id": "dctp_c",
+          "name": "dCTP(3-)",
+          "formula": "C9H12N3O13P3",
+          "charge": -4,
+          "coefficient": -0.01571821,
+          "molecular_weight_g_per_mol": 463.125163,
+          "signed_biomass_mass_g_per_model_unit": 0.00727949856831823
+        },
+        {
+          "id": "dgtp_c",
+          "name": "dGTP(3-)",
+          "formula": "C10H12N5O13P3",
+          "charge": -4,
+          "coefficient": -0.01446787,
+          "molecular_weight_g_per_mol": 503.149263,
+          "signed_biomass_mass_g_per_model_unit": 0.007279498127679811
+        },
+        {
+          "id": "dpterol_c",
+          "name": "hopan-22-ol",
+          "formula": "C30H52O",
+          "charge": 0,
+          "coefficient": -0.01282849,
+          "molecular_weight_g_per_mol": 428.73328000000004,
+          "signed_biomass_mass_g_per_model_unit": 0.0055000005951472
+        },
+        {
+          "id": "dttp_c",
+          "name": "dTTP(3-)",
+          "formula": "C10H13N2O14P3",
+          "charge": -4,
+          "coefficient": -0.00882698,
+          "molecular_weight_g_per_mol": 478.136503,
+          "signed_biomass_mass_g_per_model_unit": 0.00422050134925094
+        },
+        {
+          "id": "f6p_c",
+          "name": "beta-D-fructofuranose 6-phosphate(2-)",
+          "formula": "C6H11O9P",
+          "charge": -2,
+          "coefficient": -0.003,
+          "molecular_weight_g_per_mol": 258.11990099999997,
+          "signed_biomass_mass_g_per_model_unit": 0.0007743597029999999
+        },
+        {
+          "id": "fad_c",
+          "name": "FAD",
+          "formula": "C27H31N9O15P2",
+          "charge": -2,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 783.533862,
+          "signed_biomass_mass_g_per_model_unit": 0.00017237744964000002
+        },
+        {
+          "id": "fdp_c",
+          "name": "D-fructofuranose 1,6-bisphosphate(4-)",
+          "formula": "C6H10O12P2",
+          "charge": -4,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 336.083922,
+          "signed_biomass_mass_g_per_model_unit": 0.000336083922
+        },
+        {
+          "id": "fe2_c",
+          "name": "Fe(2+)",
+          "formula": "Fe",
+          "charge": 2,
+          "coefficient": -0.0059,
+          "molecular_weight_g_per_mol": 55.845,
+          "signed_biomass_mass_g_per_model_unit": 0.0003294855
+        },
+        {
+          "id": "fmn_c",
+          "name": "flavin mononucleotide",
+          "formula": "C17H19N4O9P",
+          "charge": -2,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 454.327921,
+          "signed_biomass_mass_g_per_model_unit": 9.995214262e-05
+        },
+        {
+          "id": "fmnh2_c",
+          "name": "FMNH2",
+          "formula": "C17H21N4O9P",
+          "charge": -2,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 456.343801,
+          "signed_biomass_mass_g_per_model_unit": 0.00010039563622
+        },
+        {
+          "id": "fum_c",
+          "name": "fumarate(2-)",
+          "formula": "C4H2O4",
+          "charge": -2,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 114.05628,
+          "signed_biomass_mass_g_per_model_unit": 0.00011405628000000001
+        },
+        {
+          "id": "g3p_c",
+          "name": "D-glyceraldehyde 3-phosphate",
+          "formula": "C3H5O6P",
+          "charge": -2,
+          "coefficient": -0.003,
+          "molecular_weight_g_per_mol": 168.041961,
+          "signed_biomass_mass_g_per_model_unit": 0.000504125883
+        },
+        {
+          "id": "g6p_c",
+          "name": "beta-D-glucose 6-phosphate(2-)",
+          "formula": "C6H11O9P",
+          "charge": -2,
+          "coefficient": -0.002,
+          "molecular_weight_g_per_mol": 258.11990099999997,
+          "signed_biomass_mass_g_per_model_unit": 0.000516239802
+        },
+        {
+          "id": "glc__D_c",
+          "name": "D-glucopyranose",
+          "formula": "C6H12O6",
+          "charge": 0,
+          "coefficient": -0.24977798,
+          "molecular_weight_g_per_mol": 180.15588,
+          "signed_biomass_mass_g_per_model_unit": 0.0449989717915224
+        },
+        {
+          "id": "gln__L_c",
+          "name": "L-glutamine zwitterion",
+          "formula": "C5H10N2O3",
+          "charge": 0,
+          "coefficient": -0.15,
+          "molecular_weight_g_per_mol": 146.1445,
+          "signed_biomass_mass_g_per_model_unit": 0.021921674999999998
+        },
+        {
+          "id": "glu__L_c",
+          "name": "L-glutamate",
+          "formula": "C5H8NO4",
+          "charge": -1,
+          "coefficient": -0.519,
+          "molecular_weight_g_per_mol": 146.12132,
+          "signed_biomass_mass_g_per_model_unit": 0.07583696508
+        },
+        {
+          "id": "gly_c",
+          "name": "glycine",
+          "formula": "C2H5NO2",
+          "charge": 0,
+          "coefficient": -0.484,
+          "molecular_weight_g_per_mol": 75.0666,
+          "signed_biomass_mass_g_per_model_unit": 0.036332234399999996
+        },
+        {
+          "id": "glyc_R_c",
+          "name": "D-glycerate",
+          "formula": "C3H5O4",
+          "charge": -1,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 105.0694,
+          "signed_biomass_mass_g_per_model_unit": 0.00010506940000000001
+        },
+        {
+          "id": "gthrd_c",
+          "name": "glutathione",
+          "formula": "C10H16N3O6S",
+          "charge": -1,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 306.31554,
+          "signed_biomass_mass_g_per_model_unit": 6.73894188e-05
+        },
+        {
+          "id": "gtp_c",
+          "name": "GTP",
+          "formula": "C10H12N5O14P3",
+          "charge": -4,
+          "coefficient": -0.04084668,
+          "molecular_weight_g_per_mol": 519.148663,
+          "signed_biomass_mass_g_per_model_unit": 0.021205499309988846
+        },
+        {
+          "id": "h2o_c",
+          "name": "H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "coefficient": -17.77579456,
+          "molecular_weight_g_per_mol": 18.01528,
+          "signed_biomass_mass_g_per_model_unit": 0.3202359162208768
+        },
+        {
+          "id": "hdca_c",
+          "name": "palmitate",
+          "formula": "C16H31O2",
+          "charge": -1,
+          "coefficient": -0.01558994,
+          "molecular_weight_g_per_mol": 255.41613999999998,
+          "signed_biomass_mass_g_per_model_unit": 0.0039819222976316
+        },
+        {
+          "id": "his__L_c",
+          "name": "L-histidine zwitterion",
+          "formula": "C6H9N3O2",
+          "charge": 0,
+          "coefficient": -0.104,
+          "molecular_weight_g_per_mol": 155.15456,
+          "signed_biomass_mass_g_per_model_unit": 0.01613607424
+        },
+        {
+          "id": "hpdca_c",
+          "name": "hpdca_c",
+          "formula": "C17H33O2",
+          "charge": -1,
+          "coefficient": -0.00179858,
+          "molecular_weight_g_per_mol": 269.44272,
+          "signed_biomass_mass_g_per_model_unit": 0.00048461428733759997
+        },
+        {
+          "id": "ile__L_c",
+          "name": "L-isoleucine zwitterion",
+          "formula": "C6H13NO2",
+          "charge": 0,
+          "coefficient": -0.242,
+          "molecular_weight_g_per_mol": 131.17292,
+          "signed_biomass_mass_g_per_model_unit": 0.031743846640000004
+        },
+        {
+          "id": "inost_c",
+          "name": "myo-inositol",
+          "formula": "C6H12O6",
+          "charge": 0,
+          "coefficient": -0.00016652,
+          "molecular_weight_g_per_mol": 180.15588,
+          "signed_biomass_mass_g_per_model_unit": 2.99995571376e-05
+        },
+        {
+          "id": "k_c",
+          "name": "K(+)",
+          "formula": "K",
+          "charge": 1,
+          "coefficient": -0.17647826,
+          "molecular_weight_g_per_mol": 39.0983,
+          "signed_biomass_mass_g_per_model_unit": 0.006899999952958
+        },
+        {
+          "id": "lanost_c",
+          "name": "lanosterol",
+          "formula": "C30H50O",
+          "charge": 0,
+          "coefficient": -0.00515564,
+          "molecular_weight_g_per_mol": 426.71740000000005,
+          "signed_biomass_mass_g_per_model_unit": 0.0022000012961360003
+        },
+        {
+          "id": "leu__L_c",
+          "name": "L-leucine zwitterion",
+          "formula": "C6H13NO2",
+          "charge": 0,
+          "coefficient": -0.415,
+          "molecular_weight_g_per_mol": 131.17292,
+          "signed_biomass_mass_g_per_model_unit": 0.0544367618
+        },
+        {
+          "id": "lys__L_c",
+          "name": "L-lysinium(1+)",
+          "formula": "C6H15N2O2",
+          "charge": 1,
+          "coefficient": -0.277,
+          "molecular_weight_g_per_mol": 147.1955,
+          "signed_biomass_mass_g_per_model_unit": 0.040773153500000006
+        },
+        {
+          "id": "mal__L_c",
+          "name": "(S)-malate",
+          "formula": "C4H4O5",
+          "charge": -2,
+          "coefficient": -0.004,
+          "molecular_weight_g_per_mol": 132.07156,
+          "signed_biomass_mass_g_per_model_unit": 0.00052828624
+        },
+        {
+          "id": "met__L_c",
+          "name": "L-methionine zwitterion",
+          "formula": "C5H11NO2S",
+          "charge": 0,
+          "coefficient": -0.13,
+          "molecular_weight_g_per_mol": 149.21134,
+          "signed_biomass_mass_g_per_model_unit": 0.0193974742
+        },
+        {
+          "id": "mg2_c",
+          "name": "Mg(2+)",
+          "formula": "Mg",
+          "charge": 2,
+          "coefficient": -0.12343139,
+          "molecular_weight_g_per_mol": 24.305,
+          "signed_biomass_mass_g_per_model_unit": 0.00299999993395
+        },
+        {
+          "id": "mn2_c",
+          "name": "Manganese(2+)",
+          "formula": "Mn",
+          "charge": 0,
+          "coefficient": -1.8e-05,
+          "molecular_weight_g_per_mol": 54.938049,
+          "signed_biomass_mass_g_per_model_unit": 9.88884882e-07
+        },
+        {
+          "id": "na1_c",
+          "name": "Na(+)",
+          "formula": "Na",
+          "charge": 1,
+          "coefficient": -0.03914785,
+          "molecular_weight_g_per_mol": 22.98977,
+          "signed_biomass_mass_g_per_model_unit": 0.0009000000674944999
+        },
+        {
+          "id": "nac_c",
+          "name": "nicotinate",
+          "formula": "C6H4NO2",
+          "charge": -1,
+          "coefficient": -0.00106469,
+          "molecular_weight_g_per_mol": 122.10146,
+          "signed_biomass_mass_g_per_model_unit": 0.0001300002034474
+        },
+        {
+          "id": "nad_c",
+          "name": "NAD(+)",
+          "formula": "C21H26N7O14P2",
+          "charge": -1,
+          "coefficient": -0.002,
+          "molecular_weight_g_per_mol": 662.417162,
+          "signed_biomass_mass_g_per_model_unit": 0.001324834324
+        },
+        {
+          "id": "nadh_c",
+          "name": "NADH(2-)",
+          "formula": "C21H27N7O14P2",
+          "charge": -2,
+          "coefficient": -0.002,
+          "molecular_weight_g_per_mol": 663.425102,
+          "signed_biomass_mass_g_per_model_unit": 0.0013268502040000001
+        },
+        {
+          "id": "nadp_c",
+          "name": "NADP(+)",
+          "formula": "C21H25N7O17P3",
+          "charge": -3,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 740.381183,
+          "signed_biomass_mass_g_per_model_unit": 0.0007403811829999999
+        },
+        {
+          "id": "nadph_c",
+          "name": "NADPH",
+          "formula": "C21H26N7O17P3",
+          "charge": -4,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 741.389123,
+          "signed_biomass_mass_g_per_model_unit": 0.000741389123
+        },
+        {
+          "id": "ni2_c",
+          "name": "Nickel",
+          "formula": "Ni",
+          "charge": 0,
+          "coefficient": -3.4e-05,
+          "molecular_weight_g_per_mol": 58.6934,
+          "signed_biomass_mass_g_per_model_unit": 1.9955756e-06
+        },
+        {
+          "id": "ocdca_c",
+          "name": "stearate",
+          "formula": "C18H35O2",
+          "charge": -1,
+          "coefficient": -8.548e-05,
+          "molecular_weight_g_per_mol": 283.4693,
+          "signed_biomass_mass_g_per_model_unit": 2.4230955763999997e-05
+        },
+        {
+          "id": "ocdcea_c",
+          "name": "Octadecenoate (n-C18:1)",
+          "formula": "C18H33O2",
+          "charge": -1,
+          "coefficient": -0.00014349,
+          "molecular_weight_g_per_mol": 281.45342,
+          "signed_biomass_mass_g_per_model_unit": 4.0385751235799995e-05
+        },
+        {
+          "id": "pc_MC_c",
+          "name": "Phosphatidylcholine",
+          "formula": "C40082H75110N1000O7996P1000",
+          "charge": 3000,
+          "coefficient": -9.37385e-06,
+          "molecular_weight_g_per_mol": 730030.9142,
+          "signed_biomass_mass_g_per_model_unit": 0.00684320028507367
+        },
+        {
+          "id": "pe_MC_c",
+          "name": "Phosphatidylethanolamin",
+          "formula": "C37082H74110N1000O7996P1000",
+          "charge": 2000,
+          "coefficient": -9.134262e-05,
+          "molecular_weight_g_per_mol": 692990.8742000001,
+          "signed_biomass_mass_g_per_model_unit": 0.06329960208551841
+        },
+        {
+          "id": "pep_c",
+          "name": "phosphoenolpyruvate",
+          "formula": "C3H2O6P",
+          "charge": -3,
+          "coefficient": -0.005,
+          "molecular_weight_g_per_mol": 165.01814099999999,
+          "signed_biomass_mass_g_per_model_unit": 0.0008250907049999999
+        },
+        {
+          "id": "peptido_MC_c",
+          "name": "peptido_MC_c",
+          "formula": "C40H62N8O21",
+          "charge": -2,
+          "coefficient": -0.053,
+          "molecular_weight_g_per_mol": 990.96128,
+          "signed_biomass_mass_g_per_model_unit": 0.05252094784
+        },
+        {
+          "id": "pg_MC_c",
+          "name": "Phosphatidylglycerol",
+          "formula": "C38082H74110O9996P1000",
+          "charge": 1000,
+          "coefficient": -1.538077e-05,
+          "molecular_weight_g_per_mol": 722993.6742,
+          "signed_biomass_mass_g_per_model_unit": 0.011120199414325136
+        },
+        {
+          "id": "phe__L_c",
+          "name": "L-phenylalanine",
+          "formula": "C9H11NO2",
+          "charge": 0,
+          "coefficient": -0.185,
+          "molecular_weight_g_per_mol": 165.18914,
+          "signed_biomass_mass_g_per_model_unit": 0.030559990900000004
+        },
+        {
+          "id": "pheme_c",
+          "name": "heme b",
+          "formula": "C34H30FeN4O4",
+          "charge": -2,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 614.4714,
+          "signed_biomass_mass_g_per_model_unit": 0.00013518370800000003
+        },
+        {
+          "id": "pro__L_c",
+          "name": "L-proline",
+          "formula": "C5H9NO2",
+          "charge": 0,
+          "coefficient": -0.248,
+          "molecular_weight_g_per_mol": 115.13046,
+          "signed_biomass_mass_g_per_model_unit": 0.02855235408
+        },
+        {
+          "id": "ptdca_c",
+          "name": "ptdca_c",
+          "formula": "C15H29O2",
+          "charge": -1,
+          "coefficient": -0.00023422,
+          "molecular_weight_g_per_mol": 241.38956000000002,
+          "signed_biomass_mass_g_per_model_unit": 5.65382627432e-05
+        },
+        {
+          "id": "pyr_c",
+          "name": "pyruvate",
+          "formula": "C3H3O3",
+          "charge": -1,
+          "coefficient": -0.015,
+          "molecular_weight_g_per_mol": 87.05412,
+          "signed_biomass_mass_g_per_model_unit": 0.0013058117999999999
+        },
+        {
+          "id": "q8h2_im",
+          "name": "Ubiquinol-8",
+          "formula": "C49H76O4",
+          "charge": 0,
+          "coefficient": -0.00022,
+          "molecular_weight_g_per_mol": 729.12534,
+          "signed_biomass_mass_g_per_model_unit": 0.00016040757480000002
+        },
+        {
+          "id": "ribflv_c",
+          "name": "riboflavin",
+          "formula": "C17H20N4O6",
+          "charge": 0,
+          "coefficient": -0.00019396,
+          "molecular_weight_g_per_mol": 376.3639,
+          "signed_biomass_mass_g_per_model_unit": 7.2999542044e-05
+        },
+        {
+          "id": "ru5p_D_c",
+          "name": "D-ribulose 5-phosphate(2-)",
+          "formula": "C5H9O8P",
+          "charge": -2,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 228.093921,
+          "signed_biomass_mass_g_per_model_unit": 0.000228093921
+        },
+        {
+          "id": "ser__L_c",
+          "name": "L-serine",
+          "formula": "C3H7NO3",
+          "charge": 0,
+          "coefficient": -0.246,
+          "molecular_weight_g_per_mol": 105.09258,
+          "signed_biomass_mass_g_per_model_unit": 0.02585277468
+        },
+        {
+          "id": "sql_c",
+          "name": "squalene",
+          "formula": "C30H50",
+          "charge": 0,
+          "coefficient": -0.01339118,
+          "molecular_weight_g_per_mol": 410.718,
+          "signed_biomass_mass_g_per_model_unit": 0.005499998667240001
+        },
+        {
+          "id": "succ_c",
+          "name": "succinate(2-)",
+          "formula": "C4H4O4",
+          "charge": -2,
+          "coefficient": -0.002,
+          "molecular_weight_g_per_mol": 116.07216,
+          "signed_biomass_mass_g_per_model_unit": 0.00023214432
+        },
+        {
+          "id": "thmpp_c",
+          "name": "Thiamine diphosphate",
+          "formula": "C12H16N4O7P2S",
+          "charge": -2,
+          "coefficient": -2.865e-05,
+          "molecular_weight_g_per_mol": 422.290562,
+          "signed_biomass_mass_g_per_model_unit": 1.20986246013e-05
+        },
+        {
+          "id": "thr__L_c",
+          "name": "L-threonine zwitterion",
+          "formula": "C4H9NO3",
+          "charge": 0,
+          "coefficient": -0.271,
+          "molecular_weight_g_per_mol": 119.11916,
+          "signed_biomass_mass_g_per_model_unit": 0.032281292360000005
+        },
+        {
+          "id": "trp__L_c",
+          "name": "L-tryptophan zwitterion",
+          "formula": "C11H12N2O2",
+          "charge": 0,
+          "coefficient": -0.093,
+          "molecular_weight_g_per_mol": 204.22518000000002,
+          "signed_biomass_mass_g_per_model_unit": 0.01899294174
+        },
+        {
+          "id": "ttdca_c",
+          "name": "ttdca_c",
+          "formula": "C14H27O2",
+          "charge": -1,
+          "coefficient": -0.0014565,
+          "molecular_weight_g_per_mol": 227.36298,
+          "signed_biomass_mass_g_per_model_unit": 0.0003311541803699999
+        },
+        {
+          "id": "ttdcea_c",
+          "name": "ttdcea_c",
+          "formula": "C14H25O2",
+          "charge": -1,
+          "coefficient": -0.00017921,
+          "molecular_weight_g_per_mol": 225.3471,
+          "signed_biomass_mass_g_per_model_unit": 4.0384453791e-05
+        },
+        {
+          "id": "tyr__L_c",
+          "name": "L-tyrosine zwitterion",
+          "formula": "C9H11NO3",
+          "charge": 0,
+          "coefficient": -0.132,
+          "molecular_weight_g_per_mol": 181.18854,
+          "signed_biomass_mass_g_per_model_unit": 0.02391688728
+        },
+        {
+          "id": "utp_c",
+          "name": "UTP (3-)",
+          "formula": "C9H11N2O15P3",
+          "charge": -4,
+          "coefficient": -0.02560771,
+          "molecular_weight_g_per_mol": 480.109323,
+          "signed_biomass_mass_g_per_model_unit": 0.01229450031168033
+        },
+        {
+          "id": "val__L_c",
+          "name": "L-valine zwitterion",
+          "formula": "C5H11NO2",
+          "charge": 0,
+          "coefficient": -0.36,
+          "molecular_weight_g_per_mol": 117.14634,
+          "signed_biomass_mass_g_per_model_unit": 0.0421726824
+        },
+        {
+          "id": "zn2_c",
+          "name": "Zinc",
+          "formula": "Zn",
+          "charge": 2,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 65.409,
+          "signed_biomass_mass_g_per_model_unit": 6.540900000000001e-05
+        },
+        {
+          "id": "adp_c",
+          "name": "ADP",
+          "formula": "C10H12N5O10P2",
+          "charge": -3,
+          "coefficient": 23.08742079,
+          "molecular_weight_g_per_mol": 424.177302,
+          "signed_biomass_mass_g_per_model_unit": -9.793159860840907
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 23.08742079,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0232707349110726
+        },
+        {
+          "id": "pi_c",
+          "name": "phosphate",
+          "formula": "HO4P",
+          "charge": -2,
+          "coefficient": 22.88736056,
+          "molecular_weight_g_per_mol": 95.97930099999999,
+          "signed_biomass_mass_g_per_model_unit": -2.196712868283768
+        },
+        {
+          "id": "ppi_c",
+          "name": "diphosphate(3-)",
+          "formula": "HO7P2",
+          "charge": -3,
+          "coefficient": 0.18282505,
+          "molecular_weight_g_per_mol": 174.951262,
+          "signed_biomass_mass_g_per_model_unit": -0.0319854732227131
+        }
+      ]
+    },
+    "BTNC": {
+      "name": "Biotin carboxylase",
+      "equation": "atp_c + btnCCP_c + hco3_c --> adp_c + cbtnCCP_c + h_c + pi_c",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA1046 or MCA1045 or MCA1804 or MCA2493",
+      "annotations": {
+        "bigg.reaction": "BTNC",
+        "brenda": "6.3.4.14",
+        "kegg.reaction": "R04385",
+        "metanetx.reaction": "MNXR48675"
+      },
+      "float_residuals": {
+        "charge": 1.0
+      },
+      "decimal_residuals": {
+        "charge": "1.0"
+      },
+      "terms": [
+        {
+          "id": "atp_c",
+          "name": "ATP",
+          "formula": "C10H12N5O13P3",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 503.149263,
+          "signed_biomass_mass_g_per_model_unit": 0.5031492630000001
+        },
+        {
+          "id": "btnCCP_c",
+          "name": "Holo-[carboxylase]",
+          "formula": "C17H27N5O4SR2",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "hco3_c",
+          "name": "bicarbonate",
+          "formula": "CHO3",
+          "charge": -1,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 61.016839999999995,
+          "signed_biomass_mass_g_per_model_unit": 0.061016839999999996
+        },
+        {
+          "id": "adp_c",
+          "name": "ADP",
+          "formula": "C10H12N5O10P2",
+          "charge": -3,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 424.177302,
+          "signed_biomass_mass_g_per_model_unit": -0.424177302
+        },
+        {
+          "id": "cbtnCCP_c",
+          "name": "Carboxybiotin-carboxyl-carrier protein",
+          "formula": "C18H26N5O6SR2",
+          "charge": 0,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0010079400000000001
+        },
+        {
+          "id": "pi_c",
+          "name": "phosphate",
+          "formula": "HO4P",
+          "charge": -2,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 95.97930099999999,
+          "signed_biomass_mass_g_per_model_unit": -0.09597930099999999
+        }
+      ]
+    },
+    "CYP460ipp": {
+      "name": "Cytochrome P460 - Hydroxylamine Dehydrogenase",
+      "equation": "2.0 ficytcc555_p + h2o_p + ham_p --> 2.0 focytcc555_p + 5.0 h_p + no2_p",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0524",
+      "annotations": {
+        "brenda": "1.7.2.6"
+      },
+      "float_residuals": {
+        "charge": 2.0
+      },
+      "decimal_residuals": {
+        "charge": "2.0"
+      },
+      "terms": [
+        {
+          "id": "ficytcc555_p",
+          "name": "ferricytochrome c",
+          "formula": "C42H54FeN8O6S2",
+          "charge": 3,
+          "coefficient": -2.0,
+          "molecular_weight_g_per_mol": 886.90316,
+          "signed_biomass_mass_g_per_model_unit": 1.7738063199999998
+        },
+        {
+          "id": "h2o_p",
+          "name": "H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 18.01528,
+          "signed_biomass_mass_g_per_model_unit": 0.01801528
+        },
+        {
+          "id": "ham_p",
+          "name": "hydroxylamine",
+          "formula": "H3NO",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 33.02992,
+          "signed_biomass_mass_g_per_model_unit": 0.03302992
+        },
+        {
+          "id": "focytcc555_p",
+          "name": "ferrocytochrome c",
+          "formula": "C42H54FeN8O6S2",
+          "charge": 2,
+          "coefficient": 2.0,
+          "molecular_weight_g_per_mol": 886.90316,
+          "signed_biomass_mass_g_per_model_unit": -1.7738063199999998
+        },
+        {
+          "id": "h_p",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 5.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0050397
+        },
+        {
+          "id": "no2_p",
+          "name": "nitrite",
+          "formula": "NO2",
+          "charge": -1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 46.0055,
+          "signed_biomass_mass_g_per_model_unit": -0.0460055
+        }
+      ]
+    },
+    "G3PAT_MCi": {
+      "name": "Glycerol-3-phosphate acyltransferase",
+      "equation": "glyc1p_c + 0.001 mc_fattyacidcoa_c --> 0.001 1agpgafa_MC_c + coa_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA2004 or MCA2989",
+      "annotations": {
+        "biocyc": "META:RXN-1381",
+        "biopath": "BIOPATH:RXN01142",
+        "brenda": "2.3.1.15",
+        "kegg.reaction": "R00851",
+        "metanetx.reaction": "MNXR84812",
+        "reactome": [
+          "REACT_102260",
+          "REACT_103249",
+          "REACT_105365",
+          "REACT_105427",
+          "REACT_106143",
+          "REACT_109516",
+          "REACT_112568",
+          "REACT_113073",
+          "REACT_114086",
+          "REACT_114724",
+          "REACT_121291",
+          "REACT_125721",
+          "REACT_127128",
+          "REACT_131172",
+          "REACT_131530",
+          "REACT_132684",
+          "REACT_133645",
+          "REACT_139916",
+          "REACT_140865",
+          "REACT_141064",
+          "REACT_146027",
+          "REACT_146799",
+          "REACT_158033",
+          "REACT_159508",
+          "REACT_22419",
+          "REACT_29766",
+          "REACT_31766",
+          "REACT_77771",
+          "REACT_78811",
+          "REACT_81620",
+          "REACT_839",
+          "REACT_84188",
+          "REACT_85896",
+          "REACT_87756",
+          "REACT_94514"
+        ],
+        "rhea": [
+          "15325",
+          "15326",
+          "15327",
+          "15328"
+        ],
+        "seed": "rxn05901",
+        "upa": [
+          "UPA:UCR00851",
+          "UPA:UER00612"
+        ]
+      },
+      "float_residuals": {
+        "C": -3.552713678800501e-15,
+        "H": -7.105427357601002e-15,
+        "charge": 0.0009999999999994458
+      },
+      "decimal_residuals": {
+        "charge": "0.001"
+      },
+      "terms": [
+        {
+          "id": "glyc1p_c",
+          "name": "sn-glycerol 3-phosphate(2-)",
+          "formula": "C3H7O6P",
+          "charge": -2,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 170.057841,
+          "signed_biomass_mass_g_per_model_unit": 0.170057841
+        },
+        {
+          "id": "mc_fattyacidcoa_c",
+          "name": "mc_fattyacidcoa_c",
+          "formula": "C37041H62055N7000O16998P3000S1000",
+          "charge": -3001,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 1002427.0396,
+          "signed_biomass_mass_g_per_model_unit": 1.0024270396000001
+        },
+        {
+          "id": "1agpgafa_MC_c",
+          "name": "1-Acyl-sn-glycero-3-phosphoglycerol (Average Fatty Acid)",
+          "formula": "C19041H37055O6998P1000",
+          "charge": -1000,
+          "coefficient": 0.001,
+          "molecular_weight_g_per_mol": 408982.5176,
+          "signed_biomass_mass_g_per_model_unit": -0.40898251760000004
+        },
+        {
+          "id": "coa_c",
+          "name": "CoA",
+          "formula": "C21H32N7O16P3S",
+          "charge": -4,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 763.502363,
+          "signed_biomass_mass_g_per_model_unit": -0.763502363
+        }
+      ]
+    },
+    "HAORipp": {
+      "name": "Hydroxylamine oxydoreductase",
+      "equation": "2.0 ficytcc555_p + h2o_p + ham_p --> 2.0 focytcc555_p + 5.0 h_p + no2_p",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA0955 and MCA0956",
+      "annotations": {
+        "brenda": "1.7.3.4"
+      },
+      "float_residuals": {
+        "charge": 2.0
+      },
+      "decimal_residuals": {
+        "charge": "2.0"
+      },
+      "terms": [
+        {
+          "id": "ficytcc555_p",
+          "name": "ferricytochrome c",
+          "formula": "C42H54FeN8O6S2",
+          "charge": 3,
+          "coefficient": -2.0,
+          "molecular_weight_g_per_mol": 886.90316,
+          "signed_biomass_mass_g_per_model_unit": 1.7738063199999998
+        },
+        {
+          "id": "h2o_p",
+          "name": "H2O",
+          "formula": "H2O",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 18.01528,
+          "signed_biomass_mass_g_per_model_unit": 0.01801528
+        },
+        {
+          "id": "ham_p",
+          "name": "hydroxylamine",
+          "formula": "H3NO",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 33.02992,
+          "signed_biomass_mass_g_per_model_unit": 0.03302992
+        },
+        {
+          "id": "focytcc555_p",
+          "name": "ferrocytochrome c",
+          "formula": "C42H54FeN8O6S2",
+          "charge": 2,
+          "coefficient": 2.0,
+          "molecular_weight_g_per_mol": 886.90316,
+          "signed_biomass_mass_g_per_model_unit": -1.7738063199999998
+        },
+        {
+          "id": "h_p",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 5.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0050397
+        },
+        {
+          "id": "no2_p",
+          "name": "nitrite",
+          "formula": "NO2",
+          "charge": -1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 46.0055,
+          "signed_biomass_mass_g_per_model_unit": -0.0460055
+        }
+      ]
+    },
+    "MC_AFAA": {
+      "name": "Activation and CoA loading of average fatty acid",
+      "equation": "atp_c + coa_c + 0.001 mc_fattyacid_c --> amp_c + 0.001 mc_fattyacidcoa_c + ppi_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "annotations": {},
+      "float_residuals": {
+        "C": 7.105427357601002e-15,
+        "H": -7.105427357601002e-15,
+        "charge": -4.440892098500626e-16
+      },
+      "decimal_residuals": {},
+      "terms": [
+        {
+          "id": "atp_c",
+          "name": "ATP",
+          "formula": "C10H12N5O13P3",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 503.149263,
+          "signed_biomass_mass_g_per_model_unit": 0.5031492630000001
+        },
+        {
+          "id": "coa_c",
+          "name": "CoA",
+          "formula": "C21H32N7O16P3S",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 763.502363,
+          "signed_biomass_mass_g_per_model_unit": 0.763502363
+        },
+        {
+          "id": "mc_fattyacid_c",
+          "name": "mc_fattyacid_c",
+          "formula": "C16041H31055O1998",
+          "charge": -1,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 255932.0166,
+          "signed_biomass_mass_g_per_model_unit": 0.2559320166
+        },
+        {
+          "id": "amp_c",
+          "name": "AMP",
+          "formula": "C10H12N5O7P",
+          "charge": -2,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 345.20534100000003,
+          "signed_biomass_mass_g_per_model_unit": -0.34520534100000005
+        },
+        {
+          "id": "mc_fattyacidcoa_c",
+          "name": "mc_fattyacidcoa_c",
+          "formula": "C37041H62055N7000O16998P3000S1000",
+          "charge": -3001,
+          "coefficient": 0.001,
+          "molecular_weight_g_per_mol": 1002427.0396,
+          "signed_biomass_mass_g_per_model_unit": -1.0024270396000001
+        },
+        {
+          "id": "ppi_c",
+          "name": "diphosphate(3-)",
+          "formula": "HO7P2",
+          "charge": -3,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 174.951262,
+          "signed_biomass_mass_g_per_model_unit": -0.17495126200000002
+        }
+      ]
+    },
+    "MC_Average_FattyAcid": {
+      "name": "Reaction added to get an acurate representation of the average fatty acid composition of MC",
+      "equation": "0.092 cpoa2h_c + 0.729 hdca_c + 0.089 hpdca_c + 0.004 ocdca_c + 0.007 ocdcea_c + 0.01 ptdca_c + 0.061 ttdca_c + 0.007 ttdcea_c <=> mc_fattyacid_c",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "",
+      "annotations": {},
+      "float_residuals": {
+        "C": 16024.959,
+        "H": 31023.945,
+        "O": 1996.002,
+        "charge": -0.0010000000000000009
+      },
+      "decimal_residuals": {
+        "C": "16024.959",
+        "H": "31023.945",
+        "O": "1996.002",
+        "charge": "-0.001"
+      },
+      "terms": [
+        {
+          "id": "cpoa2h_c",
+          "name": "Cyclopropaneoctanoic acid 2-hexyl",
+          "formula": "C17H33O2",
+          "charge": -1,
+          "coefficient": -0.092,
+          "molecular_weight_g_per_mol": 269.44272,
+          "signed_biomass_mass_g_per_model_unit": 0.02478873024
+        },
+        {
+          "id": "hdca_c",
+          "name": "palmitate",
+          "formula": "C16H31O2",
+          "charge": -1,
+          "coefficient": -0.729,
+          "molecular_weight_g_per_mol": 255.41613999999998,
+          "signed_biomass_mass_g_per_model_unit": 0.18619836605999998
+        },
+        {
+          "id": "hpdca_c",
+          "name": "hpdca_c",
+          "formula": "C17H33O2",
+          "charge": -1,
+          "coefficient": -0.089,
+          "molecular_weight_g_per_mol": 269.44272,
+          "signed_biomass_mass_g_per_model_unit": 0.02398040208
+        },
+        {
+          "id": "ocdca_c",
+          "name": "stearate",
+          "formula": "C18H35O2",
+          "charge": -1,
+          "coefficient": -0.004,
+          "molecular_weight_g_per_mol": 283.4693,
+          "signed_biomass_mass_g_per_model_unit": 0.0011338772
+        },
+        {
+          "id": "ocdcea_c",
+          "name": "Octadecenoate (n-C18:1)",
+          "formula": "C18H33O2",
+          "charge": -1,
+          "coefficient": -0.007,
+          "molecular_weight_g_per_mol": 281.45342,
+          "signed_biomass_mass_g_per_model_unit": 0.00197017394
+        },
+        {
+          "id": "ptdca_c",
+          "name": "ptdca_c",
+          "formula": "C15H29O2",
+          "charge": -1,
+          "coefficient": -0.01,
+          "molecular_weight_g_per_mol": 241.38956000000002,
+          "signed_biomass_mass_g_per_model_unit": 0.0024138956
+        },
+        {
+          "id": "ttdca_c",
+          "name": "ttdca_c",
+          "formula": "C14H27O2",
+          "charge": -1,
+          "coefficient": -0.061,
+          "molecular_weight_g_per_mol": 227.36298,
+          "signed_biomass_mass_g_per_model_unit": 0.01386914178
+        },
+        {
+          "id": "ttdcea_c",
+          "name": "ttdcea_c",
+          "formula": "C14H25O2",
+          "charge": -1,
+          "coefficient": -0.007,
+          "molecular_weight_g_per_mol": 225.3471,
+          "signed_biomass_mass_g_per_model_unit": 0.0015774297000000002
+        },
+        {
+          "id": "mc_fattyacid_c",
+          "name": "mc_fattyacid_c",
+          "formula": "C16041H31055O1998",
+          "charge": -1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 255932.0166,
+          "signed_biomass_mass_g_per_model_unit": -255.9320166
+        }
+      ]
+    },
+    "PFOR": {
+      "name": "Pyruvate flavodoxin oxidoreductase",
+      "equation": "coa_c + flxso_c + pyr_c --> accoa_c + co2_c + flxr_c + h_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0769",
+      "annotations": {
+        "bigg.reaction": "PFOR",
+        "metanetx.reaction": "MNXR83630"
+      },
+      "float_residuals": {
+        "charge": 1.0
+      },
+      "decimal_residuals": {
+        "charge": "1.0"
+      },
+      "terms": [
+        {
+          "id": "coa_c",
+          "name": "CoA",
+          "formula": "C21H32N7O16P3S",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 763.502363,
+          "signed_biomass_mass_g_per_model_unit": 0.763502363
+        },
+        {
+          "id": "flxso_c",
+          "name": "Flavodoxin semi oxidized",
+          "formula": "XH",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "pyr_c",
+          "name": "pyruvate",
+          "formula": "C3H3O3",
+          "charge": -1,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 87.05412,
+          "signed_biomass_mass_g_per_model_unit": 0.08705412
+        },
+        {
+          "id": "accoa_c",
+          "name": "acetyl-CoA(4-)",
+          "formula": "C23H34N7O17P3S",
+          "charge": -4,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 805.539043,
+          "signed_biomass_mass_g_per_model_unit": -0.805539043
+        },
+        {
+          "id": "co2_c",
+          "name": "CO(2)",
+          "formula": "CO2",
+          "charge": 0,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 44.0095,
+          "signed_biomass_mass_g_per_model_unit": -0.0440095
+        },
+        {
+          "id": "flxr_c",
+          "name": "Flavodoxin reduced",
+          "formula": "XH",
+          "charge": -1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0010079400000000001
+        }
+      ]
+    },
+    "PGSA_MCi": {
+      "name": "Phosphatidylglycerol synthase",
+      "equation": "0.001 cdpdag_MC_c + glyc1p_c --> cmp_c + h_c + 0.001 pgp_MC_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0372 or MCA1682",
+      "annotations": {
+        "biocyc": "META:PHOSPHAGLYPSYN-RXN",
+        "brenda": "2.7.8.5",
+        "kegg.reaction": "R01801",
+        "metanetx.reaction": "MNXR1099",
+        "reactome": [
+          "REACT_121076",
+          "REACT_121186",
+          "REACT_127957",
+          "REACT_127982",
+          "REACT_134767",
+          "REACT_138426",
+          "REACT_139077",
+          "REACT_140756",
+          "REACT_142712",
+          "REACT_142932",
+          "REACT_144648",
+          "REACT_144692",
+          "REACT_145148",
+          "REACT_146408",
+          "REACT_147288",
+          "REACT_147607",
+          "REACT_156292"
+        ],
+        "rhea": [
+          "12593",
+          "12594",
+          "12595",
+          "12596"
+        ],
+        "seed": [
+          "rxn05268",
+          "rxn06045",
+          "rxn13815"
+        ],
+        "upa": [
+          "UPA:UCR01801",
+          "UPA:UER00503"
+        ]
+      },
+      "float_residuals": {
+        "O": -1.7763568394002505e-15
+      },
+      "decimal_residuals": {},
+      "terms": [
+        {
+          "id": "cdpdag_MC_c",
+          "name": "CDPdiacylglycerol",
+          "formula": "C44082H79110N3000O14996P2000",
+          "charge": 0,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 953088.4352000001,
+          "signed_biomass_mass_g_per_model_unit": 0.9530884352000001
+        },
+        {
+          "id": "glyc1p_c",
+          "name": "sn-glycerol 3-phosphate(2-)",
+          "formula": "C3H7O6P",
+          "charge": -2,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 170.057841,
+          "signed_biomass_mass_g_per_model_unit": 0.170057841
+        },
+        {
+          "id": "cmp_c",
+          "name": "CMP",
+          "formula": "C9H12N3O8P",
+          "charge": -2,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 321.180641,
+          "signed_biomass_mass_g_per_model_unit": -0.321180641
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0010079400000000001
+        },
+        {
+          "id": "pgp_MC_c",
+          "name": "Phosphatidylglycerophosphate",
+          "formula": "C38082H73110O12996P2000",
+          "charge": -1000,
+          "coefficient": 0.001,
+          "molecular_weight_g_per_mol": 800957.6952,
+          "signed_biomass_mass_g_per_model_unit": -0.8009576952
+        }
+      ]
+    },
+    "PHCYT_MCi": {
+      "name": "Phosphatidate cytidylyltransferase",
+      "equation": "ctp_c + h_c + 0.001 pa_MC_c --> 0.001 cdpdag_MC_c + ppi_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0572",
+      "annotations": {
+        "biocyc": "META:CDPDIGLYSYN-RXN",
+        "biopath": "BIOPATH:RXN00898",
+        "brenda": "2.7.7.41",
+        "kegg.reaction": "R01799",
+        "metanetx.reaction": "MNXR70333",
+        "reactome": [
+          "REACT_102633",
+          "REACT_121008",
+          "REACT_121066",
+          "REACT_129272",
+          "REACT_129318",
+          "REACT_132263",
+          "REACT_134208",
+          "REACT_137100",
+          "REACT_138980",
+          "REACT_140415",
+          "REACT_140946",
+          "REACT_141387",
+          "REACT_142595",
+          "REACT_142713",
+          "REACT_142875",
+          "REACT_143507",
+          "REACT_146129",
+          "REACT_146797",
+          "REACT_159747",
+          "REACT_29683",
+          "REACT_78106",
+          "REACT_94476"
+        ],
+        "rhea": [
+          "16229",
+          "16230",
+          "16231",
+          "16232"
+        ],
+        "seed": [
+          "rxn05272",
+          "rxn06043",
+          "rxn13889"
+        ],
+        "upa": [
+          "UPA:UCR01799",
+          "UPA:UER00614"
+        ]
+      },
+      "float_residuals": {
+        "O": -1.7763568394002505e-15
+      },
+      "decimal_residuals": {},
+      "terms": [
+        {
+          "id": "ctp_c",
+          "name": "CTP(3-)",
+          "formula": "C9H12N3O14P3",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 479.124563,
+          "signed_biomass_mass_g_per_model_unit": 0.479124563
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": 0.0010079400000000001
+        },
+        {
+          "id": "pa_MC_c",
+          "name": "1,2-sn-glycerol 3-phosphate",
+          "formula": "C35082H67110O7996P1000",
+          "charge": 0,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 647907.1942,
+          "signed_biomass_mass_g_per_model_unit": 0.6479071942000001
+        },
+        {
+          "id": "cdpdag_MC_c",
+          "name": "CDPdiacylglycerol",
+          "formula": "C44082H79110N3000O14996P2000",
+          "charge": 0,
+          "coefficient": 0.001,
+          "molecular_weight_g_per_mol": 953088.4352000001,
+          "signed_biomass_mass_g_per_model_unit": -0.9530884352000001
+        },
+        {
+          "id": "ppi_c",
+          "name": "diphosphate(3-)",
+          "formula": "HO7P2",
+          "charge": -3,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 174.951262,
+          "signed_biomass_mass_g_per_model_unit": -0.17495126200000002
+        }
+      ]
+    },
+    "POR_syn": {
+      "name": "Pyruvate ferredoxin oxidoreductase",
+      "equation": "coa_c + 2.0 fdxox_c + 3.0 h_c + pyr_c --> accoa_c + co2_c + 2.0 fdxrd_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0769",
+      "annotations": {
+        "bigg.reaction": "POR",
+        "metanetx.reaction": "MNXR83963"
+      },
+      "float_residuals": {
+        "charge": -2.0
+      },
+      "decimal_residuals": {
+        "charge": "-2.0"
+      },
+      "terms": [
+        {
+          "id": "coa_c",
+          "name": "CoA",
+          "formula": "C21H32N7O16P3S",
+          "charge": -4,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 763.502363,
+          "signed_biomass_mass_g_per_model_unit": 0.763502363
+        },
+        {
+          "id": "fdxox_c",
+          "name": "oxidized ferredoxin",
+          "formula": "Fe8S8X",
+          "charge": 0,
+          "coefficient": -2.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": -3.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": 0.00302382
+        },
+        {
+          "id": "pyr_c",
+          "name": "pyruvate",
+          "formula": "C3H3O3",
+          "charge": -1,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 87.05412,
+          "signed_biomass_mass_g_per_model_unit": 0.08705412
+        },
+        {
+          "id": "accoa_c",
+          "name": "acetyl-CoA(4-)",
+          "formula": "C23H34N7O17P3S",
+          "charge": -4,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 805.539043,
+          "signed_biomass_mass_g_per_model_unit": -0.805539043
+        },
+        {
+          "id": "co2_c",
+          "name": "CO(2)",
+          "formula": "CO2",
+          "charge": 0,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 44.0095,
+          "signed_biomass_mass_g_per_model_unit": -0.0440095
+        },
+        {
+          "id": "fdxrd_c",
+          "name": "reduced ferredoxin",
+          "formula": "Fe8S8XH2",
+          "charge": 0,
+          "coefficient": 2.0,
+          "molecular_weight_g_per_mol": null,
+          "signed_biomass_mass_g_per_model_unit": null
+        }
+      ]
+    },
+    "PSSA_MCi": {
+      "name": "Phosphatidylserine syntase",
+      "equation": "0.001 cdpdag_MC_c + ser__L_c --> cmp_c + h_c + 0.001 ps_MC_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA2273",
+      "annotations": {
+        "biocyc": "META:PHOSPHASERSYN-RXN",
+        "brenda": "2.7.8.8",
+        "kegg.reaction": "R01800",
+        "metanetx.reaction": "MNXR69809",
+        "seed": [
+          "rxn05281",
+          "rxn06044",
+          "rxn13816"
+        ],
+        "upa": [
+          "UPA:UCR01800",
+          "UPA:UER00615"
+        ]
+      },
+      "float_residuals": {
+        "O": -1.7763568394002505e-15
+      },
+      "decimal_residuals": {},
+      "terms": [
+        {
+          "id": "cdpdag_MC_c",
+          "name": "CDPdiacylglycerol",
+          "formula": "C44082H79110N3000O14996P2000",
+          "charge": 0,
+          "coefficient": -0.001,
+          "molecular_weight_g_per_mol": 953088.4352000001,
+          "signed_biomass_mass_g_per_model_unit": 0.9530884352000001
+        },
+        {
+          "id": "ser__L_c",
+          "name": "L-serine",
+          "formula": "C3H7NO3",
+          "charge": 0,
+          "coefficient": -1.0,
+          "molecular_weight_g_per_mol": 105.09258,
+          "signed_biomass_mass_g_per_model_unit": 0.10509258
+        },
+        {
+          "id": "cmp_c",
+          "name": "CMP",
+          "formula": "C9H12N3O8P",
+          "charge": -2,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 321.180641,
+          "signed_biomass_mass_g_per_model_unit": -0.321180641
+        },
+        {
+          "id": "h_c",
+          "name": "H(+)",
+          "formula": "H",
+          "charge": 1,
+          "coefficient": 1.0,
+          "molecular_weight_g_per_mol": 1.00794,
+          "signed_biomass_mass_g_per_model_unit": -0.0010079400000000001
+        },
+        {
+          "id": "ps_MC_c",
+          "name": "Phosphatidylserine",
+          "formula": "C38082H73110N1000O9996P1000",
+          "charge": 1000,
+          "coefficient": 0.001,
+          "molecular_weight_g_per_mol": 735992.4342,
+          "signed_biomass_mass_g_per_model_unit": -0.7359924342
+        }
+      ]
+    }
+  },
+  "biomass": {
+    "net_mass": 0.9024111134789822,
+    "reactant_mass": 12.947540050737445,
+    "product_mass": 12.045128937258461,
+    "mass_shortfall_from_one": 0.09758888652101783,
+    "fractional_shortfall_percent": 9.758888652101783,
+    "mass_only_reciprocal_not_a_correction": 1.1081423810759514,
+    "coefficient_count": 95,
+    "gam_terms": {
+      "atp_c": -23.11185589,
+      "h2o_c": -17.77579456,
+      "adp_c": 23.08742079,
+      "h_c": 23.08742079,
+      "pi_c": 22.88736056,
+      "ppi_c": 0.18282505
+    },
+    "largest_mass_contributors": [
+      {
+        "id": "atp_c",
+        "name": "ATP",
+        "formula": "C10H12N5O13P3",
+        "charge": -4,
+        "coefficient": -23.11185589,
+        "molecular_weight_g_per_mol": 503.149263,
+        "signed_biomass_mass_g_per_model_unit": 11.62871325761571
+      },
+      {
+        "id": "adp_c",
+        "name": "ADP",
+        "formula": "C10H12N5O10P2",
+        "charge": -3,
+        "coefficient": 23.08742079,
+        "molecular_weight_g_per_mol": 424.177302,
+        "signed_biomass_mass_g_per_model_unit": -9.793159860840907
+      },
+      {
+        "id": "pi_c",
+        "name": "phosphate",
+        "formula": "HO4P",
+        "charge": -2,
+        "coefficient": 22.88736056,
+        "molecular_weight_g_per_mol": 95.97930099999999,
+        "signed_biomass_mass_g_per_model_unit": -2.196712868283768
+      },
+      {
+        "id": "h2o_c",
+        "name": "H2O",
+        "formula": "H2O",
+        "charge": 0,
+        "coefficient": -17.77579456,
+        "molecular_weight_g_per_mol": 18.01528,
+        "signed_biomass_mass_g_per_model_unit": 0.3202359162208768
+      },
+      {
+        "id": "glu__L_c",
+        "name": "L-glutamate",
+        "formula": "C5H8NO4",
+        "charge": -1,
+        "coefficient": -0.519,
+        "molecular_weight_g_per_mol": 146.12132,
+        "signed_biomass_mass_g_per_model_unit": 0.07583696508
+      },
+      {
+        "id": "pe_MC_c",
+        "name": "Phosphatidylethanolamin",
+        "formula": "C37082H74110N1000O7996P1000",
+        "charge": 2000,
+        "coefficient": -9.134262e-05,
+        "molecular_weight_g_per_mol": 692990.8742000001,
+        "signed_biomass_mass_g_per_model_unit": 0.06329960208551841
+      },
+      {
+        "id": "asp__L_c",
+        "name": "L-aspartate(1-)",
+        "formula": "C4H6NO4",
+        "charge": -1,
+        "coefficient": -0.468,
+        "molecular_weight_g_per_mol": 132.09474,
+        "signed_biomass_mass_g_per_model_unit": 0.06182033832000001
+      },
+      {
+        "id": "leu__L_c",
+        "name": "L-leucine zwitterion",
+        "formula": "C6H13NO2",
+        "charge": 0,
+        "coefficient": -0.415,
+        "molecular_weight_g_per_mol": 131.17292,
+        "signed_biomass_mass_g_per_model_unit": 0.0544367618
+      },
+      {
+        "id": "peptido_MC_c",
+        "name": "peptido_MC_c",
+        "formula": "C40H62N8O21",
+        "charge": -2,
+        "coefficient": -0.053,
+        "molecular_weight_g_per_mol": 990.96128,
+        "signed_biomass_mass_g_per_model_unit": 0.05252094784
+      },
+      {
+        "id": "ala__L_c",
+        "name": "L-alanine zwitterion",
+        "formula": "C3H7NO2",
+        "charge": 0,
+        "coefficient": -0.576,
+        "molecular_weight_g_per_mol": 89.09318,
+        "signed_biomass_mass_g_per_model_unit": 0.051317671679999996
+      },
+      {
+        "id": "glc__D_c",
+        "name": "D-glucopyranose",
+        "formula": "C6H12O6",
+        "charge": 0,
+        "coefficient": -0.24977798,
+        "molecular_weight_g_per_mol": 180.15588,
+        "signed_biomass_mass_g_per_model_unit": 0.0449989717915224
+      },
+      {
+        "id": "arg__L_c",
+        "name": "L-argininium(1+)",
+        "formula": "C6H15N4O2",
+        "charge": 1,
+        "coefficient": -0.254,
+        "molecular_weight_g_per_mol": 175.2089,
+        "signed_biomass_mass_g_per_model_unit": 0.0445030606
+      },
+      {
+        "id": "val__L_c",
+        "name": "L-valine zwitterion",
+        "formula": "C5H11NO2",
+        "charge": 0,
+        "coefficient": -0.36,
+        "molecular_weight_g_per_mol": 117.14634,
+        "signed_biomass_mass_g_per_model_unit": 0.0421726824
+      },
+      {
+        "id": "lys__L_c",
+        "name": "L-lysinium(1+)",
+        "formula": "C6H15N2O2",
+        "charge": 1,
+        "coefficient": -0.277,
+        "molecular_weight_g_per_mol": 147.1955,
+        "signed_biomass_mass_g_per_model_unit": 0.040773153500000006
+      },
+      {
+        "id": "gly_c",
+        "name": "glycine",
+        "formula": "C2H5NO2",
+        "charge": 0,
+        "coefficient": -0.484,
+        "molecular_weight_g_per_mol": 75.0666,
+        "signed_biomass_mass_g_per_model_unit": 0.036332234399999996
+      },
+      {
+        "id": "thr__L_c",
+        "name": "L-threonine zwitterion",
+        "formula": "C4H9NO3",
+        "charge": 0,
+        "coefficient": -0.271,
+        "molecular_weight_g_per_mol": 119.11916,
+        "signed_biomass_mass_g_per_model_unit": 0.032281292360000005
+      },
+      {
+        "id": "ppi_c",
+        "name": "diphosphate(3-)",
+        "formula": "HO7P2",
+        "charge": -3,
+        "coefficient": 0.18282505,
+        "molecular_weight_g_per_mol": 174.951262,
+        "signed_biomass_mass_g_per_model_unit": -0.0319854732227131
+      },
+      {
+        "id": "ile__L_c",
+        "name": "L-isoleucine zwitterion",
+        "formula": "C6H13NO2",
+        "charge": 0,
+        "coefficient": -0.242,
+        "molecular_weight_g_per_mol": 131.17292,
+        "signed_biomass_mass_g_per_model_unit": 0.031743846640000004
+      },
+      {
+        "id": "phe__L_c",
+        "name": "L-phenylalanine",
+        "formula": "C9H11NO2",
+        "charge": 0,
+        "coefficient": -0.185,
+        "molecular_weight_g_per_mol": 165.18914,
+        "signed_biomass_mass_g_per_model_unit": 0.030559990900000004
+      },
+      {
+        "id": "pro__L_c",
+        "name": "L-proline",
+        "formula": "C5H9NO2",
+        "charge": 0,
+        "coefficient": -0.248,
+        "molecular_weight_g_per_mol": 115.13046,
+        "signed_biomass_mass_g_per_model_unit": 0.02855235408
+      }
+    ],
+    "amino_acid_mmol_total": 5.311,
+    "free_amino_acid_mass_g": 0.67687422222,
+    "balanced_gam_component_mmol": 23.08742079,
+    "water_after_removing_balanced_gam_mmol": 5.311626229999998,
+    "water_mass_after_removing_balanced_gam_g": 0.09569043378879437,
+    "non_gam_atp_coefficient": -0.024435100000001597,
+    "non_gam_phosphate_coefficient": -0.20006022999999828
+  },
+  "plp": {
+    "memote_mapping": {
+      "bigg": [
+        "pydx5p"
+      ],
+      "chebi": [
+        "18405",
+        "14977",
+        "234571",
+        "26424",
+        "358848",
+        "45145",
+        "8668",
+        "597326"
+      ],
+      "deprecated": [
+        "MNXM89648",
+        "MNXM90145"
+      ],
+      "envipath": null,
+      "hmdb": [
+        "HMDB01491"
+      ],
+      "kegg": [
+        "C00018"
+      ],
+      "lipidmaps": null,
+      "metacyc": [
+        "PYRIDOXAL_PHOSPHATE"
+      ],
+      "reactome": [
+        "29390"
+      ],
+      "sabiork": [
+        "1271"
+      ],
+      "seed": [
+        "cpd00016"
+      ],
+      "slm": null,
+      "mnx": [
+        "MNXM161"
+      ]
+    },
+    "candidate_metabolites": [
+      {
+        "id": "pdx5p_c",
+        "name": "pyridoxine 5'-phosphate(2-)",
+        "formula": "C8H10NO6P",
+        "charge": -2,
+        "annotations": {
+          "bigg.metabolite": "pdx5p",
+          "biocyc": "META:PYRIDOXINE-5P",
+          "chebi": [
+            "CHEBI:28803",
+            "CHEBI:45202",
+            "CHEBI:8672",
+            "CHEBI:26430",
+            "CHEBI:58589"
+          ],
+          "hmdb": "HMDB01319",
+          "inchi": "InChI=1S/C8H12NO6P/c1-5-8(11)7(3-10)6(2-9-5)4-15-16(12,13)14/h2,10-11H,3-4H2,1H3,(H2,12,13,14)/p-2",
+          "kegg.compound": "C00627",
+          "metanetx.chemical": "MNXM454",
+          "reactome": "REACTOME:964952",
+          "seed.compound": "cpd00478",
+          "upa": "UPA:UPC00627"
+        },
+        "biomass_coefficient": 0,
+        "reactions": []
+      }
+    ],
+    "missing_reported": [
+      "MNXM161"
+    ],
+    "helper_lookup_error": "It was not possible to identify any metabolite in compartment c corresponding to the following MetaNetX identifier: MNXM161.Make sure that a cross-reference to this ID in the MetaNetX Database exists for your identifier namespace."
+  },
+  "growth": {
+    "memote_default_growth_h": 0.1780041817185448,
+    "test_threshold_h": 2.81,
+    "doubling_time_h": 3.8939938032238484
+  },
+  "isolated_fatty_acid_candidate_diagnostic": {
+    "warning": "Isolated in-memory diagnostic only. Not an accepted chemistry correction; no altered model was saved.",
+    "change": {
+      "reaction": "MC_Average_FattyAcid",
+      "metabolite": "mc_fattyacid_c",
+      "before": 1.0,
+      "candidate": 0.001
+    },
+    "reactant_weight_sum": 0.999,
+    "scenarios": {
+      "upstream_default": {
+        "before": {
+          "status": "optimal",
+          "growth_rate_h": 0.17800416436518635,
+          "numerically_feasible": true,
+          "residuals": {
+            "max_mass_balance": 5.382868629999482e-14,
+            "max_bound_violation": 4.796163466380676e-13
+          }
+        },
+        "candidate": {
+          "status": "optimal",
+          "growth_rate_h": 0.16062946154617938,
+          "numerically_feasible": true,
+          "residuals": {
+            "max_mass_balance": 5.475548400107888e-13,
+            "max_bound_violation": 2.842170943040401e-14
+          }
+        },
+        "candidate_exact_decimal_residuals": {
+          "charge": "0.998"
+        },
+        "relative_growth_change_percent": -9.760840641549095,
+        "product_coefficient_restored": 1.0
+      },
+      "symbiont_reference": {
+        "before": {
+          "status": "optimal",
+          "growth_rate_h": 0.2255827702718435,
+          "numerically_feasible": true,
+          "residuals": {
+            "max_mass_balance": 1.5918256296432176e-14,
+            "max_bound_violation": 0.0
+          }
+        },
+        "candidate": {
+          "status": "optimal",
+          "growth_rate_h": 0.19477790284246801,
+          "numerically_feasible": true,
+          "residuals": {
+            "max_mass_balance": 3.013041205424116e-14,
+            "max_bound_violation": 1.7763568394002505e-14
+          }
+        },
+        "candidate_exact_decimal_residuals": {
+          "charge": "0.998"
+        },
+        "relative_growth_change_percent": -13.655682742194097,
+        "product_coefficient_restored": 1.0
+      }
+    },
+    "baseline_sha256_before": "c2591237d8968164faeb8fafe741a9a42f95131b919086d5eb1a14b159fee092",
+    "baseline_sha256_after": "c2591237d8968164faeb8fafe741a9a42f95131b919086d5eb1a14b159fee092"
+  },
+  "notebook_excerpts": [
+    {
+      "notebook": "4. Full-Scale Biomass Reaction And Further Corrections.ipynb",
+      "cell_zero_based": 215,
+      "cell_type": "code",
+      "source": "# Defining the average phospholipid (based on values from unibio, Bird et al, 1971 and Müller et al, 2004)\nmet = Metabolite('mc_fattyacid_c')\nmet.id = 'mc_fattyacid_c'\nmet.formula = 'C16H31O2'\nmet.charge = -1\nmodel.add_metabolites([met])\n\n\nrxn = Reaction('MC_Average_FattyAcid_c')\nrxn.add_metabolites({model.metabolites.get_by_id(\"ttdca_c\"): -0.061,\n                     model.metabolites.get_by_id(\"ttdcea_c\"): -0.007,\n                     model.metabolites.get_by_id(\"ptdca_c\"): -0.01,\n                     model.metabolites.get_by_id(\"hdca_c\"): -0.729,\n                     model.metabolites.get_by_id(\"hpdca_c\"): -0.089,\n                     model.metabolites.get_by_id(\"cpoa2h_c\"): -0.092,\n                     model.metabolites.get_by_id(\"ocdca_c\"): -0.004,\n                     model.metabolites.get_by_id(\"ocdcea_c\"): -0.007,\n                     model.metabolites.get_by_id(\"mc_fattyacid_c\"): 1},combine=False)\nrxn.id = 'MC_Average_FattyAcid_c'\nrxn.upper_bound = 1000\nrxn.lower_bound = -1000\nrxn.name = 'Reaction added to get an acurate representation of the average fatty acid composition of MC'\nmodel.add_reaction(rxn)",
+      "text_output": "",
+      "plain_output": ""
+    },
+    {
+      "notebook": "8. Corrections to Validation.ipynb",
+      "cell_zero_based": 224,
+      "cell_type": "code",
+      "source": "model.reactions.MC_Average_FattyAcid_c",
+      "text_output": "",
+      "plain_output": "<Reaction MC_Average_FattyAcid_c at 0x11d29c790>"
+    },
+    {
+      "notebook": "8. Corrections to Validation.ipynb",
+      "cell_zero_based": 225,
+      "cell_type": "code",
+      "source": "storage = []\nfor met,coef in model.reactions.MC_Average_FattyAcid_c.metabolites.items():\n    if coef < 0:\n        storage.append({e:v*coef for e,v in met.elements.iteritems()})",
+      "text_output": "",
+      "plain_output": ""
+    },
+    {
+      "notebook": "8. Corrections to Validation.ipynb",
+      "cell_zero_based": 231,
+      "cell_type": "code",
+      "source": "# model.metabolites.mc_fattyacid_c.elements = average",
+      "text_output": "",
+      "plain_output": ""
+    },
+    {
+      "notebook": "8. Corrections to Validation.ipynb",
+      "cell_zero_based": 234,
+      "cell_type": "code",
+      "source": "# model.reactions.MC_Average_FattyAcid_c.check_mass_balance()",
+      "text_output": "",
+      "plain_output": ""
+    },
+    {
+      "notebook": "8. Corrections to Validation.ipynb",
+      "cell_zero_based": 255,
+      "cell_type": "code",
+      "source": "model.metabolites.mc_fattyacid_c.elements = {'C': 16041, 'H': 31055, 'O': 1998}",
+      "text_output": "",
+      "plain_output": ""
+    },
+    {
+      "notebook": "8. Corrections to Validation.ipynb",
+      "cell_zero_based": 275,
+      "cell_type": "code",
+      "source": "model.reactions.BIOMASS_REACTION.add_metabolites({model.metabolites.pc_MC_c: -(0.00937385/1000),\n                                                  model.metabolites.pe_MC_c: -(0.09134262/1000),\n                                                  model.metabolites.clpn_MC_c: -(0.00315904/1000),\n                                                  model.metabolites.pg_MC_c: -(0.01538077/1000),\n                                                  model.metabolites.utp_c: -0.02560771,\n                                                  model.metabolites.gtp_c: -0.04084668,\n                                                  model.metabolites.ctp_c: -0.04425885,\n                                                  model.metabolites.datp_c: -0.00866366,\n                                                  model.metabolites.dttp_c: -0.00882698,\n                                                  model.metabolites.dgtp_c: -0.01446787,\n                                                  model.metabolites.dctp_c: -0.01571821,\n                                                  model.metabolites.sql_c: -0.01339118,\n                                                  model.metabolites.dpterol_c: -0.01282849,\n                                                  model.metabolites.lanost_c: -0.00515564,\n                                                  model.metabolites.ttdca_c: -0.00145650,\n                                                  model.metabolites.ttdcea_c: -0.00017921,\n                                                  model.metabolites.ptdca_c: -0.00023422,\n                                                  model.metabolites.hdca_c: -0.01558994,\n                                                  model.metabolites.hpdca_c: -0.00179858,\n                                                  model.metabolites.cpoa2h_c: -0.00186552,\n                                                  model.metabolites.ocdca_c: -0.00008548,\n                                                  model.metabolites.ocdcea_c: -0.00014349,\n                                                  model.metabolites.glc__D_c: -0.24977798,\n                                                  model.metabolites.glc__D_c: -0.24977798,\n                                                  model.metabolites.thmpp_c: -0.00002865,\n                                                  model.metabolites.ribflv_c: -0.00019396,\n                                                  model.metabolites.nac_c: -0.00106469,\n                                                  model.metabolites.inost_c: -0.00016652,\n                                                  model.metabolites.atp_c: -23.11185589,\n                                                  model.metabolites.adp_c: 23.08742079,\n                                                  model.metabolites.pi_c: 22.88736056,\n                                                  model.metabolites.ppi_c: 0.18282505,\n                                                  model.metabolites.h_c: 23.08742079,\n                                                  model.metabolites.h2o_c: -17.77579456,\n                                                  model.metabolites.cl_c: -0.21438646,\n                                                  model.metabolites.ca2_c: -0.06986377,\n                                                  model.metabolites.k_c: -0.17647826,\n                                                  model.metabolites.mg2_c: -0.12343139,\n                                                  model.metabolites.na1_c: -0.03914785,\n                                                  model.metabolites.cu_c: -0.00151072,\n                                                  model.metabolites.cobalt2_c: -0.00005769}\n                                                 ,combine=False)",
+      "text_output": "",
+      "plain_output": ""
+    }
+  ],
+  "historical_unit_conversion_cells": {
+    "notebook": "8. Corrections to Validation.ipynb",
+    "url": "https://github.com/ChristianLieven/memote-m-capsulatus/blob/f3ab4c6bf5d78d8c2f0daeaf40e843fe458c8160/ComplementaryScripts/8.%20Corrections%20to%20Validation.ipynb",
+    "cells": [
+      {
+        "cell_zero_based": 229,
+        "cell_type": "code",
+        "source": "def formula_changer(rxn, met1_id, met2_id, factor,float_ok):\n    rxn_obj = model.reactions.get_by_id(rxn)\n    met1_obj = model.metabolites.get_by_id(met1_id)\n    met2_obj = model.metabolites.get_by_id(met2_id)\n    \n    met2_obj.formula = ''\n    met2_obj.charge = 0\n    \n    coef1 = rxn_obj.metabolites[met1_obj]\n    coef2 = rxn_obj.metabolites[met2_obj]\n    \n    rxn_obj.add_metabolites({met1_obj: coef1/factor,\n                             met2_obj: coef2/factor},combine=False)\n    \n    imba_dict =  rxn_obj.check_mass_balance()\n    print imba_dict\n    if 'charge' in imba_dict.keys():\n        if float_ok == 'ok':\n            met2_obj.charge = -imba_dict['charge']*factor\n        else:\n            met2_obj.charge = -int(imba_dict['charge']*factor)\n        imba_dict.pop('charge', 0)\n    formula = ''\n    for k,v in sorted(imba_dict.items()):\n        if float_ok == 'ok':\n            formula = formula + '{}{}'.format(k,abs(v*factor))\n        else:\n            formula = formula + '{}{}'.format(k,abs(int(v*factor)))\n    met2_obj.formula = formula\n    print formula\n    print rxn_obj.check_mass_balance()",
+        "recorded_text_output": "",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 230,
+        "cell_type": "markdown",
+        "source": "# Fatty acid as float (will lead to an invalid SMBL file)",
+        "recorded_text_output": "",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 253,
+        "cell_type": "markdown",
+        "source": "# Lipid fixes with the iMM904 way",
+        "recorded_text_output": "",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 254,
+        "cell_type": "code",
+        "source": "average",
+        "recorded_text_output": "",
+        "recorded_plain_output": "{'C': 16.041, 'H': 31.055, 'O': 1.9980000000000002}"
+      },
+      {
+        "cell_zero_based": 255,
+        "cell_type": "code",
+        "source": "model.metabolites.mc_fattyacid_c.elements = {'C': 16041, 'H': 31055, 'O': 1998}",
+        "recorded_text_output": "",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 256,
+        "cell_type": "code",
+        "source": "formula_changer('MC_AFAA_c','mc_fattyacid_c','mc_fattyacidcoa_c',1000,'no')",
+        "recorded_text_output": "{'C': -37.041, 'H': -62.05500000000001, 'charge': 3.0010000000000003, 'O': -16.998, 'N': -7.0, 'P': -3.0, 'S': -1.0}\nC37041H62055N7000O16998P3000S1000\n{'C': 3.552713678800501e-15, 'charge': 4.440892098500626e-16, 'O': 8.881784197001252e-16}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 257,
+        "cell_type": "code",
+        "source": "formula_changer('G3PAT_MC_c','mc_fattyacidcoa_c','1agpgafa_c',1000,'no')",
+        "recorded_text_output": "{'H': -37.055, 'C': -19.041000000000004, 'charge': 1.001, 'O': -6.998000000000001, 'P': -1.0}\nC19041H37055O6998P1000\n{'C': -7.105427357601002e-15, 'charge': 0.0009999999999998899}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 258,
+        "cell_type": "code",
+        "source": "model.reactions.APG3PAT_MC_c",
+        "recorded_text_output": "",
+        "recorded_plain_output": "<Reaction APG3PAT_MC_c at 0x11cc91590>"
+      },
+      {
+        "cell_zero_based": 259,
+        "cell_type": "code",
+        "source": "model.reactions.APG3PAT_MC_c.add_metabolites({model.metabolites.get_by_id('1agpgafa_c'):-0.001},combine=False)",
+        "recorded_text_output": "",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 260,
+        "cell_type": "code",
+        "source": "formula_changer('APG3PAT_MC_c','mc_fattyacidcoa_c','pa_MC_c',1000,'no')",
+        "recorded_text_output": "{'H': -67.11, 'C': -35.08200000000001, 'charge': 0.0009999999999998899, 'O': -7.996000000000001, 'P': -1.0}\nC35082H67110O7996P1000\n{'C': -3.552713678800501e-15, 'charge': 0.0009999999999998899, 'O': -8.881784197001252e-16}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 261,
+        "cell_type": "code",
+        "source": "formula_changer('PHCYT_MC_c','pa_MC_c','cdpdag_MC_c',1000,'no')",
+        "recorded_text_output": "{'H': -79.11, 'C': -44.082, 'P': -2.0, 'O': -14.996000000000002, 'N': -3.0}\nC44082H79110N3000O14996P2000\n{'O': -1.7763568394002505e-15}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 262,
+        "cell_type": "code",
+        "source": "formula_changer('PGSA_MC_c','cdpdag_MC_c','pgp_MC_c',1000,'no')",
+        "recorded_text_output": "{'H': -73.11, 'C': -38.082, 'charge': 1.0, 'O': -12.996000000000002, 'P': -2.0}\nC38082H73110O12996P2000\n{'O': -1.7763568394002505e-15}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 263,
+        "cell_type": "code",
+        "source": "formula_changer('PGPP_MC_c','pgp_MC_c','pg_MC_c',1000,'no')",
+        "recorded_text_output": "{'H': -74.11, 'charge': -1.0, 'C': -38.082, 'O': -9.996, 'P': -1.0}\nC38082H74110O9996P1000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 264,
+        "cell_type": "code",
+        "source": "formula_changer('CLPNS_MC_c','pg_MC_c','clpn_MC_c',1000,'no')",
+        "recorded_text_output": "{'H': -140.22, 'charge': -2.0, 'C': -73.164, 'O': -16.992, 'P': -2.0}\nC73164H140220O16992P2000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 265,
+        "cell_type": "code",
+        "source": "formula_changer('PSSA_MC_c','cdpdag_MC_c','ps_MC_c',1000,'no')",
+        "recorded_text_output": "{'C': -38.082, 'H': -73.11, 'O': -9.996, 'N': -1.0, 'P': -1.0, 'charge': -1.0}\nC38082H73110N1000O9996P1000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 266,
+        "cell_type": "code",
+        "source": "formula_changer('PSD_MC_c','ps_MC_c','pe_MC_c',1000,'no')",
+        "recorded_text_output": "{'C': -37.082, 'H': -74.11, 'O': -7.996, 'N': -1.0, 'P': -1.0, 'charge': -2.0}\nC37082H74110N1000O7996P1000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 267,
+        "cell_type": "code",
+        "source": "formula_changer('PETOHM_MC_c','pe_MC_c','pme_c',1000,'no')",
+        "recorded_text_output": "{'C': -38.082, 'H': -76.11, 'O': -7.996, 'N': -1.0, 'P': -1.0, 'charge': -2.0}\nC38082H76110N1000O7996P1000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 268,
+        "cell_type": "code",
+        "source": "formula_changer('PMETM_MC_c','pme_c','pdme_c',1000,'no')",
+        "recorded_text_output": "{'C': -39.082, 'H': -78.11, 'O': -7.996, 'N': -1.0, 'P': -1.0, 'charge': -2.0}\nC39082H78110N1000O7996P1000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 269,
+        "cell_type": "code",
+        "source": "formula_changer('PMETM2_MC_c','pdme_c','pc_MC_c',1000,'no')",
+        "recorded_text_output": "{'C': -40.082, 'H': -75.11, 'O': -7.996, 'N': -1.0, 'P': -1.0, 'charge': -3.0}\nC40082H75110N1000O7996P1000\n{}\n",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 275,
+        "cell_type": "code",
+        "source": "model.reactions.BIOMASS_REACTION.add_metabolites({model.metabolites.pc_MC_c: -(0.00937385/1000),\n                                                  model.metabolites.pe_MC_c: -(0.09134262/1000),\n                                                  model.metabolites.clpn_MC_c: -(0.00315904/1000),\n                                                  model.metabolites.pg_MC_c: -(0.01538077/1000),\n                                                  model.metabolites.utp_c: -0.02560771,\n                                                  model.metabolites.gtp_c: -0.04084668,\n                                                  model.metabolites.ctp_c: -0.04425885,\n                                                  model.metabolites.datp_c: -0.00866366,\n                                                  model.metabolites.dttp_c: -0.00882698,\n                                                  model.metabolites.dgtp_c: -0.01446787,\n                                                  model.metabolites.dctp_c: -0.01571821,\n                                                  model.metabolites.sql_c: -0.01339118,\n                                                  model.metabolites.dpterol_c: -0.01282849,\n                                                  model.metabolites.lanost_c: -0.00515564,\n                                                  model.metabolites.ttdca_c: -0.00145650,\n                                                  model.metabolites.ttdcea_c: -0.00017921,\n                                                  model.metabolites.ptdca_c: -0.00023422,\n                                                  model.metabolites.hdca_c: -0.01558994,\n                                                  model.metabolites.hpdca_c: -0.00179858,\n                                                  model.metabolites.cpoa2h_c: -0.00186552,\n                                                  model.metabolites.ocdca_c: -0.00008548,\n                                                  model.metabolites.ocdcea_c: -0.00014349,\n                                                  model.metabolites.glc__D_c: -0.24977798,\n                                                  model.metabolites.glc__D_c: -0.24977798,\n                                                  model.metabolites.thmpp_c: -0.00002865,\n                                                  model.metabolites.ribflv_c: -0.00019396,\n                                                  model.metabolites.nac_c: -0.00106469,\n                                                  model.metabolites.inost_c: -0.00016652,\n                                                  model.metabolites.atp_c: -23.11185589,\n                                                  model.metabolites.adp_c: 23.08742079,\n                                                  model.metabolites.pi_c: 22.88736056,\n                                                  model.metabolites.ppi_c: 0.18282505,\n                                                  model.metabolites.h_c: 23.08742079,\n                                                  model.metabolites.h2o_c: -17.77579456,\n                                                  model.metabolites.cl_c: -0.21438646,\n                                                  model.metabolites.ca2_c: -0.06986377,\n                                                  model.metabolites.k_c: -0.17647826,\n                                                  model.metabolites.mg2_c: -0.12343139,\n                                                  model.metabolites.na1_c: -0.03914785,\n                                                  model.metabolites.cu_c: -0.00151072,\n                                                  model.metabolites.cobalt2_c: -0.00005769}\n                                                 ,combine=False)",
+        "recorded_text_output": "",
+        "recorded_plain_output": ""
+      },
+      {
+        "cell_zero_based": 276,
+        "cell_type": "code",
+        "source": "rxn = model.reactions.BIOMASS_REACTION\ncontrol_sum = 0\n\nfor met in rxn.metabolites:\n    control_sum += (rxn.metabolites[met]/1000) * met.formula_weight\n\nprint abs(control_sum)",
+        "recorded_text_output": "0.902342720019\n",
+        "recorded_plain_output": ""
+      }
+    ],
+    "qualification": "Historical saved notebook output, not a freshly reproduced notebook execution."
+  },
+  "calculation_method": {
+    "element_charge_residual_convention": "sum(stoichiometric coefficient * atom count or charge), products positive",
+    "float_residuals": "Ordinary floating-point accumulation, reproducing sensitivity of exact-zero helpers.",
+    "decimal_residuals": "Decimal arithmetic on str() representations of SBML-loaded coefficients and element counts; no tolerance-based cancellation.",
+    "biomass_weight": "sum(-coefficient * formula_weight)/1000; products subtract from net retained mass.",
+    "model_chemistry_unchanged": true,
+    "candidate_limits": "Only one in-memory coefficient candidate was simulated; all other suggested repairs remain hypotheses requiring chemical and experimental evidence."
+  },
+  "charge_interpretation_by_reaction": {
+    "PFOR": {
+      "classification": "Encoded redox/carrier inconsistency; active bounds",
+      "interpretation": "The model uses one oxidized flavodoxin (charge 0) and one reduced flavodoxin (charge -1), with identical XH formulas, for pyruvate oxidative decarboxylation. This is a candidate mismatch between a one-electron carrier convention and a two-electron substrate oxidation, not evidence for inserting a proton.",
+      "next_step": "Audit the intended flavodoxin electron capacity, substrate oxidation and MCA0769 evidence, jointly with POR_syn and every reaction sharing flxso_c/flxr_c.",
+      "equation": "coa_c + flxso_c + pyr_c --> accoa_c + co2_c + flxr_c + h_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0769",
+      "exact_decimal_charge_residual": "1.0",
+      "float_charge_residual": 1.0
+    },
+    "POR_syn": {
+      "classification": "Encoded redox/carrier inconsistency; active bounds",
+      "interpretation": "The alternative MCA0769 pyruvate reaction consumes two fdxox_c and three protons. Both ferredoxin forms have charge 0; fdxrd_c instead adds H2 to its formula. The encoded equation is atom balanced but has charge residual -2. This mixes protonation and electron-carrier conventions.",
+      "next_step": "Resolve ferredoxin oxidation/protonation conventions across all linked reactions and reconcile parallel MCA0769 routes; do not patch this equation independently.",
+      "equation": "coa_c + 2.0 fdxox_c + 3.0 h_c + pyr_c --> accoa_c + co2_c + 2.0 fdxrd_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0769",
+      "exact_decimal_charge_residual": "-2.0",
+      "float_charge_residual": -2.0
+    },
+    "CYP460ipp": {
+      "classification": "Encoded electron balance inconsistency; active bounds; enzyme-product evidence requires review",
+      "interpretation": "The encoded hydroxylamine-to-nitrite conversion transfers electrons to only two cytochrome-c-555 carriers, each reduced from charge +3 to +2. That substrate/product oxidation requires four electrons, explaining the +2 residual. Historical Bath experiments reported nitrite, whereas later P460 work discusses NO intermediates and N2O; model product choice also warrants review.",
+      "next_step": "Reconcile the intended net reaction, product(s), aerobic side chemistry and cytochrome electron count with organism-specific literature. Review HAORipp independently rather than making both enzymes duplicates or merely changing a proton coefficient.",
+      "equation": "2.0 ficytcc555_p + h2o_p + ham_p --> 2.0 focytcc555_p + 5.0 h_p + no2_p",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0524",
+      "exact_decimal_charge_residual": "2.0",
+      "float_charge_residual": 2.0
+    },
+    "HAORipp": {
+      "classification": "Encoded electron balance inconsistency; disabled by baseline bounds",
+      "interpretation": "Has the same hydroxylamine/nitrite and two-cytochrome equation as CYP460ipp and the same +2 charge residual, but bounds [0,0]. This latent inconsistency matters if a later scenario activates the reaction; expression evidence does not determine its stoichiometry.",
+      "next_step": "Audit the HAO-specific reaction, GPR and product evidence alongside CYP460ipp; retain explicit baseline disabled status until supported.",
+      "equation": "2.0 ficytcc555_p + h2o_p + ham_p --> 2.0 focytcc555_p + 5.0 h_p + no2_p",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA0955 and MCA0956",
+      "exact_decimal_charge_residual": "2.0",
+      "float_charge_residual": 2.0
+    },
+    "ACCOAC_1": {
+      "classification": "Encoded biotin-carrier charge convention mismatch; disabled by baseline bounds",
+      "interpretation": "The carboxybiotin and biotin carrier pseudo-species both have charge 0. Carboxyl transfer from acetyl-CoA(-4) to malonyl-CoA(-5) leaves residual -1. The paired BTNC residual is opposite, suggesting a shared modified-carrier representation issue even though the summed two-step pathway may cancel charge.",
+      "next_step": "Reconcile carboxybiotin versus biotin carrier protonation/charge consistently in both ACCOAC_1 and BTNC and other uses; check each reaction separately.",
+      "equation": "accoa_c + cbtnCCP_c --> btnCCP_c + malcoa_c",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA1045 or MCA1046 or MCA1804 or MCA2493",
+      "exact_decimal_charge_residual": "-1.0",
+      "float_charge_residual": -1.0
+    },
+    "BTNC": {
+      "classification": "Encoded biotin-carrier charge convention mismatch; disabled by baseline bounds",
+      "interpretation": "ATP-dependent bicarbonate loading of the same charge-0 biotin carrier has residual +1, opposite ACCOAC_1. Cancellation across a pathway does not validate either individual reaction.",
+      "next_step": "Audit the shared carrier definition jointly with ACCOAC_1 before enabling this baseline-disabled route.",
+      "equation": "atp_c + btnCCP_c + hco3_c --> adp_c + cbtnCCP_c + h_c + pi_c",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA1046 or MCA1045 or MCA1804 or MCA2493",
+      "exact_decimal_charge_residual": "1.0",
+      "float_charge_residual": 1.0
+    },
+    "ASNTRAT": {
+      "classification": "Encoded charged-tRNA pseudo-species mismatch; disabled by baseline bounds",
+      "interpretation": "The encoded aspartyl-tRNA has charge 0 and asparaginyl-tRNA has charge +1; the ATP/glutamine amidotransferase reaction has charge residual +1 while preserving its encoded atoms.",
+      "next_step": "Audit aminoacyl-tRNA residue formulas, charge conventions and the intended amidation equation across linked tRNA reactions before changing protons or enabling this route.",
+      "equation": "asptrna_c + atp_c + gln__L_c + h2o_c --> adp_c + asntrna_c + glu__L_c + 2.0 h_c + pi_c",
+      "bounds": [
+        0.0,
+        0.0
+      ],
+      "gpr": "MCA0097 or MCA0098 or MCA0099",
+      "exact_decimal_charge_residual": "1.0",
+      "float_charge_residual": 1.0
+    },
+    "MC_Average_FattyAcid": {
+      "classification": "Exact small charge discrepancy plus major elemental unit defect",
+      "interpretation": "Eight fatty-acid reactant weights sum to 0.999, all with charge -1; product coefficient 1 and charge -1 yield exact -0.001 charge. The much larger atom mismatch arises from the 1000-fold formula conversion. Changing the product coefficient to 0.001 alone instead gives +0.998 charge.",
+      "next_step": "Resolve mixture normalization, pseudo-unit formula scale and charge scale jointly, propagating consistent definitions to downstream lipid synthesis and biomass.",
+      "equation": "0.092 cpoa2h_c + 0.729 hdca_c + 0.089 hpdca_c + 0.004 ocdca_c + 0.007 ocdcea_c + 0.01 ptdca_c + 0.061 ttdca_c + 0.007 ttdcea_c <=> mc_fattyacid_c",
+      "bounds": [
+        -1000.0,
+        1000.0
+      ],
+      "gpr": "",
+      "exact_decimal_charge_residual": "-0.001",
+      "float_charge_residual": -0.0010000000000000009
+    },
+    "G3PAT_MCi": {
+      "classification": "Exact 0.001 pseudo-lipid charge discrepancy; active bounds",
+      "interpretation": "The integer-scaled fatty-acyl-CoA pseudo-metabolite has charge -3001 and is consumed with coefficient 0.001. The glycerol-phosphate acyltransferase equation has exact +0.001 charge; its atom residuals are only floating-point noise. This is consistent with the notebook conversion/truncation problem, not a missing-formula problem.",
+      "next_step": "Audit all scaled lipid formulas and charges as a coupled representation; do not hide the exact charge discrepancy with an overly loose tolerance.",
+      "equation": "glyc1p_c + 0.001 mc_fattyacidcoa_c --> 0.001 1agpgafa_MC_c + coa_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA2004 or MCA2989",
+      "exact_decimal_charge_residual": "0.001",
+      "float_charge_residual": 0.0009999999999994458
+    },
+    "APG3PAT_MCi": {
+      "classification": "Exact 0.001 pseudo-lipid charge discrepancy; active bounds",
+      "interpretation": "The second acyltransferase similarly consumes 0.001 of the charge -3001 acyl-CoA pseudo-metabolite and has exact +0.001 charge. Its apparent atom imbalance is numerical only.",
+      "next_step": "Audit jointly with MC_Average_FattyAcid, MC_AFAA and G3PAT_MCi, maintaining consistent charge per encoded pseudo-unit.",
+      "equation": "0.001 1agpgafa_MC_c + 0.001 mc_fattyacidcoa_c --> coa_c + 0.001 pa_MC_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "MCA0058 or MCA2052",
+      "exact_decimal_charge_residual": "0.001",
+      "float_charge_residual": 0.0009999999999994458
+    },
+    "MC_AFAA": {
+      "classification": "Floating-point-only charge failure",
+      "interpretation": "The encoded charge sum is exactly zero under decimal recomputation; floating arithmetic gives -4.44e-16. This specific failure is not evidence for changing its chemistry, although the shared lipid representation still needs network-wide review.",
+      "next_step": "Retain the raw MEMOTE result and classify this residual as numerical with a declared supplementary tolerance or exact-decimal check.",
+      "equation": "atp_c + coa_c + 0.001 mc_fattyacid_c --> amp_c + 0.001 mc_fattyacidcoa_c + ppi_c",
+      "bounds": [
+        0.0,
+        1000.0
+      ],
+      "gpr": "",
+      "exact_decimal_charge_residual": "0",
+      "float_charge_residual": -4.440892098500626e-16
+    }
+  }
+}

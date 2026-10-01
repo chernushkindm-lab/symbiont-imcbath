@@ -1,0 +1,2961 @@
+{
+  "scope": "Read-only audit of MEMOTE 0.17.0 SBO and annotation checks against the unmodified published iMcBath SBML. No model/repository modifications.",
+  "model_sha256": "c2591237d8968164faeb8fafe741a9a42f95131b919086d5eb1a14b159fee092",
+  "source_evidence": [
+    {
+      "path": "work\\.venv\\Lib\\site-packages\\memote\\suite\\tests\\test_sbo.py",
+      "sha256": "c3ec366e003af6d9abf0ab9676869ac186404b2b6b2e78f0e631a825b36c9d0d"
+    },
+    {
+      "path": "work\\.venv\\Lib\\site-packages\\memote\\support\\sbo.py",
+      "sha256": "6a224c4af426e6affb272e2ce0f17f01f814d66b3ad21464f45f7b1c59aaab27"
+    },
+    {
+      "path": "work\\.venv\\Lib\\site-packages\\memote\\suite\\tests\\test_annotation.py",
+      "sha256": "4058154d99e5ec651f217e48ab3ef9884324450181165d47113bdd1a21ac1745"
+    },
+    {
+      "path": "work\\.venv\\Lib\\site-packages\\memote\\support\\annotation.py",
+      "sha256": "2281e1cee55456257e0310b2a30ff8448475cf4003e6c374c95ed8308ff5443f"
+    }
+  ],
+  "summary": [
+    "Ten of eleven installed SBO tests invert the expected success predicate: their data are MISSING/nonmatching components, yet the assertion demands missing_count == total_count. Biomass alone correctly demands zero.",
+    "The defect is also present in the official MEMOTE 0.17.0 source fetched online, not an inference from test output alone.",
+    "Four of five SBO failures contain both real metadata gaps and inverted assertions; biomass is a normal metadata failure. Six SBO passes are false passes with 100% of the expected annotations missing/nonmatching.",
+    "Do not subtract four failures and declare the model corrected: those four still have missing annotations, while the six false passes reveal additional gaps. Preserve raw audit results and explain interpretation separately.",
+    "General annotation tests have no analogous inverted assertion. Fourteen wrong_ids failures stop because an entire namespace is absent; they do not report malformed identifiers.",
+    "EcoGene, CCDS and HPRD direct gene-identity annotations are outside organism scope. Absence is expected, and their associated wrong_ids preconditions should not be described as biological errors."
+  ],
+  "sbo_cases": [
+    {
+      "testcase": "test_metabolite_sbo_presence",
+      "reported_result": "failed",
+      "missing_or_nonmatching_count": 858,
+      "assessed_count": 879,
+      "missing_fraction": 0.9761092150170648,
+      "examples": [
+        "10fthf_c",
+        "12dgr_EC_c",
+        "12dmpo_c",
+        "13dpg_c",
+        "15dap_c",
+        "1agpgafa_MC_c"
+      ],
+      "installed_assert_line": 58,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.metabolites), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "metadata_gap_and_checker_defect",
+      "finding": "858 of 879 SBML-loaded species have no SBO key; 21 have SBO:0000247. The underlying metadata gap is real despite the inverted assertion.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_reaction_sbo_presence",
+      "reported_result": "failed",
+      "missing_or_nonmatching_count": 772,
+      "assessed_count": 913,
+      "missing_fraction": 0.8455640744797371,
+      "examples": [
+        "2OH3K5MPPISO",
+        "34DHOXPEGOX",
+        "3HAD100",
+        "3HAD120",
+        "3HAD140",
+        "3HAD160"
+      ],
+      "installed_assert_line": 89,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.reactions), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "metadata_gap_and_checker_defect",
+      "finding": "772 of 913 SBML-loaded reactions have no SBO key. Of the 141 annotated reactions, 98 use generic SBO:0000375 (process), and 43 use SBO:0000627 (exchange reaction).",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_gene_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 730,
+      "assessed_count": 730,
+      "missing_fraction": 1.0,
+      "examples": [
+        "MCA0005",
+        "MCA0006",
+        "MCA0007",
+        "MCA0008",
+        "MCA0009",
+        "MCA0010"
+      ],
+      "installed_assert_line": 119,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.genes), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 730 gene annotations are empty. The reported pass is a false pass caused by the inverted assertion.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_metabolic_reaction_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 721,
+      "assessed_count": 721,
+      "missing_fraction": 1.0,
+      "examples": [
+        "PFK_ppi",
+        "6CTDS",
+        "3HAD120",
+        "LEUTRS",
+        "DAPDC",
+        "DADNK"
+      ],
+      "installed_assert_line": 155,
+      "installed_assert": "assert len(ann[\"data\"]) == len(pure), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 721 detected pure metabolic reactions lack the exact expected term. 668 have no SBO and 53 have generic SBO:0000375. The pass is false; the count includes both absent and insufficiently specific terms.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_transport_reaction_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 122,
+      "assessed_count": 122,
+      "missing_fraction": 1.0,
+      "examples": [
+        "GLYCt3",
+        "ENLIPAabctex_GAPFILLING",
+        "TSULtex",
+        "N2trpp",
+        "NO2tpp",
+        "NA1tex"
+      ],
+      "installed_assert_line": 198,
+      "installed_assert": "assert len(ann[\"data\"]) == len(transports), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 122 detected transport reactions lack an accepted transport term. 77 have no SBO and 45 have generic SBO:0000375. The pass is false. The message also incorrectly labels transport reactions as metabolic/biochemical.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_metabolite_specific_sbo_presence",
+      "reported_result": "failed",
+      "missing_or_nonmatching_count": 858,
+      "assessed_count": 879,
+      "missing_fraction": 0.9761092150170648,
+      "examples": [
+        "10fthf_c",
+        "12dgr_EC_c",
+        "12dmpo_c",
+        "13dpg_c",
+        "15dap_c",
+        "1agpgafa_MC_c"
+      ],
+      "installed_assert_line": 231,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.metabolites), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "metadata_gap_and_checker_defect",
+      "finding": "858 species lack SBO:0000247; none of those 858 has another SBO. The failure message incorrectly calls these transport reactions. A blanket simple-chemical annotation needs semantic review for macromolecular/lumped species; this checker tests exact strings rather than ontology relationships.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_gene_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 730,
+      "assessed_count": 730,
+      "missing_fraction": 1.0,
+      "examples": [
+        "MCA0005",
+        "MCA0006",
+        "MCA0007",
+        "MCA0008",
+        "MCA0009",
+        "MCA0010"
+      ],
+      "installed_assert_line": 264,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.genes), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 730 genes lack SBO:0000243. The pass is false; this does not imply the model has no genes or GPR rules.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_exchange_specific_sbo_presence",
+      "reported_result": "failed",
+      "missing_or_nonmatching_count": 5,
+      "assessed_count": 48,
+      "missing_fraction": 0.10416666666666667,
+      "examples": [
+        "EX_ch4_e",
+        "EX_co_e",
+        "EX_fol_e",
+        "EX_ham_e",
+        "EX_n2_e"
+      ],
+      "installed_assert_line": 309,
+      "installed_assert": "assert len(ann[\"data\"]) == len(exchanges), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "metadata_gap_and_checker_defect",
+      "finding": "Exactly EX_ch4_e, EX_co_e, EX_fol_e, EX_ham_e, and EX_n2_e lack the expected exchange term. The other 43 of 48 detected exchanges have it. The failure has a real metadata basis even though the assertion is inverted.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_demand_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 12,
+      "assessed_count": 12,
+      "missing_fraction": 1.0,
+      "examples": [
+        "DM_4hba_c",
+        "DM_acald_c",
+        "DM_doxopa_c",
+        "DM_gmp_c",
+        "DM_h2o2_c",
+        "DM_pppi_c"
+      ],
+      "installed_assert_line": 353,
+      "installed_assert": "assert len(ann[\"data\"]) == len(demands), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 12 detected demands lack SBO:0000628 and have no SBO. Reported pass is false. The first docstring line wrongly says SBO:0000627, but code uses 0000628; the message also wrongly says genes.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_sink_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 1,
+      "assessed_count": 1,
+      "missing_fraction": 1.0,
+      "examples": [
+        "SK_cyan_c"
+      ],
+      "installed_assert_line": 400,
+      "installed_assert": "assert len(ann[\"data\"]) == len(sinks), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "The one detected sink, SK_cyan_c, has no SBO:0000632 or other SBO. Reported pass is false. The message wrongly says genes.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_biomass_specific_sbo_presence",
+      "reported_result": "failed",
+      "missing_or_nonmatching_count": 1,
+      "assessed_count": 1,
+      "missing_fraction": 1.0,
+      "examples": [
+        "BIOMASS_Mcapsulatus"
+      ],
+      "installed_assert_line": 447,
+      "installed_assert": "assert len(ann[\"data\"]) == 0, ann[\"message\"]",
+      "checker_defect": false,
+      "interpretation": "metadata_gap",
+      "finding": "BIOMASS_Mcapsulatus lacks SBO:0000629. This test correctly asserts zero missing terms and is a genuine annotation failure, without the inversion defect.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    }
+  ],
+  "annotation_failed_cases": [
+    {
+      "testcase": "test_metabolite_annotation_presence",
+      "reported_result": "failed",
+      "recorded_data_count": 21,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "missing_all_annotation",
+      "finding": "The reported components have empty annotation dictionaries in the SBML-loaded model. This is a real metadata gap; IDs/GPRs may still exist."
+    },
+    {
+      "testcase": "test_reaction_annotation_presence",
+      "reported_result": "failed",
+      "recorded_data_count": 53,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "missing_all_annotation",
+      "finding": "The reported components have empty annotation dictionaries in the SBML-loaded model. This is a real metadata gap; IDs/GPRs may still exist."
+    },
+    {
+      "testcase": "test_gene_product_annotation_presence",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "missing_all_annotation",
+      "finding": "The reported components have empty annotation dictionaries in the SBML-loaded model. This is a real metadata gap; IDs/GPRs may still exist."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[pubchem.compound]",
+      "reported_result": "failed",
+      "recorded_data_count": 879,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[kegg.compound]",
+      "reported_result": "failed",
+      "recorded_data_count": 63,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[seed.compound]",
+      "reported_result": "failed",
+      "recorded_data_count": 88,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[inchikey]",
+      "reported_result": "failed",
+      "recorded_data_count": 879,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[inchi]",
+      "reported_result": "failed",
+      "recorded_data_count": 245,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[chebi]",
+      "reported_result": "failed",
+      "recorded_data_count": 130,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[hmdb]",
+      "reported_result": "failed",
+      "recorded_data_count": 389,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[reactome]",
+      "reported_result": "failed",
+      "recorded_data_count": 497,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[metanetx.chemical]",
+      "reported_result": "failed",
+      "recorded_data_count": 55,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[bigg.metabolite]",
+      "reported_result": "failed",
+      "recorded_data_count": 143,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[biocyc]",
+      "reported_result": "failed",
+      "recorded_data_count": 153,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[rhea]",
+      "reported_result": "failed",
+      "recorded_data_count": 420,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[kegg.reaction]",
+      "reported_result": "failed",
+      "recorded_data_count": 278,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[seed.reaction]",
+      "reported_result": "failed",
+      "recorded_data_count": 913,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "namespace_note": "The SBML-loaded model contains seed annotations on 570 reactions, but no seed.reaction keys. Reported total absence is specific to the expected namespace."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[metanetx.reaction]",
+      "reported_result": "failed",
+      "recorded_data_count": 206,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[bigg.reaction]",
+      "reported_result": "failed",
+      "recorded_data_count": 164,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[reactome]",
+      "reported_result": "failed",
+      "recorded_data_count": 759,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[ec-code]",
+      "reported_result": "failed",
+      "recorded_data_count": 913,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "namespace_note": "The model has brenda annotations on 506 reactions but no ec-code keys. Do not describe this as complete absence of enzyme-class metadata."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[brenda]",
+      "reported_result": "failed",
+      "recorded_data_count": 407,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[biocyc]",
+      "reported_result": "failed",
+      "recorded_data_count": 403,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[refseq]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[uniprot]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ecogene]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/10592181/"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+      "applicability_note": "Escherichia coli K-12 gene records, outside this Methylococcus model's gene-identity scope."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[kegg.genes]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ncbigi]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ncbigene]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ncbiprotein]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ccds]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+      "applicability_note": "Human/mouse coding regions, outside this bacterium's gene-identity scope."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[hprd]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/14525934/"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+      "applicability_note": "Human protein records, outside this bacterium's gene-identity scope."
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[asap]",
+      "reported_result": "failed",
+      "recorded_data_count": 730,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "interpretation": "namespace_coverage_gap",
+      "finding": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component."
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[pubchem.compound]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[kegg.compound]",
+      "reported_result": "failed",
+      "recorded_data_count": 176,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 816,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 176,
+      "finding": "Samples mix KEGG Drug identifiers beginning D with Compound identifiers beginning C under kegg.compound. This is namespace/format nonconformance, not proof that the biological compound has no database record.",
+      "examples": [
+        {
+          "id": "4abz_c",
+          "value": [
+            "C00568",
+            "D02456"
+          ]
+        },
+        {
+          "id": "5aop_c",
+          "value": [
+            "C00430",
+            "D07567",
+            "D02908"
+          ]
+        },
+        {
+          "id": "5fthf_c",
+          "value": [
+            "C03479",
+            "D07986"
+          ]
+        }
+      ]
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[seed.compound]",
+      "reported_result": "failed",
+      "recorded_data_count": 64,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 791,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 64,
+      "finding": "Samples contain leading spaces in secondary cpd identifiers. This is an actual string-format problem in the model annotation.",
+      "examples": [
+        {
+          "id": "3dhsk_c",
+          "value": [
+            "cpd01716",
+            " cpd01725"
+          ]
+        },
+        {
+          "id": "3hmop_c",
+          "value": [
+            "cpd02606",
+            " cpd10162"
+          ]
+        },
+        {
+          "id": "3hodcoa_c",
+          "value": [
+            "cpd14936",
+            " cpd15204"
+          ]
+        }
+      ]
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[inchikey]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[chebi]",
+      "reported_result": "failed",
+      "recorded_data_count": 8,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 749,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 8,
+      "finding": "Samples contain serialized-list punctuation and literal &apos; text within CHEBI identifiers. This is malformed metadata.",
+      "examples": [
+        {
+          "id": "fald_e",
+          "value": [
+            "CHEBI:[&apos;16842&apos;",
+            "CHEBI:&apos;5142&apos;",
+            "CHEBI:&apos;24077&apos;",
+            "CHEBI:&apos;337763&apos;",
+            "CHEBI:&apos;14274&apos;]"
+          ]
+        },
+        {
+          "id": "fald_p",
+          "value": [
+            "CHEBI:[&apos;16842&apos;",
+            "CHEBI:&apos;5142&apos;",
+            "CHEBI:&apos;24077&apos;",
+            "CHEBI:&apos;337763&apos;",
+            "CHEBI:&apos;14274&apos;]"
+          ]
+        },
+        {
+          "id": "ficytcc553_p",
+          "value": [
+            "CHEBI:[&apos;5028&apos;",
+            "CHEBI:&apos;14239&apos;",
+            "CHEBI:&apos;16951&apos;]"
+          ]
+        }
+      ]
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[reactome]",
+      "reported_result": "failed",
+      "recorded_data_count": 382,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 382,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 382,
+      "finding": "All 382 annotated species fail the local regex; samples use REACTOME:419151-style values rather than accepted stable-ID syntax, and some contain serialized lists. Local regex nonconformance is proven; whether each historical identifier can resolve was not checked.",
+      "examples": [
+        {
+          "id": "10fthf_c",
+          "value": "REACTOME:419151"
+        },
+        {
+          "id": "12dgr_EC_c",
+          "value": [
+            "REACTOME:114519",
+            "REACTOME:162777",
+            "REACTOME:163414",
+            "REACTOME:2023883",
+            "REACTOME:76103",
+            "REACTOME:1524057",
+            "REACTOME:1500596",
+            "REACTOME:429773",
+            "REACTOME:112275",
+            "REACTOME:174675"
+          ]
+        },
+        {
+          "id": "12dmpo_c",
+          "value": "REACTOME:1237155"
+        }
+      ]
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[metanetx.chemical]",
+      "reported_result": "failed",
+      "recorded_data_count": 1,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 824,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 1,
+      "finding": "2omhmbl_c uses the descriptive name 3-demethylubiquinol-8 as the identifier instead of an MNXM accession.",
+      "examples": [
+        {
+          "id": "2omhmbl_c",
+          "value": "3-demethylubiquinol-8"
+        }
+      ]
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[bigg.metabolite]",
+      "reported_result": "failed",
+      "recorded_data_count": 68,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 736,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 68,
+      "finding": "Samples use older hyphenated strings such as 26dap-LL where the installed regex permits letters, digits and underscores. This is recorded format nonconformance; mapping each legacy identifier to a current accession requires separate verification.",
+      "examples": [
+        {
+          "id": "26dap_LL_c",
+          "value": "26dap-LL"
+        },
+        {
+          "id": "26dap_M_c",
+          "value": "26dap-M"
+        },
+        {
+          "id": "4hpro_LT_c",
+          "value": "4hpro-LT"
+        }
+      ]
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[biocyc]",
+      "reported_result": "failed",
+      "recorded_data_count": 5,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 726,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 5,
+      "finding": "Samples contain serialized-list punctuation or descriptive prose such as an oxidized c-type cytochrome in the ID field.",
+      "examples": [
+        {
+          "id": "dolp_c",
+          "value": [
+            "META:[&apos;CPD-17833&apos;",
+            "META:&apos;DOLICHOLP&apos;]"
+          ]
+        },
+        {
+          "id": "ficytcc553_p",
+          "value": "META:an oxidized c-type cytochrome"
+        },
+        {
+          "id": "ficytcc555_p",
+          "value": "META:an oxidized c-type cytochrome"
+        }
+      ]
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[rhea]",
+      "reported_result": "failed",
+      "recorded_data_count": 1,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 493,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 1,
+      "finding": "NO3R1 has multiple numeric identifiers merged with colon and literal &apos; separators as one string.",
+      "examples": [
+        {
+          "id": "NO3R1",
+          "value": "29147: &apos;29148: &apos;29149: &apos;29150"
+        }
+      ],
+      "metric_caveat": "The source divides the invalid count by ALL model reactions/genes, not by the number bearing this namespace; percentage understates the fraction of existing namespace annotations that fail."
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[seed.reaction]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null,
+      "namespace_note": "The SBML-loaded model contains seed annotations on 570 reactions, but no seed.reaction keys. Reported total absence is specific to the expected namespace."
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[bigg.reaction]",
+      "reported_result": "failed",
+      "recorded_data_count": 1,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 749,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 1,
+      "finding": "VALDHr is wrapped in literal &apos; text in its annotation.",
+      "examples": [
+        {
+          "id": "VALDHr",
+          "value": "&apos;VALDHr&apos;"
+        }
+      ],
+      "metric_caveat": "The source divides the invalid count by ALL model reactions/genes, not by the number bearing this namespace; percentage understates the fraction of existing namespace annotations that fail."
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[ec-code]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null,
+      "namespace_note": "The model has brenda annotations on 506 reactions but no ec-code keys. Do not describe this as complete absence of enzyme-class metadata."
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[brenda]",
+      "reported_result": "failed",
+      "recorded_data_count": 15,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 506,
+      "interpretation": "identifier_format_nonconformance",
+      "malformed_component_count": 15,
+      "finding": "Samples combine a valid four-part EC-like identifier with an abbreviated three-part class such as 2.6.1. A component is flagged if any value fails the regex; this does not mean every identifier attached to that component is invalid.",
+      "examples": [
+        {
+          "id": "3SALATAi",
+          "value": [
+            "2.6.1",
+            "2.6.1.1"
+          ]
+        },
+        {
+          "id": "4HTHRS",
+          "value": [
+            "4.2.3",
+            "4.2.3.1"
+          ]
+        },
+        {
+          "id": "APCS",
+          "value": [
+            "2.5.1",
+            "2.5.1.16"
+          ]
+        }
+      ],
+      "metric_caveat": "The source divides the invalid count by ALL model reactions/genes, not by the number bearing this namespace; percentage understates the fraction of existing namespace annotations that fail."
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[refseq]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[uniprot]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ecogene]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/10592181/"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null,
+      "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+      "applicability_note": "Escherichia coli K-12 gene records, outside this Methylococcus model's gene-identity scope."
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[kegg.genes]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ncbigi]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ncbigene]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ncbiprotein]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ccds]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null,
+      "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+      "applicability_note": "Human/mouse coding regions, outside this bacterium's gene-identity scope."
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[hprd]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/14525934/"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null,
+      "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+      "applicability_note": "Human protein records, outside this bacterium's gene-identity scope."
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[asap]",
+      "reported_result": "failed",
+      "recorded_data_count": 0,
+      "source_urls": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "components_with_namespace": 0,
+      "interpretation": "absent_namespace_not_malformed_ids",
+      "finding": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "malformed_identifier_count": null
+    }
+  ],
+  "cross_format_caveat": "The source JSON stores ontology annotations under uppercase SBO; the audited SBML is loaded by COBRApy with lowercase sbo and contains 21 annotated species plus 141 annotated reactions. Checking raw JSON for lowercase sbo would falsely report zero. Audit interpretations here use the SBML path recorded by run-metadata.",
+  "limitations": [
+    "The audit checks metadata semantics and installed source behavior; it does not validate biological predictions.",
+    "No remote identifier lookup or remapping was performed. Regex mismatch alone is not proof a biological record is absent.",
+    "Ontology exact-term checks are more restrictive than general semantic validity; specific complex species should be curated according to their represented entity.",
+    "No corrected MEMOTE score or changed test suite has been produced."
+  ],
+  "sources": {
+    "sbo_tests": "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+    "sbo_docs": "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+    "annotation_docs": "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+    "ontology": "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo",
+    "ccds_scope": "https://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi",
+    "ecogene_scope": "https://pubmed.ncbi.nlm.nih.gov/10592181/",
+    "hprd_scope": "https://pubmed.ncbi.nlm.nih.gov/14525934/"
+  },
+  "failed_cases": [
+    {
+      "testcase": "test_metabolite_annotation_presence",
+      "classification": "missing_all_annotation",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 21.",
+      "biological_meaning": "The reported components have empty annotation dictionaries in the SBML-loaded model. This is a real metadata gap; IDs/GPRs may still exist.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 21,
+        "interpretation": "missing_all_annotation"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_presence",
+      "classification": "missing_all_annotation",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 53.",
+      "biological_meaning": "The reported components have empty annotation dictionaries in the SBML-loaded model. This is a real metadata gap; IDs/GPRs may still exist.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 53,
+        "interpretation": "missing_all_annotation"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_presence",
+      "classification": "missing_all_annotation",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The reported components have empty annotation dictionaries in the SBML-loaded model. This is a real metadata gap; IDs/GPRs may still exist.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "missing_all_annotation"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[pubchem.compound]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 879.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 879,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[kegg.compound]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 63.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 63,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[seed.compound]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 88.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 88,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[inchikey]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 879.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 879,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[inchi]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 245.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 245,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[chebi]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 130.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 130,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[hmdb]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 389.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 389,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[reactome]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 497.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 497,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[metanetx.chemical]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 55.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 55,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[bigg.metabolite]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 143.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 143,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_overview[biocyc]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 153.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 153,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[rhea]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 420.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 420,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[kegg.reaction]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 278.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 278,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[seed.reaction]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 913.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 913,
+        "interpretation": "namespace_coverage_gap",
+        "namespace_note": "The SBML-loaded model contains seed annotations on 570 reactions, but no seed.reaction keys. Reported total absence is specific to the expected namespace."
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[metanetx.reaction]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 206.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 206,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[bigg.reaction]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 164.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 164,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[reactome]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 759.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 759,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[ec-code]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 913.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 913,
+        "interpretation": "namespace_coverage_gap",
+        "namespace_note": "The model has brenda annotations on 506 reactions but no ec-code keys. Do not describe this as complete absence of enzyme-class metadata."
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[brenda]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 407.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 407,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_overview[biocyc]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 403.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 403,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[refseq]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[uniprot]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ecogene]",
+      "classification": "organism_scope_not_applicable",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component. Escherichia coli K-12 gene records, outside this Methylococcus model's gene-identity scope.",
+      "suggested_improvement": "Record the namespace as outside organism scope; preserve the raw result and avoid fabricating cross-references.",
+      "acceptance": "Document nonapplicability; no invented identity mapping is required.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/10592181/"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap",
+        "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+        "applicability_note": "Escherichia coli K-12 gene records, outside this Methylococcus model's gene-identity scope."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[kegg.genes]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ncbigi]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ncbigene]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ncbiprotein]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[ccds]",
+      "classification": "organism_scope_not_applicable",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component. Human/mouse coding regions, outside this bacterium's gene-identity scope.",
+      "suggested_improvement": "Record the namespace as outside organism scope; preserve the raw result and avoid fabricating cross-references.",
+      "acceptance": "Document nonapplicability; no invented identity mapping is required.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap",
+        "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+        "applicability_note": "Human/mouse coding regions, outside this bacterium's gene-identity scope."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[hprd]",
+      "classification": "organism_scope_not_applicable",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component. Human protein records, outside this bacterium's gene-identity scope.",
+      "suggested_improvement": "Record the namespace as outside organism scope; preserve the raw result and avoid fabricating cross-references.",
+      "acceptance": "Document nonapplicability; no invented identity mapping is required.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/14525934/"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap",
+        "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+        "applicability_note": "Human protein records, outside this bacterium's gene-identity scope."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_overview[asap]",
+      "classification": "namespace_coverage_gap",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 730.",
+      "biological_meaning": "The namespace key is absent for the recorded components. This is a coverage target, not evidence of a malformed model or incorrect reaction coefficients. No single database necessarily covers every model component.",
+      "suggested_improvement": "Prioritize at least one authoritative identity reference per applicable component; add other database mappings only when verified.",
+      "acceptance": "Report database coverage explicitly and document unavailable mappings; do not require fabricated 100% coverage.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 730,
+        "interpretation": "namespace_coverage_gap"
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[pubchem.compound]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[kegg.compound]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 176.",
+      "biological_meaning": "Samples mix KEGG Drug identifiers beginning D with Compound identifiers beginning C under kegg.compound. This is namespace/format nonconformance, not proof that the biological compound has no database record.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 176,
+        "components_with_namespace": 816,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 176,
+        "examples": [
+          {
+            "id": "4abz_c",
+            "value": [
+              "C00568",
+              "D02456"
+            ]
+          },
+          {
+            "id": "5aop_c",
+            "value": [
+              "C00430",
+              "D07567",
+              "D02908"
+            ]
+          },
+          {
+            "id": "5fthf_c",
+            "value": [
+              "C03479",
+              "D07986"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[seed.compound]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 64.",
+      "biological_meaning": "Samples contain leading spaces in secondary cpd identifiers. This is an actual string-format problem in the model annotation.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 64,
+        "components_with_namespace": 791,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 64,
+        "examples": [
+          {
+            "id": "3dhsk_c",
+            "value": [
+              "cpd01716",
+              " cpd01725"
+            ]
+          },
+          {
+            "id": "3hmop_c",
+            "value": [
+              "cpd02606",
+              " cpd10162"
+            ]
+          },
+          {
+            "id": "3hodcoa_c",
+            "value": [
+              "cpd14936",
+              " cpd15204"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[inchikey]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[chebi]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 8.",
+      "biological_meaning": "Samples contain serialized-list punctuation and literal &apos; text within CHEBI identifiers. This is malformed metadata.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 8,
+        "components_with_namespace": 749,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 8,
+        "examples": [
+          {
+            "id": "fald_e",
+            "value": [
+              "CHEBI:[&apos;16842&apos;",
+              "CHEBI:&apos;5142&apos;",
+              "CHEBI:&apos;24077&apos;",
+              "CHEBI:&apos;337763&apos;",
+              "CHEBI:&apos;14274&apos;]"
+            ]
+          },
+          {
+            "id": "fald_p",
+            "value": [
+              "CHEBI:[&apos;16842&apos;",
+              "CHEBI:&apos;5142&apos;",
+              "CHEBI:&apos;24077&apos;",
+              "CHEBI:&apos;337763&apos;",
+              "CHEBI:&apos;14274&apos;]"
+            ]
+          },
+          {
+            "id": "ficytcc553_p",
+            "value": [
+              "CHEBI:[&apos;5028&apos;",
+              "CHEBI:&apos;14239&apos;",
+              "CHEBI:&apos;16951&apos;]"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[reactome]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 382.",
+      "biological_meaning": "All 382 annotated species fail the local regex; samples use REACTOME:419151-style values rather than accepted stable-ID syntax, and some contain serialized lists. Local regex nonconformance is proven; whether each historical identifier can resolve was not checked.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 382,
+        "components_with_namespace": 382,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 382,
+        "examples": [
+          {
+            "id": "10fthf_c",
+            "value": "REACTOME:419151"
+          },
+          {
+            "id": "12dgr_EC_c",
+            "value": [
+              "REACTOME:114519",
+              "REACTOME:162777",
+              "REACTOME:163414",
+              "REACTOME:2023883",
+              "REACTOME:76103",
+              "REACTOME:1524057",
+              "REACTOME:1500596",
+              "REACTOME:429773",
+              "REACTOME:112275",
+              "REACTOME:174675"
+            ]
+          },
+          {
+            "id": "12dmpo_c",
+            "value": "REACTOME:1237155"
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[metanetx.chemical]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 1.",
+      "biological_meaning": "2omhmbl_c uses the descriptive name 3-demethylubiquinol-8 as the identifier instead of an MNXM accession.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 1,
+        "components_with_namespace": 824,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 1,
+        "examples": [
+          {
+            "id": "2omhmbl_c",
+            "value": "3-demethylubiquinol-8"
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[bigg.metabolite]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 68.",
+      "biological_meaning": "Samples use older hyphenated strings such as 26dap-LL where the installed regex permits letters, digits and underscores. This is recorded format nonconformance; mapping each legacy identifier to a current accession requires separate verification.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 68,
+        "components_with_namespace": 736,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 68,
+        "examples": [
+          {
+            "id": "26dap_LL_c",
+            "value": "26dap-LL"
+          },
+          {
+            "id": "26dap_M_c",
+            "value": "26dap-M"
+          },
+          {
+            "id": "4hpro_LT_c",
+            "value": "4hpro-LT"
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_metabolite_annotation_wrong_ids[biocyc]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 5.",
+      "biological_meaning": "Samples contain serialized-list punctuation or descriptive prose such as an oxidized c-type cytochrome in the ID field.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 5,
+        "components_with_namespace": 726,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 5,
+        "examples": [
+          {
+            "id": "dolp_c",
+            "value": [
+              "META:[&apos;CPD-17833&apos;",
+              "META:&apos;DOLICHOLP&apos;]"
+            ]
+          },
+          {
+            "id": "ficytcc553_p",
+            "value": "META:an oxidized c-type cytochrome"
+          },
+          {
+            "id": "ficytcc555_p",
+            "value": "META:an oxidized c-type cytochrome"
+          }
+        ]
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[rhea]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 1.",
+      "biological_meaning": "NO3R1 has multiple numeric identifiers merged with colon and literal &apos; separators as one string.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 1,
+        "components_with_namespace": 493,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 1,
+        "examples": [
+          {
+            "id": "NO3R1",
+            "value": "29147: &apos;29148: &apos;29149: &apos;29150"
+          }
+        ],
+        "metric_caveat": "The source divides the invalid count by ALL model reactions/genes, not by the number bearing this namespace; percentage understates the fraction of existing namespace annotations that fail."
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[seed.reaction]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null,
+        "namespace_note": "The SBML-loaded model contains seed annotations on 570 reactions, but no seed.reaction keys. Reported total absence is specific to the expected namespace."
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[bigg.reaction]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 1.",
+      "biological_meaning": "VALDHr is wrapped in literal &apos; text in its annotation.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 1,
+        "components_with_namespace": 749,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 1,
+        "examples": [
+          {
+            "id": "VALDHr",
+            "value": "&apos;VALDHr&apos;"
+          }
+        ],
+        "metric_caveat": "The source divides the invalid count by ALL model reactions/genes, not by the number bearing this namespace; percentage understates the fraction of existing namespace annotations that fail."
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[ec-code]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null,
+        "namespace_note": "The model has brenda annotations on 506 reactions but no ec-code keys. Do not describe this as complete absence of enzyme-class metadata."
+      }
+    },
+    {
+      "testcase": "test_reaction_annotation_wrong_ids[brenda]",
+      "classification": "identifier_format_nonconformance",
+      "priority": "P2",
+      "observed": "MEMOTE reported failed; recorded data count 15.",
+      "biological_meaning": "Samples combine a valid four-part EC-like identifier with an abbreviated three-part class such as 2.6.1. A component is flagged if any value fails the regex; this does not mean every identifier attached to that component is invalid.",
+      "suggested_improvement": "Curate verified existing identifiers and namespaces in a separate derived model, retaining the immutable upstream model and provenance.",
+      "acceptance": "Every changed identifier has an authoritative mapping and valid syntax; relevant metadata checks improve without changes to reaction stoichiometry, bounds or results.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 15,
+        "components_with_namespace": 506,
+        "interpretation": "identifier_format_nonconformance",
+        "malformed_component_count": 15,
+        "examples": [
+          {
+            "id": "3SALATAi",
+            "value": [
+              "2.6.1",
+              "2.6.1.1"
+            ]
+          },
+          {
+            "id": "4HTHRS",
+            "value": [
+              "4.2.3",
+              "4.2.3.1"
+            ]
+          },
+          {
+            "id": "APCS",
+            "value": [
+              "2.5.1",
+              "2.5.1.16"
+            ]
+          }
+        ],
+        "metric_caveat": "The source divides the invalid count by ALL model reactions/genes, not by the number bearing this namespace; percentage understates the fraction of existing namespace annotations that fail."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[refseq]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[uniprot]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ecogene]",
+      "classification": "organism_scope_not_applicable",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers. Escherichia coli K-12 gene records, outside this Methylococcus model's gene-identity scope.",
+      "suggested_improvement": "Record the namespace as outside organism scope; preserve the raw result and avoid fabricating cross-references.",
+      "acceptance": "Document nonapplicability; no invented identity mapping is required.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/10592181/"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null,
+        "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+        "applicability_note": "Escherichia coli K-12 gene records, outside this Methylococcus model's gene-identity scope."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[kegg.genes]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ncbigi]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ncbigene]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ncbiprotein]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[ccds]",
+      "classification": "organism_scope_not_applicable",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers. Human/mouse coding regions, outside this bacterium's gene-identity scope.",
+      "suggested_improvement": "Record the namespace as outside organism scope; preserve the raw result and avoid fabricating cross-references.",
+      "acceptance": "Document nonapplicability; no invented identity mapping is required.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://www.ncbi.nlm.nih.gov/CCDS/CcdsBrowse.cgi"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null,
+        "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+        "applicability_note": "Human/mouse coding regions, outside this bacterium's gene-identity scope."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[hprd]",
+      "classification": "organism_scope_not_applicable",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers. Human protein records, outside this bacterium's gene-identity scope.",
+      "suggested_improvement": "Record the namespace as outside organism scope; preserve the raw result and avoid fabricating cross-references.",
+      "acceptance": "Document nonapplicability; no invented identity mapping is required.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html",
+        "https://pubmed.ncbi.nlm.nih.gov/14525934/"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null,
+        "biological_applicability": "not_applicable_as_direct_gene_identity_cross_reference",
+        "applicability_note": "Human protein records, outside this bacterium's gene-identity scope."
+      }
+    },
+    {
+      "testcase": "test_gene_product_annotation_wrong_ids[asap]",
+      "classification": "absent_namespace_not_malformed_ids",
+      "priority": "P3",
+      "observed": "MEMOTE reported failed; recorded data count 0.",
+      "biological_meaning": "The test fails at the precondition assert len(total) > 0 before running any ID regex check. This failure documents zero annotations in the namespace, not invalid existing identifiers.",
+      "suggested_improvement": "Interpret this as namespace absence in reporting; separate empty coverage from malformed existing IDs.",
+      "acceptance": "Report zero available annotations and an unassessed malformed-ID count, rather than claiming invalid existing identifiers.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_annotation.py"
+      ],
+      "sources": [
+        "https://memote.readthedocs.io/en/latest/autoapi/test_annotation/index.html"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "recorded_data_count": 0,
+        "components_with_namespace": 0,
+        "interpretation": "absent_namespace_not_malformed_ids",
+        "malformed_identifier_count": null
+      }
+    },
+    {
+      "testcase": "test_metabolite_sbo_presence",
+      "classification": "metadata_gap_and_checker_defect",
+      "priority": "P2",
+      "observed": "858 of 879 components lack the expected SBO annotation; MEMOTE result failed.",
+      "biological_meaning": "858 of 879 SBML-loaded species have no SBO key; 21 have SBO:0000247. The underlying metadata gap is real despite the inverted assertion.",
+      "suggested_improvement": "Preserve the raw run. Separately report missing-term counts and the known assertion defect; curate semantically appropriate ontology metadata only in a derived model.",
+      "acceptance": "All applicable components have correct SBO metadata. A reviewed checker expects zero missing terms. Preserve the baseline and ensure annotation-only changes leave the computational model unchanged.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_sbo.py:58"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "missing_or_nonmatching_count": 858,
+        "assessed_count": 879,
+        "missing_fraction": 0.9761092150170648,
+        "examples": [
+          "10fthf_c",
+          "12dgr_EC_c",
+          "12dmpo_c",
+          "13dpg_c",
+          "15dap_c",
+          "1agpgafa_MC_c"
+        ],
+        "installed_assert_line": 58,
+        "installed_assert": "assert len(ann[\"data\"]) == len(model.metabolites), ann[\"message\"]",
+        "checker_defect": true,
+        "interpretation": "metadata_gap_and_checker_defect"
+      }
+    },
+    {
+      "testcase": "test_reaction_sbo_presence",
+      "classification": "metadata_gap_and_checker_defect",
+      "priority": "P2",
+      "observed": "772 of 913 components lack the expected SBO annotation; MEMOTE result failed.",
+      "biological_meaning": "772 of 913 SBML-loaded reactions have no SBO key. Of the 141 annotated reactions, 98 use generic SBO:0000375 (process), and 43 use SBO:0000627 (exchange reaction).",
+      "suggested_improvement": "Preserve the raw run. Separately report missing-term counts and the known assertion defect; curate semantically appropriate ontology metadata only in a derived model.",
+      "acceptance": "All applicable components have correct SBO metadata. A reviewed checker expects zero missing terms. Preserve the baseline and ensure annotation-only changes leave the computational model unchanged.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_sbo.py:89"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "missing_or_nonmatching_count": 772,
+        "assessed_count": 913,
+        "missing_fraction": 0.8455640744797371,
+        "examples": [
+          "2OH3K5MPPISO",
+          "34DHOXPEGOX",
+          "3HAD100",
+          "3HAD120",
+          "3HAD140",
+          "3HAD160"
+        ],
+        "installed_assert_line": 89,
+        "installed_assert": "assert len(ann[\"data\"]) == len(model.reactions), ann[\"message\"]",
+        "checker_defect": true,
+        "interpretation": "metadata_gap_and_checker_defect"
+      }
+    },
+    {
+      "testcase": "test_metabolite_specific_sbo_presence",
+      "classification": "metadata_gap_and_checker_defect",
+      "priority": "P2",
+      "observed": "858 of 879 components lack the expected SBO annotation; MEMOTE result failed.",
+      "biological_meaning": "858 species lack SBO:0000247; none of those 858 has another SBO. The failure message incorrectly calls these transport reactions. A blanket simple-chemical annotation needs semantic review for macromolecular/lumped species; this checker tests exact strings rather than ontology relationships.",
+      "suggested_improvement": "Preserve the raw run. Separately report missing-term counts and the known assertion defect; curate semantically appropriate ontology metadata only in a derived model.",
+      "acceptance": "All applicable components have correct SBO metadata. A reviewed checker expects zero missing terms. Preserve the baseline and ensure annotation-only changes leave the computational model unchanged.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_sbo.py:231"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "missing_or_nonmatching_count": 858,
+        "assessed_count": 879,
+        "missing_fraction": 0.9761092150170648,
+        "examples": [
+          "10fthf_c",
+          "12dgr_EC_c",
+          "12dmpo_c",
+          "13dpg_c",
+          "15dap_c",
+          "1agpgafa_MC_c"
+        ],
+        "installed_assert_line": 231,
+        "installed_assert": "assert len(ann[\"data\"]) == len(model.metabolites), ann[\"message\"]",
+        "checker_defect": true,
+        "interpretation": "metadata_gap_and_checker_defect"
+      }
+    },
+    {
+      "testcase": "test_exchange_specific_sbo_presence",
+      "classification": "metadata_gap_and_checker_defect",
+      "priority": "P2",
+      "observed": "5 of 48 components lack the expected SBO annotation; MEMOTE result failed.",
+      "biological_meaning": "Exactly EX_ch4_e, EX_co_e, EX_fol_e, EX_ham_e, and EX_n2_e lack the expected exchange term. The other 43 of 48 detected exchanges have it. The failure has a real metadata basis even though the assertion is inverted.",
+      "suggested_improvement": "Preserve the raw run. Separately report missing-term counts and the known assertion defect; curate semantically appropriate ontology metadata only in a derived model.",
+      "acceptance": "All applicable components have correct SBO metadata. A reviewed checker expects zero missing terms. Preserve the baseline and ensure annotation-only changes leave the computational model unchanged.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_sbo.py:309"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "missing_or_nonmatching_count": 5,
+        "assessed_count": 48,
+        "missing_fraction": 0.10416666666666667,
+        "examples": [
+          "EX_ch4_e",
+          "EX_co_e",
+          "EX_fol_e",
+          "EX_ham_e",
+          "EX_n2_e"
+        ],
+        "installed_assert_line": 309,
+        "installed_assert": "assert len(ann[\"data\"]) == len(exchanges), ann[\"message\"]",
+        "checker_defect": true,
+        "interpretation": "metadata_gap_and_checker_defect"
+      }
+    },
+    {
+      "testcase": "test_biomass_specific_sbo_presence",
+      "classification": "metadata_gap",
+      "priority": "P2",
+      "observed": "1 of 1 components lack the expected SBO annotation; MEMOTE result failed.",
+      "biological_meaning": "BIOMASS_Mcapsulatus lacks SBO:0000629. This test correctly asserts zero missing terms and is a genuine annotation failure, without the inversion defect.",
+      "suggested_improvement": "Add a verified biomass-production ontology term in a separately tracked derived annotation model.",
+      "acceptance": "All applicable components have correct SBO metadata. A reviewed checker expects zero missing terms. Preserve the baseline and ensure annotation-only changes leave the computational model unchanged.",
+      "evidence": [
+        "reports/baseline-audit/junit.xml",
+        "reports/baseline-audit/memote-results.json",
+        "work/.venv/Lib/site-packages/memote/suite/tests/test_sbo.py:447"
+      ],
+      "sources": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ],
+      "details": {
+        "reported_result": "failed",
+        "missing_or_nonmatching_count": 1,
+        "assessed_count": 1,
+        "missing_fraction": 1.0,
+        "examples": [
+          "BIOMASS_Mcapsulatus"
+        ],
+        "installed_assert_line": 447,
+        "installed_assert": "assert len(ann[\"data\"]) == 0, ann[\"message\"]",
+        "checker_defect": false,
+        "interpretation": "metadata_gap"
+      }
+    }
+  ],
+  "false_pass_cases": [
+    {
+      "testcase": "test_gene_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 730,
+      "assessed_count": 730,
+      "missing_fraction": 1.0,
+      "examples": [
+        "MCA0005",
+        "MCA0006",
+        "MCA0007",
+        "MCA0008",
+        "MCA0009",
+        "MCA0010"
+      ],
+      "installed_assert_line": 119,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.genes), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 730 gene annotations are empty. The reported pass is a false pass caused by the inverted assertion.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_metabolic_reaction_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 721,
+      "assessed_count": 721,
+      "missing_fraction": 1.0,
+      "examples": [
+        "PFK_ppi",
+        "6CTDS",
+        "3HAD120",
+        "LEUTRS",
+        "DAPDC",
+        "DADNK"
+      ],
+      "installed_assert_line": 155,
+      "installed_assert": "assert len(ann[\"data\"]) == len(pure), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 721 detected pure metabolic reactions lack the exact expected term. 668 have no SBO and 53 have generic SBO:0000375. The pass is false; the count includes both absent and insufficiently specific terms.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_transport_reaction_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 122,
+      "assessed_count": 122,
+      "missing_fraction": 1.0,
+      "examples": [
+        "GLYCt3",
+        "ENLIPAabctex_GAPFILLING",
+        "TSULtex",
+        "N2trpp",
+        "NO2tpp",
+        "NA1tex"
+      ],
+      "installed_assert_line": 198,
+      "installed_assert": "assert len(ann[\"data\"]) == len(transports), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 122 detected transport reactions lack an accepted transport term. 77 have no SBO and 45 have generic SBO:0000375. The pass is false. The message also incorrectly labels transport reactions as metabolic/biochemical.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_gene_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 730,
+      "assessed_count": 730,
+      "missing_fraction": 1.0,
+      "examples": [
+        "MCA0005",
+        "MCA0006",
+        "MCA0007",
+        "MCA0008",
+        "MCA0009",
+        "MCA0010"
+      ],
+      "installed_assert_line": 264,
+      "installed_assert": "assert len(ann[\"data\"]) == len(model.genes), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 730 genes lack SBO:0000243. The pass is false; this does not imply the model has no genes or GPR rules.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_demand_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 12,
+      "assessed_count": 12,
+      "missing_fraction": 1.0,
+      "examples": [
+        "DM_4hba_c",
+        "DM_acald_c",
+        "DM_doxopa_c",
+        "DM_gmp_c",
+        "DM_h2o2_c",
+        "DM_pppi_c"
+      ],
+      "installed_assert_line": 353,
+      "installed_assert": "assert len(ann[\"data\"]) == len(demands), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "All 12 detected demands lack SBO:0000628 and have no SBO. Reported pass is false. The first docstring line wrongly says SBO:0000627, but code uses 0000628; the message also wrongly says genes.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    },
+    {
+      "testcase": "test_sink_specific_sbo_presence",
+      "reported_result": "passed",
+      "missing_or_nonmatching_count": 1,
+      "assessed_count": 1,
+      "missing_fraction": 1.0,
+      "examples": [
+        "SK_cyan_c"
+      ],
+      "installed_assert_line": 400,
+      "installed_assert": "assert len(ann[\"data\"]) == len(sinks), ann[\"message\"]",
+      "checker_defect": true,
+      "interpretation": "false_pass_with_metadata_gap",
+      "finding": "The one detected sink, SK_cyan_c, has no SBO:0000632 or other SBO. Reported pass is false. The message wrongly says genes.",
+      "source_urls": [
+        "https://raw.githubusercontent.com/opencobra/memote/0.17.0/src/memote/suite/tests/test_sbo.py",
+        "https://memote.readthedocs.io/en/latest/autoapi/test_sbo/index.html",
+        "https://raw.githubusercontent.com/EBI-BioModels/SBO/master/SBO_OBO.obo"
+      ]
+    }
+  ],
+  "handoff_note": "Parent model_api owns detailed BRENDA applicability, including valid preliminary B-number FALDDHipp 1.2.2.B1 rejected by the installed regex; incorporate that evidence before finalizing the brenda wrong_ids row."
+}

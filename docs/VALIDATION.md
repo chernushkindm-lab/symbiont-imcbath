@@ -1,6 +1,8 @@
 # Validation evidence and limits
 
-A fresh MEMOTE audit of the unchanged upstream SBML completed with a **54.08% total score**, **80 failed**, **59 passed**, and **8 skipped** cases out of 147. There were **zero test errors**. Exit code 1 records test failures; this is a completed audit with findings, not a clean MEMOTE pass. Adapter software tests and a successful flux solution are separate evidence and do not remove these inherited model findings.
+A fresh MEMOTE audit of the unchanged upstream SBML completed with a **54.08% total score**, **80 failed**, **59 passed**, and **8 skipped** cases out of 147. There were **zero JUnit error entries**, but subsequent source review identified two call-stage `TypeError` exceptions recorded as failures. Exit code 1 records test failures; this is a completed audit with findings, not a clean MEMOTE pass. Adapter software tests and a successful flux solution are separate evidence and do not remove these inherited model findings.
+
+The [complete case-by-case review](MEMOTE_FAILURE_REVIEW.md) analyzes all 80 failures and 8 skips, including biological meaning, evidence, proposed improvements and acceptance criteria. It identifies inverted growth/SBO assertions, a defective dead-end assertion, two reporting exceptions, database-scope mismatches and six additional false SBO passes. The raw counts and score remain preserved; they must not be treated as 80 independent biological defects or 59 independently verified successes.
 
 ## Audit identity and artifacts
 
@@ -53,7 +55,7 @@ Do **not** use `1 / 0.9024111134789822` as an automatic biomass correction. It w
 
 The run supplied no custom experimental phenotype dataset. The growth-phenotype and gene-essentiality comparisons were therefore skipped because their experiment parameter sets were empty. Copying the upstream `data/` files into this repository does not mean those experiments were rerun. This audit provides no new experimental growth or gene-essentiality validation.
 
-Five energy-couple cases were skipped because the corresponding metabolites were not found: `MNXM191`, `MNXM223`, `MNXM7517`, `MNXM12233`, and `MNXM558`. The thermodynamics test module was also skipped: MEMOTE's recorded reason says these tests are disabled pending an equilibrator-api upgrade. These account for all eight skipped entries in [JUnit](../reports/baseline-audit/junit.xml).
+Five energy-couple cases were skipped because the cytosolic lookup did not find the corresponding metabolites: `MNXM191`, `MNXM223`, `MNXM7517`, `MNXM12233`, and `MNXM558`. Detailed review found that the `MNXM191` ubiquinol-8 pair is present as `q8h2_im`/`q8_im` in the inner-membrane compartment; that skip is a compartment-coverage gap rather than absent chemistry. The other four carrier pairs were not identified in the inspected model inventory and require an applicability decision. The thermodynamics test module was also skipped: MEMOTE's recorded reason says these tests are disabled pending an equilibrator-api upgrade. These account for all eight skipped entries in [JUnit](../reports/baseline-audit/junit.xml).
 
 ## Adapter and reference checks
 
