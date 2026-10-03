@@ -6,6 +6,7 @@ import hashlib
 import importlib.metadata
 import json
 import platform
+import subprocess
 import sys
 import traceback
 from datetime import datetime, timezone
@@ -36,6 +37,17 @@ def main() -> int:
     }
     code = 2
     try:
+        # Separate exact-chemistry ledger for the pinned JSON companion only.
+        # Custom --model files must never be mislabeled as this baseline audit.
+        if model_path == (root / "ModelFiles/xml/iMcBath.xml").resolve():
+            subprocess.run([
+                sys.executable, str(root / "scripts/audit_reactions.py"),
+                "--model", str(root / "ModelFiles/json/iMcBath.json"),
+                "--output", str(output / "reaction-audit"), "--include-source",
+            ], check=True)
+            metadata["exact_reaction_audit"] = "reaction-audit/summary.json (JSON companion; independent source hash)"
+        else:
+            metadata["exact_reaction_audit"] = "not run: custom SBML has no verified JSON companion"
         import cobra
         from memote.suite import api
         cobra.Configuration().solver = "glpk"
